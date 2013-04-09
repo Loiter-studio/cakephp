@@ -1,0 +1,368 @@
+2013-04-03 13:08:59 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:17 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:18 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:18 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:38 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:38 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:39 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:39 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:39 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:40 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:40 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:40 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:40 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:57 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:58 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:58 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:59 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:11:59 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:12:00 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:12:00 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:12:01 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:12:01 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:12:01 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:22:33 Error: [MissingControllerException] Controller class CompaniesController could not be found.
+Exception Attributes: array (
+  'class' => 'CompaniesController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-03 13:24:28 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:48 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:49 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:50 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:50 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:50 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:50 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:51 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:25:51 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-03 13:31:52 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Companies\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Companies\\index.ctp',
+)
+Request URL: /moiter/companies/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-09 10:33:44 Error: [MissingControllerException] Controller class CompanyController could not be found.
+Exception Attributes: array (
+  'class' => 'CompanyController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/company/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-09 11:13:36 Error: [MissingActionException] Action ProjectsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'index',
+)
+Request URL: /moiter/projects/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-09 12:10:57 Error: [MissingViewException] View file "D:\AppServ\www\moiter\app\View\Projects\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\AppServ\\www\\moiter\\app\\View\\Projects\\index.ctp',
+)
+Request URL: /moiter/projects/index
+Stack Trace:
+#0 D:\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
