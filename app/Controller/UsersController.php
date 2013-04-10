@@ -28,7 +28,7 @@
 				
 				if(!empty($someOne['password']) && $someOne['password'] == $_POST['password'])
 				{
-					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['userName']));
+					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name']));
 
 					$this->redirect('/projects/index');
 				}

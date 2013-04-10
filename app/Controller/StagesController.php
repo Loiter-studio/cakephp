@@ -26,6 +26,7 @@
 		public function index($project_id)
 		{
 			$stageData = $this->projectCollection->find(array('project_id'=>$project_id));
+			echo json_encode($stageData);
 
 		}
 
@@ -52,11 +53,12 @@
 
 		public function edit($stage_id)
 		{
-			$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id));
-			$newStage = array(
-				'project_id' => $oldStage['project_id'],
-				'user_id' => $oldStage['user_id'],
-				);
+			$this->stageCollection->update(array('_id' => $stage_id , 
+											array('$set'=> array('startTime' => $_POST['startTime'],
+																 'endTime' => $_POST['endTime'],
+																 'status' => $_POST['status'],
+																 'summary' => $_POST['summary'])));
+
 		}	
 	}
 ?>	

@@ -17,9 +17,16 @@
 		}
 		public function afterFilter()
 		{
+
 			$this->connection->close();
 		}
 
+		public function index($stage_id)
+		{
+			$stage = $this->stageCollection->find(array('_id'=>$stage_id));
+		    echo json_encode($stage['task']);
+
+		}
 		public function create($stage_id)
 		{
 			$user = $this->Session->read('User');

@@ -29,6 +29,7 @@
 
 		public function index()
 		{
+			/*
 			$admin = $this->Session->read('User');
 		
 			$userData = $this->userCollection->findOne(array('name' => $admin['userName']));
@@ -40,9 +41,16 @@
 				$projectData[]=$project;
 	
 			}
-
+			*/
+			$projectData = array();
+			$cursor = $this->projectCollection->find();		
+			while($cursor->hasNext())
+			{
+	
+				$projectData[] =  $cursor->getNext();
+				
+			}
 			echo json_encode($projectData);
-
 			//$this->set('poejects',$projectData);
 		}
 
