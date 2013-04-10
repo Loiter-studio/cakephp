@@ -1,2 +1,2 @@
-<h1> Companies test<h2>
+<h1>Projects test<h2>
 <p></p>
