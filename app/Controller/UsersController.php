@@ -45,7 +45,6 @@
 			$this->Session->delete('User');
 			$this->redirect('/users/login');
 			
-
 		}
 
 	}
