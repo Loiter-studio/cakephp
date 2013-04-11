@@ -48,9 +48,9 @@
 			{
 				$projectData[] =  $cursor->getNext();
 			}
-			echo json_encode($projectData);
+			//echo json_encode($projectData);
 	
-			//$this->set('poejects',$projectData);
+			$this->set('projects',$projectData);
 		}
 
 		public function create()

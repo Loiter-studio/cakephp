@@ -575,3 +575,410 @@ Stack Trace:
 #4 D:\Program Files\AppServ\www\cakephp\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #5 D:\Program Files\AppServ\www\cakephp\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #6 {main}
+2013-04-11 11:42:21 Error: [MissingActionException] Action UsersController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'index',
+)
+Request URL: /moiter/users/
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:44:23 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:47:35 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:48:13 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:48:25 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:48:27 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:48:28 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:48:51 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:49:04 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:49:12 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:50:47 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:50:52 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:51:11 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:51:38 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:51:53 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:52:26 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:52:47 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:53:10 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:53:17 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:55:25 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:55:56 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:57:39 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:58:43 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:58:59 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 11:59:05 Error: [MissingActionException] Action ProjectsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'img',
+)
+Request URL: /moiter/projects/img/wolf.jpg
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:09:15 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/login
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:09:17 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/login
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:09:43 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/login
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:15 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/login
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:16 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:17 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:20 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:20 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:21 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:10:21 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/users/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 12:11:01 Error: [MissingActionException] Action ProjectsController::users() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'users',
+)
+Request URL: /moiter/projects/users/users/users/users/users/users/users/logout
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-11 13:00:39 Error: [MissingActionException] Action UsersController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'index',
+)
+Request URL: /moiter/users
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

@@ -68,10 +68,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<i class="icon-comment"></i>
 					消息
 				</button>
-				<button class="btn">
+				<a class="btn" href="<?=$this->webroot;?>users/logout">
 					<i class="icon-road"></i>
 					登出
-				</button>
+				</a>
 			</div>
 			
 			<div class="span2">
@@ -117,7 +117,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span2">					
 				<!-- 栈式导航 -->
 				<ul class="nav nav-tabs nav-stacked" id="myTab">
-					<li id="project-list"><a class="meun-item" id="proj-m" href="<?php echo $this->webroot;?>companies">项目管理<i class="icon-chevron-right"></i></a></li>						
+					<li id="project-list"><a class="meun-item" id="proj-m" href="<?php echo $this->webroot;?>projects">项目管理<i class="icon-chevron-right"></i></a></li>						
 					<li><a class="meun-item" href="#user-management" data-toggle="tab">用户管理<i class="icon-chevron-right"></i></a></li>
 					<li><a class="meun-item" href="<?php echo $this->webroot;?>effectiveness" data-toggle="tab">效率查看<i class="icon-chevron-right"></i></a></li>
 				</ul>
