@@ -7,6 +7,7 @@
 	{
 		private $userCursor = null;
 		private $connection = null;
+		public $layout = "login";	
 		
 		public function beforeFilter(){
 			

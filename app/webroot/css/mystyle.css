@@ -1,0 +1,68 @@
+ul, li {
+	margin: 0px;
+}
+
+/*logo样式*/
+.logo{
+	padding: 20px 0px 0px 22px;
+	width: 100px;
+	height: 100px;
+	
+}
+
+/*顶部*/
+.header{
+	margin: 20px 0px 0px 0px;
+}
+
+/*顶部菜单样式.*/
+.header-bar{
+	margin-top: 80px;
+}
+.header-bar .btn{
+	
+}
+
+/*头像样式.*/
+.avatar{
+	padding: 20px 0px 0px 23px;
+	width: 100px;
+	height: 100px;
+}
+
+#myTab {
+	text-align:center;
+}
+
+#myTab .icon-chevron-right { /*箭头的样式.*/
+  	float: right;
+	margin-top: 2px;
+  	margin-right: -6px;
+  	opacity: .25;
+}
+
+.test{
+	color: #ffffff;
+	cursor: default;
+	background-color: #0088cc;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+
+
+/*项目管理缩略图样式.*/
+.project{
+	padding: 10px 10px 20px 20px;
+}
+.project:hover{
+	border-color: #0088cc;
+	box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.project .img-polaroid{
+	padding: 2px;
+	margin-top: 10px;
+	border-radius: 2px 2px 2px 2px;
+}
+.project .info{
+	margin-top: 15px;
+}

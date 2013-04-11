@@ -18,10 +18,10 @@
 
 	 	function index()
 	 	{	
-		 	$cursor = $this->company->find();
-		 	while($data = $cursor->getNext()){
-		 		echo json_encode($data);
-		 	}
+		 	//$cursor = $this->company->find();
+		 	//while($data = $cursor->getNext()){
+		 	//	echo json_encode($data);
+		 	//}
 	 		//$this->set('company',$cursor->getNext());
 	 		
 	 	}
