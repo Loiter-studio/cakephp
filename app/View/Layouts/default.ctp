@@ -50,7 +50,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span2">
 				<div class="logo thumbnails">
 					<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf" style="width: 160px; height: 80px;"></img>
+					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf"></img>
 					</a>
 				</div>
 			</div>
@@ -77,7 +77,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span2">
 				<div class="avatar thumbnails">
 					<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf" style="width: 260px; height: 80px;"></img>
+					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf"></img>
 					</a>
 				</div>
 			</div>
@@ -118,8 +118,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<!-- 栈式导航 -->
 				<ul class="nav nav-tabs nav-stacked" id="myTab">
 					<li id="project-list"><a class="meun-item" id="proj-m" href="<?php echo $this->webroot;?>projects">项目管理<i class="icon-chevron-right"></i></a></li>						
-					<li><a class="meun-item" href="#user-management" data-toggle="tab">用户管理<i class="icon-chevron-right"></i></a></li>
-					<li><a class="meun-item" href="<?php echo $this->webroot;?>effectiveness" data-toggle="tab">效率查看<i class="icon-chevron-right"></i></a></li>
+					<li><a class="meun-item" href="<?php echo $this->webroot;?>users">用户管理<i class="icon-chevron-right"></i></a></li>
+					<li><a class="meun-item" href="<?php echo $this->webroot;?>effectiveness">效率查看<i class="icon-chevron-right"></i></a></li>
 				</ul>
 				
 				<!-- 暂未用到 -->

@@ -7,6 +7,8 @@
 	{
 		private $userCursor = null;
 		private $connection = null;
+		
+		
 		public function beforeFilter()
 		{
 			$this->connection = new Mongo();
@@ -32,7 +34,7 @@
 		}
 		public function login()
 		{
-			
+			$this->layout = "login";
 			$this->set('error', false);
 
 			if(!empty($_POST["userName"]))

@@ -6,12 +6,10 @@
 			<?php
 				foreach($users as $user){
 			?>
-			<li class="span3" style="margin-left: 15px;">
+			<li class="span2" style="margin-left: 15px;">
 				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='#'">
-					<h4>Project <?php echo $user['_id'];?></h4>
-					<div class="row-fluid">
-						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/wolf.jpg" style="width:125px; height:100px;"></img></div>
-					</div>
+					<img class="img-polaroid" src="<?php echo $this->webroot;?>img/wolf.jpg" style="width:125px; height:100px;"></img>
+					<h4 style="text-align: center;"><?php echo $user['name'];?></h4>
 				</div>
 			</li>
 			
@@ -23,5 +21,7 @@
 </div>
 
 <script>
-	$('.breadcrumb').append('<li id="added-bc" class="active">项目管理 <span class="divider">></span></li>');
+	$('.breadcrumb').empty();
+	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
+	$('.breadcrumb').append('<li id="added-bc" class="active">用户管理 <span class="divider">></span></li>');
 </script>

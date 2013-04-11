@@ -30,5 +30,7 @@
 </div>
 
 <script>
+	$('.breadcrumb').empty();
+	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active">项目管理 <span class="divider">></span></li>');
 </script>
