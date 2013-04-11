@@ -7,7 +7,7 @@
 				foreach($projects as $project){
 			?>
 			<li class="span3" style="margin-left: 15px;">
-				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='#'">
+				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>projects/view/<?=$project['_id']?>'">
 					<h4>Project <?php echo $project['_id'];?></h4>
 					<div class="row-fluid">
 						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/wolf.jpg" style="width:125px; height:100px;"></img></div>

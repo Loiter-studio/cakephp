@@ -89,21 +89,23 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>添加项目</h3>
 				</div>
-				<div class="modal-body">
-					<form>
-						<fieldset>
-							<p>项目名称： <input type="text" placeholder="Project name…" id="project-name-input"></input></p>
-							<p>负责人：&nbsp&nbsp&nbsp&nbsp   <input type="text" placeholder="Manager…" id="manager-input"></input></p>
-							<p>项目简介： <textarea type="text" rows="3" placeholder="Description…" id="description-input"></textarea></p>
-							<p>开始时间： <input type="text" placeholder="Start time…" id="startTime-input"></input></p>
-							<p>结束时间： <input type="text" placeholder="End time…" id="endTime-input"></input></p>
-						</fieldset>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="btn">关闭</a>
-					<a href="#" class="btn btn-primary" id="save-project">保存项目</a>
-				</div>
+				<form method="post" action="<?=$this->webroot;?>projects/create">
+					<div class="modal-body">
+						
+							<fieldset>
+								<p>项目名称： <input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></p>
+								<p>负责人：&nbsp&nbsp&nbsp&nbsp   <input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></p>
+								<p>项目简介： <textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></p>
+								<p>开始时间： <input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></p>
+								<p>结束时间： <input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></p>
+							</fieldset>
+						
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn">关闭</a>
+						<input class="btn btn-primary" id="save-project" type="submit">保存项目</input>
+					</div>
+				</form>
 			</div>
 		</div>
 		

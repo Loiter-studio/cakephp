@@ -52,30 +52,36 @@
 				$projectData[] =  $cursor->getNext();
 			}
 			//echo json_encode($projectData);
-	
 			$this->set('projects',$projectData);
 		}
 
 		public function view($project_id)
 		{
-			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id));
+			$stageCursor = $this->stageCollection->find(array('project_id'=>$project_id));
+			$projectData = $this->projectCollection->findOne(array('_id'=>$project_id));
 			$stageData = array();
 			while($data = $stageCursor->getNext())
 			{
-				$stageData = $data;
+				$stageData[] = $data;
 			}
-			$this->set('project',$stageData);
+			$this->set('project' , $projectData);
+			$this->set('stages' ,$stageData);
+			
+	
 		}
+		
 		public function create()
 		{
+		
 			$user = $this->Session->read('User');
 
 			$project_id = $user['userName']."".time();
 			$this->projectCollection->insert(array('_id'=> $project_id, 
 											 'name'=>$_POST['name'],
+											 'leader'=>$_POST['leader'],
 											 'startTime'=>$_POST['startTime'],
-											 'endTime'=>$_POST['status'],
-											 'summary'=>$_POST));
+											 'endTime'=>$_POST['endTime'],
+											 'summary'=>$_POST['summary']));
 			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
 			if($tmp)
 			{
