@@ -25,8 +25,13 @@
 
 		public function index($project_id)
 		{
-			$stageData = $this->projectCollection->find(array('project_id'=>$project_id));
-			echo json_encode($stageData);
+			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id));
+			$stageData = array();
+			while($data = $stageCursor->getNext())
+			{
+				$stageData = $data;
+			}
+			$this->set('stages',$stageData);
 
 		}
 

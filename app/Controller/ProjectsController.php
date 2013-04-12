@@ -6,10 +6,12 @@
 	 class ProjectsController extends AppController
 	{
 		
-		public $projectCollection= null;
-		public $companyCollection = null;
-		public $userCollection = null;
-		public $connection = null;
+		private $projectCollection= null;
+		private $companyCollection = null;
+		private $stageCollection = null;
+		private $userCollection = null;
+
+		private $connection = null;
 
 		//public $admin = null;
 		
@@ -21,6 +23,7 @@
 			$this->connection = new Mongo();
 			$this->projectCollection = $this->connection->moiter->projects;
 			$this->companyCollection = $this->connection->moiter->companies;
+			$this->stageCollection = $this->connection->moiter->stages;
 			$this->userCollection = $this->connection->moiter->users;
 		}
 		public function afterFilter(){
@@ -53,6 +56,16 @@
 			$this->set('projects',$projectData);
 		}
 
+		public function view($project_id)
+		{
+			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id));
+			$stageData = array();
+			while($data = $stageCursor->getNext())
+			{
+				$stageData = $data;
+			}
+			$this->set('project',$stageData);
+		}
 		public function create()
 		{
 			$user = $this->Session->read('User');
