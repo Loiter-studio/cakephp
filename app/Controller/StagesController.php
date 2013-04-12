@@ -4,10 +4,10 @@
 	*/
 	class StagesController extends AppController
 	{
-		$connection = null;
+		private $connection = null;
 
 		//$projectCollection = null;
-		$stageCollection = null;
+		private $stageCollection = null;
 
 		public function beforeFilter()
 		{
@@ -31,35 +31,33 @@
 			{
 				$stageData = $data;
 			}
+			pr($stageData);
 			$this->set('stages',$stageData);
 
 		}
 
-		public function create($project_id)
+		public function create()
 		{
 			$user =$this->Session->read('User');
-			$stage_id = $user."".time();
-
+			$stage_id = $user['userName']."".time();
+			pr($_POST);
 			$this->stageCollection->insert(array('_id'=>$stage_id,
 												 'user_id'=>$user['user_id'],
-												 'project_id'=>$project_id,
+												 'project_id'=>$_POST['project_id'],
 												 'startTime'=>$_POST['startTime'],
 												 'endTime'=>$_POST['endTime'],
 												 'status'=>$_POST['status'],
+												 'index'=>$_POST['index'],
 												 'summary'=>$_POST['summary'],
-												 'task'=>new array()));
+												 'task'=>array()));
 			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
-			if($tmp)
-			{
-				echo json_encode($tmp);
-			}
-
+			pr($tmp);
 		}
 
 		public function delete($stage_id)
 		{
 			$this->stageCollection->remove(array('_id'=>$stage_id));
-			$tmp = $this->stageCollection->findOne( array('_id' => , $stage_id ));
+			$tmp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
 			$code = true;
 			if($tmp)
 			{
@@ -70,7 +68,7 @@
 
 		public function edit($stage_id)
 		{
-			$this->stageCollection->update(array('_id' => $stage_id , 
+			$this->stageCollection->update(array('_id' => $stage_id ), 
 											array('$set'=> array('startTime' => $_POST['startTime'],
 																 'endTime' => $_POST['endTime'],
 																 'status' => $_POST['status'],
@@ -89,4 +87,4 @@
 			echo json_decode($code);
 		}	
 	}
-?>	
+?>

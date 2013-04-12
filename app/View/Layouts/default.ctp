@@ -56,18 +56,18 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			</div>
 			
 			<div class="span8 text-right header-bar">
-				<button class="btn" id="search" data-animation="true" data-title="搜索" data-placement="bottom">
+				<a class="btn" id="search" data-animation="true" data-title="搜索" data-placement="bottom">
 					<i class="icon-search"></i>
 					搜索
-				</button>
-				<button class="btn" href="#AddProject" data-toggle="modal">
+				</a>
+				<a class="btn" href="#AddProject" data-toggle="modal">
 					<i class="icon-pencil"></i>
 					添加项目
-				</button>
-				<button class="btn">
+				</a>
+				<a class="btn">
 					<i class="icon-comment"></i>
 					消息
-				</button>
+				</a>
 				<a class="btn" href="<?=$this->webroot;?>users/logout">
 					<i class="icon-road"></i>
 					登出
@@ -93,17 +93,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<div class="modal-body">
 						
 							<fieldset>
-								<p>项目名称： <input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></p>
-								<p>负责人：&nbsp&nbsp&nbsp&nbsp   <input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></p>
-								<p>项目简介： <textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></p>
-								<p>开始时间： <input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></p>
-								<p>结束时间： <input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></p>
+								<div class="input-prepend"><span class="add-on">项目名称：</span><input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></div>
+								<div class="input-prepend"><span class="add-on">负责人员：</span><input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></div>
+								<div class="input-prepend"><span class="add-on">项目简介：</span><textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></div>
+								<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></div>
+								<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></div>
 							</fieldset>
 						
 					</div>
 					<div class="modal-footer">
-						<a href="#" class="btn">关闭</a>
-						<input class="btn btn-primary" id="save-project" type="submit">保存项目</input>
+						<p class="btn" data-dismiss="modal" type="button">关闭</p>
+						<input class="btn" id="save-project" type="submit"></input>
 					</div>
 				</form>
 			</div>

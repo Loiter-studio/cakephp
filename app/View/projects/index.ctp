@@ -4,11 +4,13 @@
 		<!-- 项目缩略图 -->
 		<ul class="thumbnails">
 			<?php
+				$count = 1;
 				foreach($projects as $project){
+					
 			?>
 			<li class="span3" style="margin-left: 15px;">
 				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>projects/view/<?=$project['_id']?>'">
-					<h4>Project <?php echo $project['_id'];?></h4>
+					<h4>Project <?php echo $count;?></h4>
 					<div class="row-fluid">
 						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/wolf.jpg" style="width:125px; height:100px;"></img></div>
 						<div class="span1"></div>
@@ -23,6 +25,7 @@
 			</li>
 			
 			<?php
+				$count = $count + 1;
 				}
 			?>			
 		</ul>

@@ -27,8 +27,9 @@
 		    echo json_encode($stage['task']);
 
 		}
-		public function create($stage_id)
+		public function create()
 		{
+			pr($_POST);
 			$user = $this->Session->read('User');
 			$task = array(
 				'task_id'=>$user['userName']."".time(),
@@ -37,9 +38,9 @@
 				'status'=>$_POST['status'],
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
-			$this->stageCollection->update(array('_id'=>$stage_id),
+			$this->stageCollection->update(array('_id'=>$_POST['stage_id']),
 										   array('$push'=>array('task'=>$task)));
-			$stage = $this->stageCollection->findOne(array('_id'=>$stage_id));
+			$stage = $this->stageCollection->findOne(array('_id'=>$_POST['stage_id']));
 
 			$this->userCollection->update(array('_id'=>$user['user_id']),array('$addToSet'=>array('project_task_id'=>$stage['project_id']."#".$task['task_id'])));
 

@@ -66,7 +66,6 @@
 			}
 			$this->set('project' , $projectData);
 			$this->set('stages' ,$stageData);
-			
 	
 		}
 		
@@ -83,10 +82,6 @@
 											 'endTime'=>$_POST['endTime'],
 											 'summary'=>$_POST['summary']));
 			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
-			if($tmp)
-			{
-				echo json_decode($tmp);
-			}
 		}
 
 		public function delete($project_id)
