@@ -80,6 +80,7 @@
 											 'leader'=>$_POST['leader'],
 											 'startTime'=>$_POST['startTime'],
 											 'endTime'=>$_POST['endTime'],
+											 'status'=>$_POST['status'],
 											 'summary'=>$_POST['summary']));
 			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
 		}

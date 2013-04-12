@@ -23,6 +23,7 @@
 				</button>
 			</div>
 			
+			
 			<!-- 添加任务 -->
 			<div id="AddTask" class="modal hide fade">
 				<div class="modal-header">
@@ -110,3 +111,9 @@
 	</div>
 </div>
 
+<script>
+	$('.breadcrumb').empty();
+	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
+	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['_id'];?><span class="divider">></span></li>');
+</script>

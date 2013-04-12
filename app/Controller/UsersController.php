@@ -7,12 +7,13 @@
 	{
 		private $userCursor = null;
 		private $connection = null;
-		
+		private $projectCollection = null;
 		
 		public function beforeFilter()
 		{
 			$this->connection = new Mongo();
 			$this->userCursor = $this->connection->moiter->users;
+			$this->projectCollection = $this->connection->moiter->projects;
 		}
 		public function afterFilter()
 		{
@@ -21,16 +22,29 @@
 
 		public function index()
 		{
-			//$this->checkSession();
+			$this->checkSession();
 			$cursor = $this->userCursor->find();
 			$users = array();
 			while($data = $cursor->getNext())
 			{
 				$users[] = $data;
 			}
-			//echo json_encode($users);
 			$this->set('users',$users);
-
+		}
+		public function view($user_id)
+		{
+			$this->checkSession();
+			$userData = $this->userCursor->findOne(array('_id'=>$user_id));
+			$this->set('user',$userData);
+			
+			$projects = array();
+			foreach($userData['project_task_id'] as $project_task_id)
+			{
+				$project_id = explode("#",$project_task_id);
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id[0]));
+				$projects[$project_id[0]] = $project;
+			}
+			$this->set('projects',$projects);
 		}
 		public function login()
 		{
@@ -54,12 +68,25 @@
 			}
 	
 		}
-		public function logout()
+		public function register()
 		{
+			$newUser = $_POST;
+			$newUser['project_task_id']=array();
+			$newUser['_id'] = $_POST['name']."".time();
+			$this->userCursor->insert($newUser);
+			$tmp = $this->userCursor->findOne($newUser);
+			$code = 0;
+			if(isset($tmp))
+			{
+				$code = 1;
+			}
+			$this->set('code',$code);
 			
+		}
+		public function logout()
+		{			
 			$this->Session->delete('User');
-			$this->redirect('/users/login');
-			
+			$this->redirect('/users/login');			
 		}
 
 	}

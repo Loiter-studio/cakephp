@@ -1125,3 +1125,66 @@ Request URL: /moiter/effectiveness
 Stack Trace:
 #0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-04-12 11:17:44 Error: [MissingActionException] Action UsersController::indx() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'indx',
+)
+Request URL: /moiter/users/indx
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-12 12:42:34 Error: [MissingActionException] Action UsersController::create() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'create',
+)
+Request URL: /moiter/users/create
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-12 12:42:58 Error: [MissingActionException] Action UsersController::create() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'create',
+)
+Request URL: /moiter/users/create
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-12 12:43:16 Error: [MissingViewException] View file "D:\Program Files\AppServ\www\moiter\app\View\Users\register.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\Program Files\\AppServ\\www\\moiter\\app\\View\\Users\\register.ctp',
+)
+Request URL: /moiter/users/register
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-12 15:36:27 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-12 15:36:38 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -7,7 +7,7 @@
 				foreach($users as $user){
 			?>
 			<li class="span2" style="margin-left: 15px;">
-				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='#'">
+				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>users/view/<?=$user['_id']?>'">
 					<img class="img-polaroid" src="<?php echo $this->webroot;?>img/wolf.jpg" style="width:125px; height:100px;"></img>
 					<h4 style="text-align: center;"><?php echo $user['name'];?></h4>
 				</div>

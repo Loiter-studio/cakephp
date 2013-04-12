@@ -39,6 +39,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		//css
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('mystyle');
+		echo $this->Html->css('login');	
 	?>
 
 	
@@ -49,7 +50,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $this->fetch('content'); ?>
 	</div>
 	
+	<?php
+		echo $this->Html->script('jquery');
+		echo $this->Html->script('bootstrap');
+		echo $this->Html->script('function');
+	?>
+	
 	<?php echo $this->element('sql_dump'); ?>	
-
 </body>
 </html>

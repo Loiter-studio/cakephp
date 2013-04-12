@@ -90,16 +90,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<h3>添加项目</h3>
 				</div>
 				<form method="post" action="<?=$this->webroot;?>projects/create">
-					<div class="modal-body">
-						
-							<fieldset>
-								<div class="input-prepend"><span class="add-on">项目名称：</span><input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></div>
-								<div class="input-prepend"><span class="add-on">负责人员：</span><input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></div>
-								<div class="input-prepend"><span class="add-on">项目简介：</span><textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></div>
-								<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></div>
-								<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></div>
-							</fieldset>
-						
+					<div class="modal-body">						
+						<fieldset>
+							<div class="input-prepend"><span class="add-on">项目名称：</span><input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></div>
+							<div class="input-prepend"><span class="add-on">负责人员：</span><input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></div>
+							<div class="input-prepend"><span class="add-on">项目简介：</span><textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></div>
+							<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></div>
+							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></div>
+						</fieldset>					
 					</div>
 					<div class="modal-footer">
 						<p class="btn" data-dismiss="modal" type="button">关闭</p>
