@@ -2,11 +2,12 @@
 	/**
 	* 
 	*/
-	class TasksController extends AnotherClass
+	class TasksController extends AppController
 	{
-		$connection = null;
-		$stageCollection = null;
-		$userCollection = null;
+
+		private $connection = null;
+		private $stageCollection = null;
+		private $userCollection = null;
 		public function beforeFilter()
 		{
 			$this->checkSession();
@@ -17,7 +18,6 @@
 		}
 		public function afterFilter()
 		{
-
 			$this->connection->close();
 		}
 
@@ -35,6 +35,7 @@
 				'user_id'=>$user['user_id'],
 				'conntent'=>$_POST['content'],
 				'status'=>$_POST['status'],
+				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$stage_id),
 										   array('$push'=>array('task'=>$task)));
@@ -48,7 +49,7 @@
 		{
 			$user = $this->Session->read('User');
 			$this->stageCollection->update(array('_id'=>$stage_id),
-										   array('$pull'=>array('task'=>array('time'=>$task_id,$user['user_id']))));
+										   array('$pull'=>array('task'=>array('task_id'=>$task_id,$user['user_id']))));
 
 		}
 
@@ -56,16 +57,38 @@
 		{
 			$user = $this->Session->read('User');
 			$newTask = array(
-				'task_id'=>$timestamp;
-				'user_id'=>$user['user_id'];
+				'task_id'=>$timestamp,
+				'user_id'=>$user['user_id'],
 				'cnotent'=>$_POST['content'],
 				'status'=>$_POST['status'],
+				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$stage_id),
-										   array('$pull'=>array('task_id'=>$timestamp)));
+										   array('$pull'=>array('task'=>array('task_id'=>$task_id))));
 			$this->stageCollection->update(array('_id'=>$stage_id),
 										   array('$push'=>array('task'=>$newTask)));
 
+		}
+		public function modifyPriority($stage_id , $task_id)
+		{
+			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+			$newTask = $tmpTask->getNext();
+			pr($newTask['task'][0]);
+			$this->stageCollection->update(array('_id'=> $stage_id),array('$pull'=>array('task'=>array('task_id'=>$task_id))));
+			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+			$test = $tmpTask->getNext();
+			if(isset($test))
+			{
+				$code = false;
+			}
+			else
+			{
+				$newTask['task'][0]['priority'] = time(); // $_POST['priority']
+				$this->stageCollection->update(array('_id'=>$stage_id),
+											   array('$push'=>array('task'=>$newTask['task'][0])));
+				$code = true;
+
+			}
 		}
 	}
 ?>

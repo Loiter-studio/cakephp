@@ -7,17 +7,29 @@
 	{
 		private $userCursor = null;
 		private $connection = null;
-		public $layout = "login";	
-		
-		public function beforeFilter(){
-			
+		public function beforeFilter()
+		{
 			$this->connection = new Mongo();
 			$this->userCursor = $this->connection->moiter->users;
 		}
-		public function afterFilter(){
+		public function afterFilter()
+		{
 			$this->connection->close();
 		}
 
+		public function index()
+		{
+			//$this->checkSession();
+			$cursor = $this->userCursor->find();
+			$users = array();
+			while($data = $cursor->getNext())
+			{
+				$users[] = $data;
+			}
+			//echo json_encode($users);
+			$this->set('users',$users);
+
+		}
 		public function login()
 		{
 			

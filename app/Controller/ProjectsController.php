@@ -50,7 +50,7 @@
 			}
 			//echo json_encode($projectData);
 	
-			$this->set('projects',$projectData);
+			$this->set('poejects',$projectData);
 		}
 
 		public function create()
