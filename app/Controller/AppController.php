@@ -40,4 +40,8 @@ class AppController extends Controller {
 			exit();
 		}
 	}
+	public function beforeFilter()
+	{
+		$this->checkSession();
+	}
 }
