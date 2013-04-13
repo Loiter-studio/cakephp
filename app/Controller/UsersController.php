@@ -71,17 +71,25 @@
 		public function register()
 		{
 			$newUser = $_POST;
+			$newUser['pic_url'] = "";
 			$newUser['project_task_id']=array();
-			$newUser['_id'] = $_POST['name']."".time();
+			$newUser['_id'] = md5($_POST['name']."".time());
+			$newUser['password'] = md5($_POST['password']);
 			$this->userCursor->insert($newUser);
 			$tmp = $this->userCursor->findOne($newUser);
 			$code = 0;
 			if(isset($tmp))
 			{
 				$code = 1;
+				$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name']));
+				$this->redirect('/projects/index');	
 			}
 			$this->set('code',$code);
 			
+		}
+		public function edit()
+		{
+
 		}
 		public function logout()
 		{			

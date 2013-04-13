@@ -74,7 +74,7 @@
 		
 			$user = $this->Session->read('User');
 
-			$project_id = $user['userName']."".time();
+			$project_id = md5($user['userName']."".time());
 			$this->projectCollection->insert(array('_id'=> $project_id, 
 											 'name'=>$_POST['name'],
 											 'leader'=>$_POST['leader'],
