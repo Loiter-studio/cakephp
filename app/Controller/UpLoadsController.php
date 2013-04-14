@@ -14,7 +14,6 @@
 		}
 		public function upload()
 		{
-			pr($_FILES);
 			
 			if(isset($_FILES['avatar']))
 			{
@@ -27,23 +26,20 @@
 				$type = $type[$index];
 				if(!in_array($type,$typeArray))
 				{
-					$code = 1;
-					echo $code;
+					$this->set('code',1);
 				}
 				else if($_FILES["avatar"]["size"] >= 300000)
 				{
-					$code = 2;
-					echo $code;
+					$this->set('code',2);
 				}
 				else if($_FILES["avatar"]["error"]>0)
 				{
-					$code = 3;
-					echo $code;
+					$this->set('code',3);
 					$this->set("error",$_FILES["avatar"]["error"]);
 				}
 				else
 				{
-					echo " OK ";
+					$this->set('code',4);
 					$_FILES['avatar']['name'] = $user['user_id'].".".$type;
 					foreach($typeArray as $t)
 					{
