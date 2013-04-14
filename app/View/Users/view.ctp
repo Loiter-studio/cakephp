@@ -20,9 +20,22 @@
 	<div class="row-fluid">
 		<?php foreach($projects as $project){ ?>
 			<div class="span3">
-				<p><?php echo $project['name'];?></p>
-				<p><?php echo $project['summary'];?></p>
-				<p><?php echo $project['status'];?></p>
+				<div class="thumbnails">
+					<div class="thumbnail">
+						<h4><?php echo $project['name'];?></h4>
+						<p><?php echo $project['summary'];?></p>					
+						<div class="progress progress-striped active">
+						  <div class="bar" style="width: 40%;"></div>
+						</div>
+						<p>
+							<?php 
+								$leftTime = $project['endTime'] - $project['startTime'];
+								echo '还剩'.$leftTime.'分钟';
+							?>
+						</p>
+						<p><?php echo $project['status'];?></p>
+					</div>
+				</div>
 			</div>
 		<?php } ?>
 	</div>
