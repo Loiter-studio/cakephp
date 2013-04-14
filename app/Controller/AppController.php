@@ -42,6 +42,15 @@ class AppController extends Controller {
 	}
 	public function beforeFilter()
 	{
-		$this->checkSession();
+		if($this->Session->check('User'))
+		{
+			$this->redirect('/projects/index');
+			exit();
+		}
+		else
+		{
+			$this->redirect('/users/login');
+			exit();
+		}
 	}
 }
