@@ -39,7 +39,7 @@
 		public function create()
 		{
 			$user =$this->Session->read('User');
-			$stage_id = $user['userName']."".time();
+			$stage_id = md5($user['userName']."".time());
 			pr($_POST);
 			$this->stageCollection->insert(array('_id'=>$stage_id,
 												 'user_id'=>$user['user_id'],

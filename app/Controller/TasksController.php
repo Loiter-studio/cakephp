@@ -32,7 +32,7 @@
 			pr($_POST);
 			$user = $this->Session->read('User');
 			$task = array(
-				'task_id'=>$user['userName']."".time(),
+				'task_id'=>md5($user['userName']."".time()),
 				'user_id'=>$user['user_id'],
 				'conntent'=>$_POST['content'],
 				'status'=>$_POST['status'],
