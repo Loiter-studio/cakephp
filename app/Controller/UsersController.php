@@ -70,11 +70,16 @@
 		}
 		public function register()
 		{
-			$newUser = $_POST;
-			$newUser['pic_url'] = "";
-			$newUser['project_task_id']=array();
+			$newUser = array();
 			$newUser['_id'] = md5($_POST['name']."".time());
+			$newUser = ['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
+			$newUser['email'] = $_POST['email'];
+			$newUser['pic_url'] = "";
+			$newUser['tel'] = "";
+			$newUser['company'] = "";
+			$newUser['position'] = "";
+			$newUser['project_task_id']=array();
 			$this->userCursor->insert($newUser);
 			$tmp = $this->userCursor->findOne($newUser);
 			$code = 0;
@@ -87,9 +92,17 @@
 			$this->set('code',$code);
 			
 		}
+		public function getEditUser()
+		{
+			$user = $this->Session->read('User');
+			$userData = $this->userCursor->findOne(array('_id'=>$user['user_id']));
+			$back  = array('name'=>$userData['name'],'tel'=>$user['tel'],'company'=>$userData['company'],'position'=>$usre['position'];
+		}
 		public function edit()
 		{
-
+			$this->checkSession();
+			$user = $this->Session->read('User');
+			$this->userCursor->update(array('_id'=>$user['user_id']),array('$set'=>$_POST));
 		}
 		public function logout()
 		{			

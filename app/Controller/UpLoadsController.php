@@ -14,7 +14,7 @@
 		}
 		public function upload()
 		{
-			
+			pr($_POST);
 			if(isset($_FILES['avatar']))
 			{
 				
