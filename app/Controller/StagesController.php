@@ -40,7 +40,6 @@
 		{
 			$user =$this->Session->read('User');
 			$stage_id = md5($user['userName']."".time());
-			pr($_POST);
 			$this->stageCollection->insert(array('_id'=>$stage_id,
 												 'user_id'=>$user['user_id'],
 												 'project_id'=>$_POST['project_id'],
@@ -51,7 +50,6 @@
 												 'summary'=>$_POST['summary'],
 												 'task'=>array()));
 			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
-			pr($tmp);
 		}
 
 		public function delete($stage_id)

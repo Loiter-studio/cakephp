@@ -41,8 +41,8 @@
 			foreach($userData['project_task_id'] as $project_task_id)
 			{
 				$project_id = explode("#",$project_task_id);
-				$project = $this->projectCollection->findOne(array('_id'=>$project_id[0]));
-				$projects[$project_id[0]] = $project;
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id[1]));
+				$projects[$project_id[1]] = $project;
 			}
 			$this->set('projects',$projects);
 		}

@@ -15,6 +15,7 @@
 			$this->connection = new Mongo();
 
 			$this->stageCollection = $this->connection->moiter->stages;
+			$this->projectCollection = $this->connection->moiter->projects;
 			$this->userCollection = $this->connection->moiter->users;
 		}
 		public function afterFilter()
@@ -30,13 +31,12 @@
 		}
 		public function create()
 		{
-			pr($_POST);
 			$user = $this->Session->read('User');
 			$task = array(
 				'task_id'=>md5($user['userName']."".time()),
 				'user_id'=>$user['user_id'],
-				'conntent'=>$_POST['content'],
-				'status'=>$_POST['status'],
+				'content'=>$_POST['content'],
+				'status'=>"Unfinished",
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$_POST['stage_id']),
@@ -44,7 +44,7 @@
 			$stage = $this->stageCollection->findOne(array('_id'=>$_POST['stage_id']));
 			$project = $this->projectCollection->findOne(array('_id'=>$stage['project_id']));
 
-			$this->userCollection->update(array('_id'=>$user['user_id']),array('$addToSet'=>array('project_task_id'=>$project['name'].$stage['project_id']."#".$task['task_id'])));
+			$this->userCollection->update(array('_id'=>$user['user_id']),array('$push'=>array('project_task_id'=>$project['name']."#".$stage['project_id']."#".$task['task_id'])));
 
 
 		}

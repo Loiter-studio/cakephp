@@ -9,7 +9,7 @@
 			
 		</div>
 		<div class="span9">
-			<h2><?php echo $project['_id'];?></h2>
+			<h2><?php echo $project['name'];?></h2>
 			<p><?php echo $project['leader'];?></p>
 			<p><?php echo $project['summary'];?></p>
 			<div class="row-fluid">
@@ -30,6 +30,13 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>添加任务</h3>
 				</div>
+				<?php if(count($stages) == 0) {?>
+					<div class="alert">
+						<strong>请先创建阶段!</strong>
+					</div>
+				<?php } 
+					  else {
+				?>
 				<form method="post" action="<?=$this->webroot;?>tasks/create">
 					<div class="modal-body">						
 						<fieldset>
@@ -53,6 +60,7 @@
 						<input class="btn" id="save-task" type="submit"></input>
 					</div>
 				</form>
+				<?php } ?>
 			</div>	
 			
 			
@@ -105,7 +113,7 @@
 									<img src="<?php echo $this->webroot;?>img/wolf.jpg">
 								</a>				
 							</div>
-							<p style="text-align: center;"><?php echo "user_id: ".$task['user_id']; ?></p>
+							<p style="text-align: center;"><?php echo "content: ".$task['content']; ?></p>
 						</div>
 					<?php } ?>
 				</div>
@@ -119,5 +127,5 @@
 	$('.breadcrumb').empty();
 	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
-	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['_id'];?><span class="divider">></span></li>');
+	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
 </script>

@@ -31,11 +31,8 @@
 				<fieldset>
 					<div class="input-prepend"><span class="add-on">用户名：</span><input type="text" placeholder="User name..." name="name" id="user-name-input"></input></div>
 					<div class="input-prepend"><span class="add-on">密码：</span><input type="password" placeholder="Password..." name="password" id="password-input"></input></div>
-					<div class="input-prepend"><span class="add-on">重复密码：</span><input type="password" placeholder="Repeat your password..." name="repeatde-password" id="repeated-password-input"></input></div>
+					<div class="input-prepend"><span class="add-on">重复密码：</span><input type="password" placeholder="Repeat your password..."  id="repeated-password-input"></input></div>
 					<div class="input-prepend"><span class="add-on">邮箱：</span><input type="text" placeholder="Email..." name="email" id="email-input"></input></div>
-					<div class="input-prepend"><span class="add-on">电话号码：</span><input type="text" placeholder="Telephone..." name="tel" id="tel-input"></input></div>
-					<div class="input-prepend"><span class="add-on">公司名称：</span><input type="text" placeholder="Company name" name="company" id="company-input"></input></div>
-					<div class="input-prepend"><span class="add-on">职位：</span><input type="text" placeholder="Position" name="position" id="position-input"></input></div>
 				</fieldset>			
 			</div>
 			<div class="modal-footer">
