@@ -35,13 +35,15 @@
 						<fieldset>
 							<div class="input-prepend"><span class="add-on">任务名称：</span><input type="text" placeholder="Project name…" name="content" id="project-name-input"></input></div>
 							<div class="input-prepend"><span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-								<select name="stage_id">
+							<select name="stage_id">
 									<?php foreach($stages as $stage){ ?>
 										<option value="<?php echo $stage['_id'];?>"><?php echo $stage['index'];?></option>
 									<?php }	?>
 								</select>
 							</div>
+							<!--
 							<div class="input-prepend"><span class="add-on">状态：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="Status" name="status" id="status-input"></div>
+							-->
 							<div class="input-prepend"><span class="add-on">优先级别：</span><input type="text" placeholder="Priority…" name="priority" id="startTime-input"></input></div>
 							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="deadline" id="endTime-input"></input></div>
 						</fieldset>						
@@ -65,14 +67,13 @@
 						<fieldset>
 							<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="startTime..." name="startTime" id="startTime-input"></input></div>
 							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="endTime..." name="endTime" id="endTime-name-input"></input></div>
+							<!--
 							<div class="input-prepend"><span class="add-on">状态：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="Status" name="status" id="status-input"></div>
+							-->
 							<div class="input-prepend"><span class="add-on">阶段简介：</span><textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea></div>
 							
 							<input type="hidden" name="index" id="index-input" 
-								value="<?php $stageNum=count($stages);
-									$toCN = array('零','一','二','三','四','五','六','七','八','九');
-									echo $toCN[$stageNum+1];
-								?>">							
+								value="<?php echo count($stages)+1;?>">							
 							</input>
 							<input type="hidden" name="project_id" id="projectid-input" value="<?php echo $project['_id'];?>"></input>
 						</fieldset>						
@@ -92,7 +93,10 @@
 			<?php foreach($stages as $stage){ ?>
 			<div class="row-fluid">
 				<div class="divider" />
-				<h3 style="text-align: center;">第<?php echo $stage['index']?>阶段</h3>
+				<h3 style="text-align: center;">第<?php $stageID=$stage['index'];
+									$toCN = array('零','一','二','三','四','五','六','七','八','九');
+									echo $toCN[$stageID];
+								?>阶段</h3>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
 						<div class="span3" style="margin-left: 15px;">

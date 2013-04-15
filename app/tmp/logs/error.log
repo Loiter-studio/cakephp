@@ -1405,3 +1405,12 @@ Stack Trace:
 #3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UpLoadsController), Object(CakeRequest), Object(CakeResponse))
 #4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-04-15 15:20:18 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

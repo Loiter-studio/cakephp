@@ -7,6 +7,7 @@
 
 		private $connection = null;
 		private $stageCollection = null;
+		private $projectCollection = null;
 		private $userCollection = null;
 		public function beforeFilter()
 		{
@@ -41,8 +42,9 @@
 			$this->stageCollection->update(array('_id'=>$_POST['stage_id']),
 										   array('$push'=>array('task'=>$task)));
 			$stage = $this->stageCollection->findOne(array('_id'=>$_POST['stage_id']));
+			$project = $this->projectCollection->findOne(array('_id'=>$stage['project_id']));
 
-			$this->userCollection->update(array('_id'=>$user['user_id']),array('$addToSet'=>array('project_task_id'=>$stage['project_id']."#".$task['task_id'])));
+			$this->userCollection->update(array('_id'=>$user['user_id']),array('$addToSet'=>array('project_task_id'=>$project['name'].$stage['project_id']."#".$task['task_id'])));
 
 
 		}
@@ -61,7 +63,7 @@
 				'task_id'=>$timestamp,
 				'user_id'=>$user['user_id'],
 				'cnotent'=>$_POST['content'],
-				'status'=>$_POST['status'],
+				'status'=>'Unfinished',
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$stage_id),

@@ -57,7 +57,7 @@
 
 		public function view($project_id)
 		{
-			$stageCursor = $this->stageCollection->find(array('project_id'=>$project_id))->sort(array('index'=>-1));
+			$stageCursor = $this->stageCollection->find(array('project_id'=>$project_id))->sort(array('index'=>1));
 			$projectData = $this->projectCollection->findOne(array('_id'=>$project_id));
 			$stageData = array();
 			while($data = $stageCursor->getNext())
@@ -80,7 +80,7 @@
 											 'leader'=>$_POST['leader'],
 											 'startTime'=>$_POST['startTime'],
 											 'endTime'=>$_POST['endTime'],
-											 'status'=>$_POST['status'],
+											 'status'=>'Unfinished',
 											 'summary'=>$_POST['summary']));
 			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
 		}

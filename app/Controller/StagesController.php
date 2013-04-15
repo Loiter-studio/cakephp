@@ -46,7 +46,7 @@
 												 'project_id'=>$_POST['project_id'],
 												 'startTime'=>$_POST['startTime'],
 												 'endTime'=>$_POST['endTime'],
-												 'status'=>$_POST['status'],
+												 'status'=>'Unfinished',
 												 'index'=>$_POST['index'],
 												 'summary'=>$_POST['summary'],
 												 'task'=>array()));
