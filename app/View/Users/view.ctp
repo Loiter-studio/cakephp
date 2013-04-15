@@ -23,7 +23,7 @@
 				<div class="thumbnails">
 					<div class="thumbnail">
 						<h4><?php echo $project['name'];?></h4>
-						<p><?php echo $project['summary'];?></p>					
+						<a href="<?=$this->webroot;?>projects/view/<?=$project['_id']?>"><?php echo $project['summary'];?></a>					
 						<div class="progress progress-striped active">
 						  <div class="bar" style="width: 40%;"></div>
 						</div>
