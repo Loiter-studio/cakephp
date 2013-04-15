@@ -1188,3 +1188,220 @@ Request URL: /moiter/effectiveness
 Stack Trace:
 #0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-04-13 13:53:13 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-15 12:45:18 Error: [MongoException] non-utf8 string: Loiter工作�&#65533;
+Request URL: /moiter/users/edit
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\Controller\UsersController.php(114): MongoCollection->update(Array, Array)
+#1 [internal function]: UsersController->edit()
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-04-15 12:49:18 Error: [MissingViewException] View file "D:\Program Files\AppServ\www\moiter\app\View\Users\get_edit_user.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\Program Files\\AppServ\\www\\moiter\\app\\View\\Users\\get_edit_user.ctp',
+)
+Request URL: /moiter/users/getEditUser
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-15 12:49:30 Error: [MissingViewException] View file "D:\Program Files\AppServ\www\moiter\app\View\Users\get_edit_user.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\Program Files\\AppServ\\www\\moiter\\app\\View\\Users\\get_edit_user.ctp',
+)
+Request URL: /moiter/users/getEditUser
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-15 12:58:29 Error: [MissingControllerException] Controller class UploadController could not be found.
+Exception Attributes: array (
+  'class' => 'UploadController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/upload
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-15 13:02:32 Error: [MissingControllerException] Controller class UploadController could not be found.
+Exception Attributes: array (
+  'class' => 'UploadController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/upload
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-15 13:02:45 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:02:48 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:02:59 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:02:59 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:00 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:00 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:00 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:01 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:02 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:29 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:30 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:03:31 Error: [MissingActionException] Action UsersController::avatar() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'avatar',
+)
+Request URL: /moiter/users/avatar
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-04-15 13:11:37 Error: [MissingViewException] View file "D:\Program Files\AppServ\www\moiter\app\View\UpLoads\upload.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\Program Files\\AppServ\\www\\moiter\\app\\View\\UpLoads\\upload.ctp',
+)
+Request URL: /moiter/uploads/upload
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UpLoadsController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-15 13:12:32 Error: [MissingViewException] View file "D:\Program Files\AppServ\www\moiter\app\View\UpLoads\upload.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'D:\\Program Files\\AppServ\\www\\moiter\\app\\View\\UpLoads\\upload.ctp',
+)
+Request URL: /moiter/uploads/upload
+Stack Trace:
+#0 D:\Program Files\AppServ\www\moiter\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 D:\Program Files\AppServ\www\moiter\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 D:\Program Files\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UpLoadsController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\Program Files\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

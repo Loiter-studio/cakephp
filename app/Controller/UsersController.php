@@ -57,7 +57,7 @@
 				
 				if(!empty($someOne['password']) && $someOne['password'] == $_POST['password'])
 				{
-					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name']));
+					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url']));
 
 					$this->redirect('/projects/index');
 				}
@@ -68,11 +68,15 @@
 			}
 	
 		}
+		public function avatar()
+		{
+			$this->set('code', 0);
+		}
 		public function register()
 		{
 			$newUser = array();
 			$newUser['_id'] = md5($_POST['name']."".time());
-			$newUser = ['name'] = $_POST['name'];
+			$newUser['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
 			$newUser['email'] = $_POST['email'];
 			$newUser['pic_url'] = "";
@@ -86,7 +90,7 @@
 			if(isset($tmp))
 			{
 				$code = 1;
-				$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name']));
+				$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url']));
 				$this->redirect('/projects/index');	
 			}
 			$this->set('code',$code);
@@ -96,13 +100,27 @@
 		{
 			$user = $this->Session->read('User');
 			$userData = $this->userCursor->findOne(array('_id'=>$user['user_id']));
-			$back  = array('name'=>$userData['name'],'tel'=>$user['tel'],'company'=>$userData['company'],'position'=>$usre['position'];
+			$back  = array('name'=>$userData['name'],'tel'=>$userData['tel'],'email'=>$userData['email'],'company'=>$userData['company'],'position'=>$userData['position']);
+			return $back;
+				//$this->set('back',$back);
 		}
 		public function edit()
 		{
 			$this->checkSession();
-			$user = $this->Session->read('User');
-			$this->userCursor->update(array('_id'=>$user['user_id']),array('$set'=>$_POST));
+			$this->set('back',$this->getEditUser());
+			$this->set('update',false);
+			if(!empty($_POST))
+			{
+				
+				$user = $this->Session->read('User');
+				$this->userCursor->update(array('_id'=>$user['user_id']),array('$set'=>$_POST));
+				$tmp = $this->userCursor->findOne(array('_id'=>$user['user_id'],'name'=>$_POST['name'],'tel'=>$_POST['tel'],'email'=>$_POST['email'],'company'=>$_POST['company'],'position'=>$_POST['position']));
+				if(isset($tmp))
+				{
+					$this->set('update',true);
+					$this->set('back',$tmp);				
+				}
+			}
 		}
 		public function logout()
 		{			
@@ -110,5 +128,8 @@
 			$this->redirect('/users/login');			
 		}
 
+		public function username(){
+			echo $this->Session->read('User');
+		}
 	}
 ?>

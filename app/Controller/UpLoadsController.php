@@ -14,13 +14,11 @@
 		}
 		public function upload()
 		{
-			pr($_POST);
-			if(isset($_FILES['avatar']))
-			{
-				
+			$this->set('code', 0);
+			if(isset($_FILES['avatar']))			
+			{				
 				$user = $this->Session->read('User');
 				$typeArray =  array('jpg','jpeg','png','bmp','gif');
-				pr($typeArray);
 				$type = explode('.',$_FILES["avatar"]["name"]);
 				$index = count($type)-1;
 				$type = $type[$index];
@@ -50,11 +48,9 @@
 					}
 					move_uploaded_file($_FILES['avatar']['tmp_name'], "upload/".$_FILES['avatar']['name']);	
 					$dest = "upload/".$user['user_id'].".".$type;
-					$this->userCollection->update(array('_id'=>$user['user_id']),array('$set'=>array('pic_url'=>$dest)));
-					
-				}
-			}
-			
+					$this->userCollection->update(array('_id'=>$user['user_id']),array('$set'=>array('pic_url'=>$dest)));	
+				}			
+			}			
 		}
 	}
 ?>

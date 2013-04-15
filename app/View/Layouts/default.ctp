@@ -49,9 +49,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div class="header row-fluid">
 			<div class="span2">
 				<div class="logo thumbnails">
-					<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf"></img>
+					<a class="thumbnail" href="">
+						<img src="<?php echo $this->webroot; echo $myavatar;?>" alt="wolf"></img>
 					</a>
+					<a href="<?=$this->webroot;?>users/edit">编辑</a>
+					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
 				</div>
 			</div>
 			
