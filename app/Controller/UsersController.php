@@ -55,7 +55,7 @@
 			{
 				$someOne = $this->userCursor->findOne(array('name' => $_POST['userName']));
 				
-				if(!empty($someOne['password']) && $someOne['password'] == $_POST['password'])
+				if(!empty($someOne['password']) && $someOne['password'] == md5($_POST['password']))
 				{
 					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url']));
 
