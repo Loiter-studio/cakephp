@@ -1,10 +1,10 @@
 <div class="edit-view">
-	<?php if($update) {?>
+	<?php if($update): ?>
 		<div class="alert alert-success">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong>保存成功!</strong>
 		</div>
-	<?php } ?>
+	<?php endif; ?>
 	
 	<div class="row-fluid">
 		<div class="edit-header">

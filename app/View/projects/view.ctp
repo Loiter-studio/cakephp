@@ -1,3 +1,8 @@
+<style>
+.dropdown-menu{
+	z-index: 1055;
+}
+</style>
 <div class="project-view">
 	<div class="row-fluid">
 		<div class="span3" style="height:240px;">		
@@ -52,7 +57,12 @@
 							<div class="input-prepend"><span class="add-on">状态：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="Status" name="status" id="status-input"></div>
 							-->
 							<div class="input-prepend"><span class="add-on">优先级别：</span><input type="text" placeholder="Priority…" name="priority" id="startTime-input"></input></div>
-							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="deadline" id="endTime-input"></input></div>
+							<div class="input-prepend"><span class="add-on">结束时间：</span><input style="display: -webkit-inline-flex;" type="datetime-local" placeholder="End time…" name="deadline" id="endTime-input"></input></div>
+							<div class="input-prepend input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+								  <span class="add-on">结束时间：</span>
+								  <input id="date-pick" size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input">
+								  <span class="add-on"><i class="icon-th"></i></span>
+							</div>
 						</fieldset>						
 					</div>
 					<div class="modal-footer">
@@ -123,9 +133,20 @@
 	</div>
 </div>
 
+<?php
+	echo $this->Html->css('datepicker');
+	echo $this->Html->script('bootstrap-datepicker');
+?>
 <script>
 	$('.breadcrumb').empty();
 	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
+	$(function(){
+		$('#date-pick').datepicker();
+	});
 </script>
+
+
+
+

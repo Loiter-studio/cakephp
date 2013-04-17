@@ -1,6 +1,6 @@
 <div class="edit-view">
-	<?php if($code != 0) {?>
-		<div class="alert alert-success">
+	<?php if($code != 0): ?>
+		<div class="alert <?php if($code == 4): ?>echo "alert-success"<?php endif; ?>">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong>
 				<?php 
@@ -19,7 +19,7 @@
 				?>
 			</strong>
 		</div>
-	<?php } ?>
+	<?php endif; ?>
 	
 	<div class="row-fluid">
 		<div class="edit-header">
