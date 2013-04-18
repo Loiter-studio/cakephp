@@ -84,16 +84,28 @@
 			$newUser['company'] = "";
 			$newUser['position'] = "";
 			$newUser['project_task_id']=array();
-			$this->userCursor->insert($newUser);
-			$tmp = $this->userCursor->findOne($newUser);
-			$code = 0;
-			if(isset($tmp))
+
+			$this->set('validation',1);
+			$this->set('code',2);
+			$checking = $this->userCursor->findOne(array('name'=>$newUser['name']));
+			if(isset($checking))
 			{
-				$code = 1;
-				$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url']));
-				$this->redirect('/projects/index');	
+				$this->set('validation',0);
 			}
-			$this->set('code',$code);
+			else{
+
+				$this->userCursor->insert($newUser);
+				$tmp = $this->userCursor->findOne($newUser);
+				$this->set('code',0);
+
+				if(isset($tmp))
+				{
+					$this->set('code',1);
+					$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url']));
+					$this->redirect('/projects/index');	
+				}
+			}
+			
 			
 		}
 		public function getEditUser()
