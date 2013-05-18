@@ -46,14 +46,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div class="container-fluid">
 		<!-- Header -->
-		<div class="header row-fluid">
+		<div class="header row-fluid" id="header">
 			<div class="span2">
 				<div class="logo thumbnails">
-					<a class="thumbnail" href="">
-						<img src="<?php echo $this->webroot;?>img/logo.gif" alt="logo" id="cpn-logo"></img>
-					</a>
-					<a href="<?=$this->webroot;?>users/edit">编辑</a>
-					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
+					<img src="<?php echo $this->webroot;?>img/logo.png" alt="logo" id="cpn-logo"></img>	
 				</div>
 			</div>
 			
@@ -78,9 +74,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 			<div class="span2">
 				<div class="avatar thumbnails">
-					<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg" alt="wolf" id="user-avatar"></img>
-					</a>
+					
+					<img src="<?php echo $this->webroot;?>img/hwfc.png" alt="wolf" id="user-avatar"></img>
+					
+					<a href="<?=$this->webroot;?>users/edit">编辑</a>
+					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
 				</div>
 			</div>
 			
@@ -109,34 +107,25 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			</div>
 		</div>
 		
-		<!-- divider -->
+		<!-- divider
 		<div class="row-fluid">
 			<div style="height:1px; background:#ccc; margin: 15px 0;"></div>
-		</div>
+		</div> -->
 		
 		<!-- Main View -->
-		<div class="row-fluid" style="height:490px;">
-			<div class="span2">					
+		<div class="row-fluid" id="main-view">
+			<div class="span2" id="sidebar">					
 				<!-- 栈式导航 -->
 				<ul class="nav nav-tabs nav-stacked" id="myTab">
 					<li id="project-list"><a class="meun-item" id="proj-m" href="<?php echo $this->webroot;?>projects">项目管理<i class="icon-chevron-right"></i></a></li>						
 					<li><a class="meun-item" href="<?php echo $this->webroot;?>users">用户管理<i class="icon-chevron-right"></i></a></li>
 					<li><a class="meun-item" href="<?php echo $this->webroot;?>effectiveness">效率查看<i class="icon-chevron-right"></i></a></li>
-				</ul>
-				
-				<!-- 暂未用到 -->
-				<ul id="project-list" class="project-list collapse">
-					<li><a href="#project_1" data-toggle="tab">project1</a></li>
-					<li><a href="#project_2" data-toggle="tab">project2</a></li>
-					<li><a href="#project_3" data-toggle="tab">project3</a></li>
-					<li><a href="#project_4" data-toggle="tab">project4</a></li>
-					<li><a href="#project_5" data-toggle="tab">project5</a></li>
-				</ul>				
+				</ul>	
 			</div>
 			
 			<div class="span10">
 				<!-- 面包屑导航 -->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb" id="breadcrumb">
 					<li><a href=".">首页</a> <span class="divider">></span></li>	
 				</ul>
 				
@@ -157,6 +146,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
-
+	<script type="text/javascript">
+		var mainHeight = $('#main-view').css("height");
+		$('#sidebar').css("height", mainHeight);
+	</script>
 </body>
 </html>

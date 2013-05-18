@@ -8,7 +8,7 @@
 		<div class="span3" style="height:240px;">		
 			<div class="project-logo thumbnails">
 				<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg">
+					<img src="<?php echo $this->webroot;?>img/hwfc.png">
 				</a>				
 			</div>
 			
@@ -17,16 +17,6 @@
 			<h2><?php echo $project['name'];?></h2>
 			<p><?php echo $project['leader'];?></p>
 			<p><?php echo $project['summary'];?></p>
-			<div class="row-fluid">
-				<button class="btn" href="#AddTask" data-toggle="modal">
-					<i class="icon-pencil"></i>
-					添加任务
-				</button>
-				<button class="btn" href="#AddStage" data-toggle="modal">
-					<i class="icon-pencil"></i>
-					添加阶段
-				</button>
-			</div>
 			
 			
 			<!-- 添加任务 -->
@@ -109,18 +99,18 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<?php foreach($stages as $stage){ ?>
-			<div class="row-fluid">
-				<div class="divider" />
-				<h3 style="text-align: center;">第<?php $stageID=$stage['index'];
+			<div class="row-fluid">				
+				<h3 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageID=$stage['index'];
 									$toCN = array('零','一','二','三','四','五','六','七','八','九');
 									echo $toCN[$stageID];
 								?>阶段</h3>
+				<div class="separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
 						<div class="span3" style="margin-left: 15px;">
 							<div class="project-logo thumbnails">
 								<a class="thumbnail" href="#">
-									<img src="<?php echo $this->webroot;?>img/wolf.jpg">
+									<img src="<?php echo $this->webroot;?>img/hwfc.png">
 								</a>				
 							</div>
 							<p style="text-align: center;"><?php echo "content: ".$task['content']; ?></p>
@@ -142,6 +132,8 @@
 	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a></div></li>');
+
 	$(function(){
 		$('#date-pick').datepicker();
 	});
