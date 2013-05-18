@@ -10,6 +10,11 @@ ul, li {
 	
 }
 
+.logo #cpn-logo {
+	width: 100px;
+	height: 80px;
+}
+
 /*顶部*/
 .header{
 	margin: 20px 0px 0px 0px;
@@ -28,6 +33,11 @@ ul, li {
 	padding: 20px 0px 0px 23px;
 	width: 100px;
 	height: 100px;
+}
+
+.avatar #user-avatar {
+	width: 100px;
+	height: 80px;
 }
 
 #myTab {
