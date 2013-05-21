@@ -16,8 +16,8 @@
 			<div class="span4 offset2">
 				<form action='<?php echo $this->webroot;?>users/login' method="post">  
 					<div class="input-prepend">
-						<label class="add-on" for="username">帐号:</label>
-						<input type="text" name="userName"/>
+						<label class="add-on" for="email">邮箱:</label>
+						<input type="text" name="email"/>
 					</div>  
 					<div class="input-prepend">
 						<label class="add-on" for="password">密码:</label>  
@@ -36,7 +36,6 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>用户注册</h3>
 				</div>
-				
 				<form name="register" method="post" action="<?=$this->webroot;?>users/register">
 					<div class="modal-body">		
 						<fieldset>
