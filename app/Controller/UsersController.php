@@ -51,9 +51,9 @@
 			$this->layout = "login";
 			$this->set('error', false);
 
-			if(!empty($_POST["email"]))
+			if(!empty($_POST["userName"]))
 			{
-				$someOne = $this->userCursor->findOne(array('email' => $_POST['email']));
+				$someOne = $this->userCursor->findOne(array('name' => $_POST['userName']));
 				
 				if(!empty($someOne['password']) && $someOne['password'] == md5($_POST['password']))
 				{
