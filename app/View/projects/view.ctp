@@ -5,10 +5,10 @@
 </style>
 <div class="project-view">
 	<div class="row-fluid">
-		<div class="span3" style="height:240px;">		
-			<div class="project-logo thumbnails">
+		<div class="span2" >		
+			<div class="project-logo thumbnails" style="height:120px; width: 120px;" >
 				<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/hwfc.png">
+					<img style="height:120px; width: 120px;" src="<?php echo $this->webroot;?>img/hwfc.png">
 				</a>				
 			</div>
 			
@@ -43,11 +43,9 @@
 									<?php }	?>
 								</select>
 							</div>
-							<!--
-							<div class="input-prepend"><span class="add-on">状态：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="Status" name="status" id="status-input"></div>
-							-->
+
 							<div class="input-prepend"><span class="add-on">优先级别：</span><input type="text" placeholder="Priority…" name="priority" id="startTime-input"></input></div>
-							<div class="input-prepend"><span class="add-on">结束时间：</span><input style="display: -webkit-inline-flex;" type="datetime-local" placeholder="End time…" name="deadline" id="endTime-input"></input></div>
+							<!-- <div class="input-prepend"><span class="add-on">结束时间：</span><input style="display: -webkit-inline-flex;" type="datetime-local" placeholder="End time…" name="deadline" id="endTime-input"></input></div> -->
 							<div class="input-prepend input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
 								  <span class="add-on">结束时间：</span>
 								  <input id="date-pick" size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input">
@@ -75,9 +73,7 @@
 						<fieldset>
 							<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="startTime..." name="startTime" id="startTime-input"></input></div>
 							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="endTime..." name="endTime" id="endTime-name-input"></input></div>
-							<!--
-							<div class="input-prepend"><span class="add-on">状态：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="Status" name="status" id="status-input"></div>
-							-->
+				
 							<div class="input-prepend"><span class="add-on">阶段简介：</span><textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea></div>
 							
 							<input type="hidden" name="index" id="index-input" 
@@ -100,20 +96,47 @@
 		<div class="span12">
 			<?php foreach($stages as $stage){ ?>
 			<div class="row-fluid">				
-				<h3 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageID=$stage['index'];
+				<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageID=$stage['index'];
 									$toCN = array('零','一','二','三','四','五','六','七','八','九');
 									echo $toCN[$stageID];
-								?>阶段</h3>
+								?>阶段</h4>
 				<div class="separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
-						<div class="span3" style="margin-left: 15px;">
-							<div class="project-logo thumbnails">
-								<a class="thumbnail" href="#">
+						<div class="p-single">
+							<div class="p-status-bar"></div>
+							<div class="p-manager">
+								<div class="p-avatar">
 									<img src="<?php echo $this->webroot;?>img/hwfc.png">
-								</a>				
+								</div>
+								<div class="p-name"><span><?php echo $task['user_id'];?></span></div>
 							</div>
-							<p style="text-align: center;"><?php echo "content: ".$task['content']; ?></p>
+							<div class="p-detail">
+								<div class="p-summary">
+									<p><span><?php echo $task['content'];?></span></p>
+								</div>
+								<div class="p-start">
+									<p><span><?php echo $stage['startTime'];?></span></p>
+								</div>
+								<div class="p-end">
+									<p><span><?php echo $task['deadline'];?></span></p>
+								</div>
+							</div>
+							<div class="p-status">
+								<img class="p-status-img" src="#">
+								<span><?php switch($task['status']) {
+												case 'finished':
+													echo '已完成';
+													echo "<script>$('.p-status-img').attr('src', '../img/status_finished.png');</script>";
+													break;
+												case 'Unfinished':
+													echo '进行中';
+													
+													break;
+												case 'submited':
+													echo '待审核';
+											}?></span>
+							</div>
 						</div>
 					<?php } ?>
 				</div>

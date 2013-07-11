@@ -1,41 +1,75 @@
+<style type="text/css">
+	.login {
+		width: 940px;
+		min-width: 940px;
+		height: 184px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.tips {
+		width: 620px;
+		min-width: 620px;
+		margin: 0 auto;
+	}
+
+	.login-form {
+		width: 263px;
+		min-width: 263px;
+		margin: 0 auto;
+	}
+
+	.login-form form {
+		width: 263px;
+		min-width: 263px;
+		margin: 0;
+	}
+
+	.button-group {
+		width: 170px;
+		min-width: 170px;
+		margin: 0 auto;
+	}
+</style>
+
+
 <div class="container">
-	<div class="span12">
+	<div class="login" id="login">
 		<div class="header">
 			<h3 class="text-center">欢迎使用Moiter项目管理系统</h3>
 		</div>
-		<div class="span8 offset2">
+		<div class="tips">
 			<?if ($error):?>  
 				<div class="alert">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong>The login credentials you supplied could not be recognized. Please try again.</strong> 
 				</div>
 			<? endif; ?>
-
+		</div>
+		<div class="login-form">		
+			<form action='<?php echo $this->webroot;?>users/login' method="post">  
+				<div class="input-prepend">
+					<label class="add-on" for="username">帐号:</label>
+					<input type="text" name="userName"/>
+				</div>  
+				<div class="input-prepend">
+					<label class="add-on" for="password">密码:</label>  
+					<input type="password" name="password"/>
+				</div>  
+				<div class="button-group">  
+					<button class="btn btn-primary" type="submit">登录</button>
+					<button class="btn" type="reset">重置</button>
+					<button class="btn" href="#Register" data-toggle="modal">注册</button>  
+				</div>  
+			</form> 
 			
-			
-			<div class="span4 offset2">
-				<form action='<?php echo $this->webroot;?>users/login' method="post">  
-					<div class="input-prepend">
-						<label class="add-on" for="email">邮箱:</label>
-						<input type="text" name="email"/>
-					</div>  
-					<div class="input-prepend">
-						<label class="add-on" for="password">密码:</label>  
-						<input type="password" name="password"/>
-					</div>  
-					<div class="span3">  
-						<button class="btn btn-primary" type="submit">登录</button>
-						<button class="btn" type="reset">重置</button>
-						<button class="btn" href="#Register" data-toggle="modal">注册</button>  
-					</div>  
-				</form> 
-			</div>
 
 			<div id="Register" class="modal hide fade">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>用户注册</h3>
 				</div>
+				
 				<form name="register" method="post" action="<?=$this->webroot;?>users/register">
 					<div class="modal-body">		
 						<fieldset>
@@ -57,15 +91,22 @@
 </div>
 
 
-
+<script type="text/javascript" src=""></script>
 <script type='text/javascript'> 
-	function check(){
-		var pass1 = document.getElementById('password-input'); 
-		var pass2 = document.getElementById('repeated-password-input'); 
-		if(pass1.value != pass2.value){ 
-			pass2.setCustomValidity('两次输入的密码不一致'); 
-		}else{ 
-			pass2.setCustomValidity(''); 
-		} 
+	function check() {
+		var pass1 = document.getElementById('password-input');
+		var pass2 = document.getElementById('repeated-password-input');
+		if (pass1.value != pass2.value) {
+			pass2.setCustomValidity('两次输入的密码不一致');
+		} else {
+			pass2.setCustomValidity('');
+		}
 	}
+
+	window.onload = function() {
+		var marginTop = window.innerHeight - parseInt($('#login').css('height'));
+		$('#login').css({
+			'margin-top': marginTop / 3 + 'px'
+		});
+	};
 </script>

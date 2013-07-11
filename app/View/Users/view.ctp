@@ -1,9 +1,9 @@
 <div class="user-view">
 	<div class="row-fluid">
-		<div class="span3" style="height: 240px;">
+		<div class="span3" style="height: 130px; width: 140px">
 			<div class="user-avatars thumbnails">
 				<a class="thumbnail" href="#">
-					<img src="<?php echo $this->webroot;?>img/wolf.jpg">
+					<img style="height: 130px;" src="<?php echo $this->webroot;?>img/wolf.jpg">
 				</a>				
 			</div>
 		</div>
@@ -17,9 +17,10 @@
 		</div>
 	</div>
 	
-	<div class="row-fluid">
+	<div class="row-fluid" id="u-projects-form">
 		<?php foreach($projects as $project){ ?>
-			<div class="span3">
+			
+			<!-- <div class="span3">
 				<div class="thumbnails">
 					<div class="thumbnail">
 						<h4><?php echo $project['name'];?></h4>
@@ -36,6 +37,23 @@
 						<p><?php echo $project['status'];?></p>
 					</div>
 				</div>
+			</div> -->
+			
+			<div class="u-single">
+				<p>
+					<span><?php echo $project['name'];?></span>
+					<span class="u-priority"><?php echo $project['priority'];?></span>
+				</p>
+				<p><span style="font-size: 11px; line-height: 11px;"><?php echo $project['summary'];?></span></p>
+				<div class="u-progress">
+					<img src="<?php echo $this->webroot;?>img/progress.jpg">					
+				</div>
+				<p><span>还剩</span>
+					<span>2</span>
+					<span>天</span></p>
+				<div class="u-status">
+					<img src="<?php echo $this->webroot;?>img/u_status.gif">
+				</div>
 			</div>
 		<?php } ?>
 	</div>
@@ -47,4 +65,5 @@
 	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>users">用户管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $user['name'];?><span class="divider">></span></li>');
+
 </script>
