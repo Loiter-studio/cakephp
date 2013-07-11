@@ -244,8 +244,8 @@ ul, li {
 	left: 107px;
 	width: 55px;
 	height: 116px;
-	/*background-image: url(../img/status_finished.png); */
-	/*background-position: 59px -3px;*/
+	background-image: url(../img/status_finished.png); 
+	background-position: 59px -3px;
 }
 
 .p-status span {

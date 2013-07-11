@@ -35,21 +35,33 @@
 				<form method="post" action="<?=$this->webroot;?>tasks/create">
 					<div class="modal-body">						
 						<fieldset>
-							<div class="input-prepend"><span class="add-on">任务名称：</span><input type="text" placeholder="Project name…" name="content" id="project-name-input"></input></div>
-							<div class="input-prepend"><span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-							<select name="stage_id">
+							<div class="input-prepend">
+								<span class="add-on">任务名称：</span>
+								<input type="text" placeholder="Project name…" name="content" id="project-name-input"></input>
+							</div>
+							<div class="input-prepend">
+								<span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+								<select name="stage_id">
 									<?php foreach($stages as $stage){ ?>
 										<option value="<?php echo $stage['_id'];?>"><?php echo $stage['index'];?></option>
 									<?php }	?>
 								</select>
 							</div>
 
-							<div class="input-prepend"><span class="add-on">优先级别：</span><input type="text" placeholder="Priority…" name="priority" id="startTime-input"></input></div>
-							<!-- <div class="input-prepend"><span class="add-on">结束时间：</span><input style="display: -webkit-inline-flex;" type="datetime-local" placeholder="End time…" name="deadline" id="endTime-input"></input></div> -->
-							<div class="input-prepend input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-								  <span class="add-on">结束时间：</span>
-								  <input id="date-pick" size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input">
-								  <span class="add-on"><i class="icon-th"></i></span>
+							<div class="input-prepend">
+								<span class="add-on">优先级别：</span>
+								<select name="priority">
+									<option>HIGH</option>
+									<option>NORMAL</option>
+									<option>LOW</option>
+								</select>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp5">
+								<span class="add-on">结束时间：</span>
+								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input">
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 						</fieldset>						
 					</div>
@@ -71,10 +83,24 @@
 				<form method="post" action="<?=$this->webroot;?>stages/create">
 					<div class="modal-body">						
 						<fieldset>
-							<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="startTime..." name="startTime" id="startTime-input"></input></div>
-							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="endTime..." name="endTime" id="endTime-name-input"></input></div>
+							<div class="input-prepend input-append date" id="dp3">
+								<span class="add-on">开始时间：</span>
+								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input">
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp4">
+								<span class="add-on">结束时间：</span>
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input">
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
 				
-							<div class="input-prepend"><span class="add-on">阶段简介：</span><textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea></div>
+							<div class="input-prepend">
+								<span class="add-on">阶段简介：</span>
+								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea>
+							</div>
 							
 							<input type="hidden" name="index" id="index-input" 
 								value="<?php echo count($stages)+1;?>">							
@@ -123,11 +149,9 @@
 								</div>
 							</div>
 							<div class="p-status">
-								<img class="p-status-img" src="#">
 								<span><?php switch($task['status']) {
 												case 'finished':
 													echo '已完成';
-													echo "<script>$('.p-status-img').attr('src', '../img/status_finished.png');</script>";
 													break;
 												case 'Unfinished':
 													echo '进行中';
@@ -147,8 +171,8 @@
 </div>
 
 <?php
-	echo $this->Html->css('datepicker');
-	echo $this->Html->script('bootstrap-datepicker');
+	echo $this->Html->css('datetimepicker');
+	echo $this->Html->script('bootstrap-datetimepicker');
 ?>
 <script>
 	$('.breadcrumb').empty();
@@ -157,8 +181,34 @@
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a></div></li>');
 
-	$(function(){
-		$('#date-pick').datepicker();
+	$('#dp3').datetimepicker({
+		startDate: new Date(),
+		todayBtn: true,
+		format: 'hh:ii dd/mm/yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: true,
+		showMeridian: true
+	});
+
+	$('#dp4').datetimepicker({
+		startDate: new Date(),
+		todayBtn: true,
+		format: 'hh:ii dd/mm/yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: true,
+		showMeridian: true
+	});
+
+	$('#dp5').datetimepicker({
+		startDate: new Date(),
+		todayBtn: true,
+		format: 'hh:ii dd/mm/yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: true,
+		showMeridian: true
 	});
 </script>
 

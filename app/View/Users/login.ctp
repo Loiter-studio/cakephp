@@ -2,7 +2,6 @@
 	.login {
 		width: 940px;
 		min-width: 940px;
-		height: 184px;
 		margin-left: auto;
 		margin-right: auto;
 	}

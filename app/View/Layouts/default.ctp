@@ -36,9 +36,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 		
+		echo $this->Html->script('bootstrap-datetimepicker');
 		//css
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('mystyle');
+		echo $this->Html->css('datetimepicker');
 	?>
 
 	
@@ -49,7 +51,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div class="header row-fluid" id="header">
 			<div class="span2">
 				<div class="logo thumbnails">
-					<img src="<?php echo $this->webroot;?>img/logo.png" alt="logo" id="cpn-logo"></img>	
+					<img src="<?php echo $this->webroot;?>img/logo.png" alt="logo" id="cpn-logo">
 				</div>
 			</div>
 			
@@ -75,7 +77,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span2">
 				<div class="avatar thumbnails">
 					
-					<img src="<?php echo $this->webroot;?>img/hwfc.png" alt="wolf" id="user-avatar"></img>
+					<img src="<?php echo $this->webroot;?>img/hwfc.png" alt="wolf" id="user-avatar">
 					
 					<a href="<?=$this->webroot;?>users/edit">编辑</a>
 					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
@@ -92,11 +94,34 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<form method="post" action="<?=$this->webroot;?>projects/create">
 					<div class="modal-body">						
 						<fieldset>
-							<div class="input-prepend"><span class="add-on">项目名称：</span><input type="text" placeholder="Project name…" name="name" id="project-name-input"></input></div>
-							<div class="input-prepend"><span class="add-on">负责人员：</span><input type="text" placeholder="Manager…" name="leader" id="manager-input"></input></div>
-							<div class="input-prepend"><span class="add-on">项目简介：</span><textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea></div>
-							<div class="input-prepend"><span class="add-on">开始时间：</span><input type="text" placeholder="Start time…" name="startTime" id="startTime-input"></input></div>
-							<div class="input-prepend"><span class="add-on">结束时间：</span><input type="text" placeholder="End time…" name="endTime" id="endTime-input"></input></div>
+							<div class="input-prepend">
+								<span class="add-on">项目名称：</span>
+								<input type="text" placeholder="Project name…" name="name" id="project-name-input">
+							</div>
+
+							<div class="input-prepend">
+								<span class="add-on">负责人员：</span>
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
+							</div>
+
+							<div class="input-prepend">
+								<span class="add-on">项目简介：</span>
+								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp1">
+								<span class="add-on">开始时间：</span>
+								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input">
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp2">
+								<span class="add-on">结束时间：</span>
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input">
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
 						</fieldset>					
 					</div>
 					<div class="modal-footer">
@@ -106,11 +131,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</form>
 			</div>
 		</div>
-		
-		<!-- divider
-		<div class="row-fluid">
-			<div style="height:1px; background:#ccc; margin: 15px 0;"></div>
-		</div> -->
 		
 		<!-- Main View -->
 		<div class="row-fluid" id="main-view">
@@ -154,6 +174,31 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<script type="text/javascript">
 		var mainHeight = $('#main-view').css("height");
 		$('#sidebar').css("height", mainHeight);
+
+		$('#dp1').datetimepicker({
+			startDate: new Date(),
+			todayBtn: true,
+			format: 'hh:ii dd/mm/yyyy',
+			autoclose: true,
+			todayHighlight: true,
+			keyboardNavigation: true,
+			showMeridian: true
+		});
+
+		$('#dp2').datetimepicker({
+			startDate: new Date(),
+			todayBtn: true,
+			format: 'hh:ii dd/mm/yyyy',
+			autoclose: true,
+			todayHighlight: true,
+			keyboardNavigation: true,
+			showMeridian: true
+		});
+
+		$('manager-input').typeahead({
+			item: 4,
+			source: ["wayzh", "rathinho","lichaop"]
+		});
 	</script>
 </body>
 </html>
