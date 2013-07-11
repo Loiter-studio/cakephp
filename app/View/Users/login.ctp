@@ -19,7 +19,7 @@
 		margin: 0 auto;
 	}
 
-	.login-form form {
+	.login-form #login-form {
 		width: 263px;
 		min-width: 263px;
 		margin: 0;
@@ -47,7 +47,7 @@
 			<? endif; ?>
 		</div>
 		<div class="login-form">		
-			<form action='<?php echo $this->webroot;?>users/login' method="post">  
+			<form id="login-form" action='<?php echo $this->webroot;?>users/login' method="post">  
 				<div class="input-prepend">
 					<label class="add-on" for="username">帐号:</label>
 					<input type="text" name="userName"/>
