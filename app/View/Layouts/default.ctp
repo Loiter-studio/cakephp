@@ -36,11 +36,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 		
-		echo $this->Html->script('bootstrap-datetimepicker');
 		//css
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('mystyle');
-		echo $this->Html->css('datetimepicker');
 	?>
 
 	
@@ -111,14 +109,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 							<div class="input-prepend input-append date" id="dp1">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input">
+								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp2">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input">
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -169,7 +167,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</div>		
 	</div>
 	
-	<?php echo $this->element('sql_dump'); ?>
+	<?php 
+		echo $this->element('sql_dump');
+		echo $this->Html->script('bootstrap-datetimepicker'); 
+		echo $this->Html->css('datetimepicker');
+	?>
 	
 	<script type="text/javascript">
 		var mainHeight = $('#main-view').css("height");

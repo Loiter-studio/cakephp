@@ -59,7 +59,7 @@
 
 							<div class="input-prepend input-append date" id="dp5">
 								<span class="add-on">结束时间：</span>
-								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input">
+								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -85,14 +85,14 @@
 						<fieldset>
 							<div class="input-prepend input-append date" id="dp3">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input">
+								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp4">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input">
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
