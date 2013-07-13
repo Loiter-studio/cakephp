@@ -24,6 +24,14 @@ ul, li {
 	color: #fff
 }
 
+#header .avatar a:hover {
+	color: #eee;
+	text-decoration: none;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
 /*logo样式*/
 .logo{
 	padding: 20px 0px 0px 22px;
@@ -121,6 +129,13 @@ ul, li {
 	border-radius: 0;
 }
 
+#breadcrumb a:hover {
+	text-decoration: none;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
 #content {
 	background-color: #f5f5f5;
 	width: 1046px;
@@ -146,7 +161,16 @@ ul, li {
 }
 
 #project-adder {
-	margin-left: 700px;
+	position: absolute;
+	top: 30px;
+	right: 50px;
+}
+
+#project-adder a:hover {
+	text-decoration: none;
+	position: relative;
+	top: 1px;
+	left: 1px;
 }
 
 
@@ -331,4 +355,23 @@ ul, li {
 
 .u-single .u-status img {
 	height: 27px;
+}
+
+
+/*  创建成功页面  */
+.create-info {
+	background-color: #f5f5f5;
+}
+
+.create-info a {
+	display: block;
+	width: 80px;
+	margin: 0 auto;
+}
+
+.create-info a:hover {
+	text-decoration: none;
+	position: relative;
+	top: 1px;
+	left: 1px;
 }

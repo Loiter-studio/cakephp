@@ -61,7 +61,7 @@
 
 <script>
 	$('.breadcrumb').empty();
-	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>users">用户管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $user['name'];?><span class="divider">></span></li>');
 

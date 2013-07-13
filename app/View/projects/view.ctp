@@ -129,6 +129,13 @@
 	
 	<div class="row-fluid">
 		<div class="span12">
+			<?php if(!$stages): ?>
+				<div class="alert" style="width: 500px; margin: 50px auto 0 auto;">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>项目内容为空，请添加阶段和任务.</strong> 
+				</div>
+			<?php endif ?>
+
 			<?php foreach($stages as $stage){ ?>
 			<div class="row-fluid">				
 				<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageID=$stage['index'];
@@ -185,7 +192,7 @@
 ?>
 <script>
 	$('.breadcrumb').empty();
-	$('.breadcrumb').append('<li><a href=".">首页</a> <span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>');
