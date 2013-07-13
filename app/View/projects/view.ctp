@@ -135,7 +135,7 @@
 								<div class="p-avatar">
 									<img src="<?php echo $this->webroot;?>img/hwfc.png">
 								</div>
-								<div class="p-name"><span><?php echo $task['user_id'];?></span></div>
+								<div class="p-name"><span><?php echo $task['user_name'];?></span></div>
 							</div>
 							<div class="p-detail">
 								<div class="p-summary">
