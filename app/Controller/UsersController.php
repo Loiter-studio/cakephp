@@ -44,6 +44,8 @@
 			foreach($userData['project_task_id'] as $project_task_id)
 			{
 				$idSplit = explode("#",$project_task_id);
+
+				
 				// $project = $this->projectCollection->findOne(array('_id'=>$idSplit[1]));
 				$projects_id[$idSplit[1]] = $idSplit[1];
 				$projects_name[$idSplit[1]] = $idSplit[0];
@@ -60,6 +62,8 @@
 					$aTask = $tmpTask->getNext();
 
 					// print_r($aTask['task'][0]);
+
+
 					$aTask['task'][0]['name'] = $projects_name[$p_id];
 					// print_r($aTask['task'][0]);
 					$tasks[] = $aTask['task'][0];
