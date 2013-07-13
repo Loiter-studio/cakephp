@@ -60,6 +60,8 @@
 					$aTask = $tmpTask->getNext();
 
 					// print_r($aTask['task'][0]);
+					$aTask['task'][0]['projectname'] = $projects_name[$p_id];
+					// print_r($aTask['task'][0]);
 					$tasks[] = $aTask['task'][0];
 				}
 				// print_r($projects_name[$p_id]);

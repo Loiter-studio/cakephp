@@ -74,7 +74,7 @@
 					# code...
 					$aUser = $this->userCollection->findOne(array('_id'=>$task['user_id']));
 					$task['user_name'] = $aUser['name']; 
-					print_r($aUser['name']);
+					// print_r($aUser['name']);
 				}
 			}
 			$this->set('project' , $projectData);

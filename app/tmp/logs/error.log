@@ -1610,3 +1610,31 @@ Stack Trace:
 #3 D:\AppServ\www\moiter\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 D:\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-07-10 16:16:41 Error: [MissingControllerException] Controller class IndexController could not be found.
+Exception Attributes: array (
+  'class' => 'IndexController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/index
+Stack Trace:
+#0 D:\dev\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 D:\dev\AppServ\www\moiter\index.php(43): require('D:\dev\AppServ\...')
+#2 {main}
+2013-07-11 08:15:52 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\dev\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-07-11 08:43:46 Error: [MissingControllerException] Controller class EffectivenessController could not be found.
+Exception Attributes: array (
+  'class' => 'EffectivenessController',
+  'plugin' => NULL,
+)
+Request URL: /moiter/effectiveness
+Stack Trace:
+#0 D:\dev\AppServ\www\moiter\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
