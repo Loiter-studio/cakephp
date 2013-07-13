@@ -18,8 +18,24 @@
 	</div>
 	
 	<div class="row-fluid" id="u-projects-form">
-		<?php foreach($projects as $project){ ?>
-			
+		<?php foreach($tasks as $project){ ?>
+			<div class="u-single">
+				<p>
+					<span><?php echo $project['name'];?></span>
+					<span class="u-priority"><?php echo $project['priority'];?></span>
+				</p>
+				<p><span style="font-size: 11px; line-height: 11px;"><?php echo $project['content'];?></span></p>
+				<div class="u-progress">
+					<img src="<?php echo $this->webroot;?>img/progress.jpg">					
+				</div>
+				<p><span>还剩</span>
+					<span>2</span>
+					<span>天</span></p>
+				<div class="u-status">
+					<img src="<?php echo $this->webroot;?>img/u_status.gif">
+				</div>
+			</div>
+
 			<!-- <div class="span3">
 				<div class="thumbnails">
 					<div class="thumbnail">
@@ -38,23 +54,6 @@
 					</div>
 				</div>
 			</div> -->
-			
-			<div class="u-single">
-				<p>
-					<span><?php echo $project['name'];?></span>
-					<span class="u-priority"><?php echo $project['priority'];?></span>
-				</p>
-				<p><span style="font-size: 11px; line-height: 11px;"><?php echo $project['summary'];?></span></p>
-				<div class="u-progress">
-					<img src="<?php echo $this->webroot;?>img/progress.jpg">					
-				</div>
-				<p><span>还剩</span>
-					<span>2</span>
-					<span>天</span></p>
-				<div class="u-status">
-					<img src="<?php echo $this->webroot;?>img/u_status.gif">
-				</div>
-			</div>
 		<?php } ?>
 	</div>
 </div>
