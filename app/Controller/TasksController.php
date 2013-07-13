@@ -36,6 +36,7 @@
 				'task_id'=>md5($user['userName']."".time()),
 				'user_id'=>$user['user_id'],
 				'content'=>$_POST['content'],
+				'leader'=>$_POST['leader'],
 				'status'=>"Unfinished",
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);

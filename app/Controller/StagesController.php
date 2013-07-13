@@ -43,6 +43,7 @@
 			$this->stageCollection->insert(array('_id'=>$stage_id,
 												 'user_id'=>$user['user_id'],
 												 'project_id'=>$_POST['project_id'],
+												 'leader'=>$_POST['leader'],
 												 'startTime'=>$_POST['startTime'],
 												 'endTime'=>$_POST['endTime'],
 												 'status'=>'Unfinished',

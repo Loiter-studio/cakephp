@@ -50,7 +50,7 @@
 				$tasks_id[$idSplit[1]][] = $idSplit[2];
 
 			}
-			print_r($tasks_id);
+			// print_r($tasks_id);
 			// $tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
 			$tasks = array();
 			foreach ($projects_id as $p_id) {
@@ -68,7 +68,7 @@
 	
 							if($atask['task_id'] == $t_id){
 								$atask['name'] = $projects_name[$p_id];
-								print_r($atask);
+								// print_r($atask);
 								$tasks[] = $atask;
 							}
 						}
