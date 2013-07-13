@@ -60,7 +60,7 @@
 					$aTask = $tmpTask->getNext();
 
 					// print_r($aTask['task'][0]);
-					$aTask['task'][0]['projectname'] = $projects_name[$p_id];
+					$aTask['task'][0]['name'] = $projects_name[$p_id];
 					// print_r($aTask['task'][0]);
 					$tasks[] = $aTask['task'][0];
 				}
@@ -68,7 +68,7 @@
 				// print_r($p_id);
 				
 			}
-			 // print_r($tasks);
+			 print_r($tasks);
 			$this->set('tasks',$tasks);
 		}
 		public function login()
