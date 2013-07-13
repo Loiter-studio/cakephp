@@ -1,5 +1,5 @@
 <div class="create-info">
-	<div class="alert" style="text-align: center">
+	<div class="alert alert-success" style="text-align: center">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
 		<strong>创建阶段成功.</strong> 
 	</div>
