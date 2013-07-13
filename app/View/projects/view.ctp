@@ -33,11 +33,15 @@
 					  else {
 				?>
 				<form method="post" action="<?=$this->webroot;?>tasks/create">
-					<div class="modal-body">						
+					<div class="modal-body">
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">任务名称：</span>
 								<input type="text" placeholder="Project name…" name="content" id="project-name-input"></input>
+							</div>
+							<div class="input-prepend">
+								<span class="add-on">负责人员：</span>
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
 							</div>
 							<div class="input-prepend">
 								<span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -83,6 +87,16 @@
 				<form method="post" action="<?=$this->webroot;?>stages/create">
 					<div class="modal-body">						
 						<fieldset>
+							<div class="input-prepend">
+								<span class="add-on">负责人员：</span>
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
+							</div>
+													
+							<div class="input-prepend">
+								<span class="add-on">阶段简介：</span>
+								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea>
+							</div>
+
 							<div class="input-prepend input-append date" id="dp3">
 								<span class="add-on">开始时间：</span>
 								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input" autocomplete="off">
@@ -95,11 +109,6 @@
 								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input" autocomplete="off">
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
-							</div>
-				
-							<div class="input-prepend">
-								<span class="add-on">阶段简介：</span>
-								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea>
 							</div>
 							
 							<input type="hidden" name="index" id="index-input" 
