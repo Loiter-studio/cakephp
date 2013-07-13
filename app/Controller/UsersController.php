@@ -8,12 +8,13 @@
 		private $userCursor = null;
 		private $connection = null;
 		private $projectCollection = null;
-		
+		private $stageCollection = null;
 		public function beforeFilter()
 		{
 			$this->connection = new Mongo();
 			$this->userCursor = $this->connection->moiter->users;
 			$this->projectCollection = $this->connection->moiter->projects;
+			$this->stageCollection = $this->connection->moiter->stages;
 		}
 		public function afterFilter()
 		{
@@ -37,14 +38,36 @@
 			$userData = $this->userCursor->findOne(array('_id'=>$user_id));
 			$this->set('user',$userData);
 			
-			$projects = array();
+			$projects_id = array();
+			$tasks_id = array();
+			$projects_name = array();
 			foreach($userData['project_task_id'] as $project_task_id)
 			{
-				$project_id = explode("#",$project_task_id);
-				$project = $this->projectCollection->findOne(array('_id'=>$project_id[1]));
-				$projects[$project_id[1]] = $project;
+				$idSplit = explode("#",$project_task_id);
+				// $project = $this->projectCollection->findOne(array('_id'=>$idSplit[1]));
+				$projects_id[$idSplit[1]] = $idSplit[1];
+				$projects_name[$idSplit[1]] = $idSplit[0];
+				$tasks_id[$idSplit[1]][] = $idSplit[2];
+
 			}
-			$this->set('projects',$projects);
+			// $tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+			$tasks = array();
+			foreach ($projects_id as $p_id) {
+				foreach ($tasks_id[$p_id] as $task_id) {
+					# code...
+					$tmpTask = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+					// $tmpTask['project_name'] = $projects_name[$p_id];
+					$aTask = $tmpTask->getNext();
+
+					// print_r($aTask['task'][0]);
+					$tasks[] = $aTask['task'][0];
+				}
+				// print_r($projects_name[$p_id]);
+				// print_r($p_id);
+				
+			}
+			 // print_r($tasks);
+			$this->set('tasks',$tasks);
 		}
 		public function login()
 		{
