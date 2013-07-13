@@ -196,11 +196,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			keyboardNavigation: true,
 			showMeridian: true
 		});
-
-		$('manager-input').typeahead({
-			item: 4,
-			source: ["wayzh", "rathinho","lichaop"]
-		});
 	</script>
 </body>
 </html>
