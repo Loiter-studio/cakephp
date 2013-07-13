@@ -20,12 +20,15 @@ ul, li {
 	min-width: 1310px;
 }
 
+#header .avatar a {
+	color: #fff
+}
+
 /*logo样式*/
 .logo{
 	padding: 20px 0px 0px 22px;
 	width: 160px;
-	height: 46px;
-	
+	height: 46px;	
 }
 
 .logo #cpn-logo {
@@ -43,14 +46,10 @@ ul, li {
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
-.header-bar .btn{
-	
-}
 
 /*头像样式.*/
 .avatar{
-	padding: 20px 20px 0px 23px;
-	
+	padding: 20px 20px 0px 23px;	
 }
 
 .avatar #user-avatar {
@@ -60,6 +59,14 @@ ul, li {
 
 #myTab {
 	text-align:center;
+}
+
+#myTab a {
+	color: #fff;
+}
+
+#myTab a:hover {
+	color: #0088cc;
 }
 
 #myTab .icon-chevron-right { /*箭头的样式.*/
