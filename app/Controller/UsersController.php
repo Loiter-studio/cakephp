@@ -68,7 +68,7 @@
 				// print_r($p_id);
 				
 			}
-			 print_r($tasks);
+			 // print_r($tasks);
 			$this->set('tasks',$tasks);
 		}
 		public function login()
