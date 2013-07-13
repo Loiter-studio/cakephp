@@ -44,35 +44,40 @@
 			foreach($userData['project_task_id'] as $project_task_id)
 			{
 				$idSplit = explode("#",$project_task_id);
-
-				
 				// $project = $this->projectCollection->findOne(array('_id'=>$idSplit[1]));
 				$projects_id[$idSplit[1]] = $idSplit[1];
 				$projects_name[$idSplit[1]] = $idSplit[0];
 				$tasks_id[$idSplit[1]][] = $idSplit[2];
 
 			}
+			print_r($tasks_id);
 			// $tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
 			$tasks = array();
 			foreach ($projects_id as $p_id) {
-				foreach ($tasks_id[$p_id] as $task_id) {
-					# code...
-					$tmpTask = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
-					// $tmpTask['project_name'] = $projects_name[$p_id];
-					$aTask = $tmpTask->getNext();
 
-					// print_r($aTask['task'][0]);
+				$cursor = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>1));
+				while($cursor->hasNext())
+				{
+					$stage = $cursor->getNext();
 
+					foreach ($stage['task'] as $atask) {
+						# code...
 
-					$aTask['task'][0]['name'] = $projects_name[$p_id];
-					// print_r($aTask['task'][0]);
-					$tasks[] = $aTask['task'][0];
+						foreach ($tasks_id[$p_id] as $t_id) {
+							# code...
+	
+							if($atask['task_id'] == $t_id){
+								$atask['name'] = $projects_name[$p_id];
+								print_r($atask);
+								$tasks[] = $atask;
+							}
+						}
+					}
+
 				}
-				// print_r($projects_name[$p_id]);
-				// print_r($p_id);
-				
+
 			}
-			 // print_r($tasks);
+
 			$this->set('tasks',$tasks);
 		}
 		public function login()
@@ -108,7 +113,7 @@
 			$newUser['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
 			$newUser['email'] = $_POST['email'];
-			$newUser['pic_url'] = "";
+			$newUser['pic_url'] =$this->webroot + "img/hwfc.png";
 			$newUser['tel'] = "";
 			$newUser['company'] = "";
 			$newUser['position'] = "";
