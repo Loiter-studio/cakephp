@@ -15,16 +15,16 @@
 						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/hwfc.png" style="width:125px; height:100px;"></img></div>
 						<div class="span1"></div>
 						<div class="span6">
-							<p><span class="label label-success">已完成</span> 6个任务</p>
-							<p><span class="label label-warning">进行中</span> 20个任务</p>
-							<p><span class="label">审核中</span> 2个任务</p>
+							<p><span class="label label-warning">进行中</span> <span><?=$project['status_1']?></span><span>个任务</span></p>
+							<p><span class="label">审核中</span> <span><?=$project['status_2']?></span><span>个任务</p>
+							<p><span class="label label-success">已完成</span> <span><?=$project['status_3']?></span><span>个任务</p>
 						<div>
 					</div>
 				</div>
 			</li>
 			
 			<?php
-				$count = $count + 1;
+					$count = $count + 1;
 				}
 			?>			
 		</ul>

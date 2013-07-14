@@ -166,15 +166,14 @@
 							</div>
 							<div class="p-status">
 								<span><?php switch($task['status']) {
-												case 'finished':
-													echo '已完成';
-													break;
-												case 'Unfinished':
+												case 1:
 													echo '进行中';
-													
 													break;
-												case 'submited':
-													echo '待审核';
+												case 2:
+													echo '待审核';													
+													break;
+												case 3:
+													echo '已完成';
 											}?></span>
 							</div>
 						</div>
