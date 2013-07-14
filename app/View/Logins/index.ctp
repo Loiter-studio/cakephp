@@ -69,7 +69,7 @@
 					<h3>用户注册</h3>
 				</div>
 				
-				<form name="register" method="post" action="<?=$this->webroot;?>users/register">
+				<form name="register" method="post" action="<?=$this->webroot;?>logins/register">
 					<div class="modal-body">		
 						<fieldset>
 							<div class="input-prepend"><span class="add-on">用户名：&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="User name..." name="name" id="user-name-input"></input></div>
