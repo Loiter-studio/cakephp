@@ -20,6 +20,16 @@ ul, li {
 	min-width: 1310px;
 }
 
+#header .avatar #user-avatar {
+	width: 46px; 
+	display: inline-block;
+}
+
+#header .avatar #user-name {
+	margin-left: 20px; 
+	display: inline-block;
+}
+
 #header .avatar a {
 	color: #fff
 }
@@ -57,7 +67,7 @@ ul, li {
 
 /*头像样式.*/
 .avatar{
-	padding: 20px 20px 0px 23px;	
+	padding: 15px 20px 0px 23px;	
 }
 
 .avatar #user-avatar {
@@ -137,6 +147,7 @@ ul, li {
 }
 
 #content {
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #f5f5f5;
 	width: 1046px;
 	min-width: 1046px;
@@ -209,12 +220,17 @@ ul, li {
 	margin-bottom: 10px;
 }
 
+.p-manager .p-avatar img {
+	width: 56px;
+	height: 65px;
+}
+
 .p-manager .p-name {
 	text-align: center;
 }
 
 .p-manager .p-name span{
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
@@ -234,7 +250,7 @@ ul, li {
 }
 
 .p-detail .p-summary span {
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
@@ -247,7 +263,7 @@ ul, li {
 }
 
 .p-detail .p-start span {
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;;
 	font-size: 13px;
 	font-weight: bold;
 	font-style: normal;
@@ -260,7 +276,7 @@ ul, li {
 }
 
 .p-detail .p-end span {
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;;
 	font-size: 13px;
 	font-weight: bold;
 	font-style: normal;
@@ -283,7 +299,7 @@ ul, li {
 	position: relative;
 	top: 2px;
 	left: 16px;
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;;
 	font-size: 10px;
 	font-weight: bold;
 	font-style: normal;
@@ -294,6 +310,10 @@ ul, li {
 
 
 /* 用户详细页面 */
+.user-view {
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 #u-projects-form {
 	border-style: solid;
 	border-width: 1px;
@@ -324,7 +344,7 @@ ul, li {
 }
 
 .u-single p span {
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
@@ -334,7 +354,7 @@ ul, li {
 
 .u-single .u-priority {
 	float: right;
-	font-family: Applied Font;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	font-weight: bold;
 	font-style: normal;
@@ -363,9 +383,8 @@ ul, li {
 	background-color: #f5f5f5;
 }
 
-.create-info a {
-	display: block;
-	width: 80px;
+.create-info .create-return {
+	width: 205px;
 	margin: 0 auto;
 }
 

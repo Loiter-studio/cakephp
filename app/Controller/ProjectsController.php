@@ -99,6 +99,8 @@
 											 'status'=>'Unfinished',
 											 'summary'=>$_POST['summary']));
 			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
+
+			$this->set('project_id',$project_id);
 		}
 
 		public function delete($project_id)

@@ -22,7 +22,7 @@
 	<?php endif; ?>
 	
 	<div class="row-fluid">
-		<div class="edit-header">
+		<div class="edit-header page-header well">
 			<h3>编辑用户头像</h3>
 		</div>
 	</div>

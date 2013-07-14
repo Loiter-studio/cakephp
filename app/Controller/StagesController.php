@@ -51,7 +51,7 @@
 												 'summary'=>$_POST['summary'],
 												 'task'=>array()));
 			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
-			$this->set('project_id',$POST['project_id']);
+			$this->set('project_id',$_POST['project_id']);
 		}
 
 		public function delete($stage_id)

@@ -9,7 +9,7 @@
 			<li class="span2" style="margin-left: 15px;">
 				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>users/view/<?=$user['_id']?>'">
 					<img class="img-polaroid" src="<?php echo $this->webroot;?><?=$user['pic_url']?>" style="width:125px; height:100px;"></img>
-					<h4 style="text-align: center;"><?php echo $user['name'];?></h4>
+					<h5 class="label" style="display: block; text-align: center;"><?php echo $user['name'];?></h5>
 				</div>
 			</li>
 			

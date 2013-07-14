@@ -74,11 +74,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 			<div class="span2">
 				<div class="avatar thumbnails">
-					
-					<img src="<?php echo $this->webroot.$myavatar;?>" alt="wolf" id="user-avatar">
-					
-					<a href="<?=$this->webroot;?>users/edit">编辑</a>
-					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
+					<span>
+						<a id="user-avatar" class="thumbnail" href="<?=$this->webroot;?>uploads/upload" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改头像">
+							<img src="<?php echo $this->webroot.$myavatar;?>" alt="wolf" id="user-avatar">
+						</a>						
+						<a id="user-name" href="<?=$this->webroot;?>users/edit" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改资料"><?=$username;?></a>
+
+						<!-- <a href="<?=$this->webroot;?>uploads/upload">修改头像</a> -->
+					</span>					
 				</div>
 			</div>
 			
@@ -196,6 +199,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			keyboardNavigation: true,
 			showMeridian: true
 		});
+
+		$("#user-avatar").tooltip();
+		$("#user-name").tooltip();
 	</script>
 </body>
 </html>

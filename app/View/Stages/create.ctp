@@ -3,5 +3,32 @@
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
 		<strong>创建阶段成功.</strong> 
 	</div>
-	<a href="<?php echo $this->webroot?>projects">返回</a>
+	<div class="create-return">
+		<span>
+			<a href="<?php echo $this->webroot?>projects/view/<?=$project_id?>">返回查看项目</a>
+			<span>(</span>
+			<span class="counter">5</span>
+			<span>秒后自动返回)</span>
+		</span>
+	</div>
 </div>
+
+<script type="text/javascript">
+	$(".create-info").ready(function() {
+		var counter = 4;
+		var tid = setInterval(function(){
+			if(counter >= 0) {
+				$(".counter").html(counter);
+				counter -= 1;
+			} else {
+				clearInterval(tid);
+			}
+		}, 1000);
+
+		setTimeout(function(){
+			var pid = "<?=$project_id;?>";
+
+			window.location.pathname = "/moiter/projects/view/"+pid;
+		}, 5000);
+	}); 
+</script>

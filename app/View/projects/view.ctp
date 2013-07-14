@@ -13,10 +13,10 @@
 			</div>
 			
 		</div>
-		<div class="span9">
-			<h2><?php echo $project['name'];?></h2>
-			<p><?php echo $project['leader'];?></p>
-			<p><?php echo $project['summary'];?></p>
+		<div class="span9" style="font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+			<h2><span class="label label-warning">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
+			<p><span class="label label-success">项目负责人</span>&nbsp&nbsp&nbsp<?php echo $project['leader'];?></p>
+			<p><span class="label label-info">项目简介&nbsp&nbsp&nbsp</span>&nbsp&nbsp&nbsp<?php echo $project['summary'];?></p>
 			
 			
 			<!-- 添加任务 -->
@@ -149,7 +149,7 @@
 							<div class="p-status-bar"></div>
 							<div class="p-manager">
 								<div class="p-avatar">
-									<img src="<?php echo $this->webroot;?>img/hwfc.png">
+									<img src="<?php echo $this->webroot;?><?=$task['pic_url']?>">
 								</div>
 								<div class="p-name"><span><?php echo $task['user_name'];?></span></div>
 							</div>
