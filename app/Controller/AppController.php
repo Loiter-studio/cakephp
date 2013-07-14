@@ -52,8 +52,8 @@ class AppController extends Controller {
 		}
 		else
 		{
-			$this->redirect('/users/login');
-			exit();
+			//$this->redirect('http://localhost/moiter/user/login');
+			//exit();
 		}
 	}
 }
