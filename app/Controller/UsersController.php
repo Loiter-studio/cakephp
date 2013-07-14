@@ -24,7 +24,7 @@
 
 		public function index()
 		{
-			$this->checkSession();
+			// $this->checkSession();
 			$cursor = $this->userCursor->find();
 			$users = array();
 			while($data = $cursor->getNext())
@@ -35,7 +35,7 @@
 		}
 		public function view($user_id)
 		{
-			$this->checkSession();
+			// $this->checkSession();
 			$userData = $this->userCursor->findOne(array('_id'=>$user_id));
 			$this->set('user',$userData);
 			
@@ -81,28 +81,28 @@
 
 			$this->set('tasks',$tasks);
 		}
-		public function login()
-		{
-			$this->layout = "login";
-			$this->set('error', false);
+		// public function login()
+		// {
+		// 	$this->layout = "login";
+		// 	$this->set('error', false);
 
-			if(!empty($_POST["userName"]))
-			{
-				$someOne = $this->userCursor->findOne(array('name' => $_POST['userName']));
+		// 	if(!empty($_POST["userName"]))
+		// 	{
+		// 		$someOne = $this->userCursor->findOne(array('name' => $_POST['userName']));
 				
-				if(!empty($someOne['password']) && $someOne['password'] == md5($_POST['password']))
-				{
-					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url'],'email'=>$someOne['email']));
+		// 		if(!empty($someOne['password']) && $someOne['password'] == md5($_POST['password']))
+		// 		{
+		// 			$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url'],'email'=>$someOne['email']));
 
-					$this->redirect('/projects/index/../..');
-				}
-				else
-				{
-					$this->set('error',true);
-				}
-			}
+		// 			$this->redirect('/projects/index/../..');
+		// 		}
+		// 		else
+		// 		{
+		// 			$this->set('error',true);
+		// 		}
+		// 	}
 	
-		}
+		// }
 
 		public function register()
 		{
@@ -150,7 +150,7 @@
 		}
 		public function edit()
 		{
-			$this->checkSession();
+			// $this->checkSession();
 			$this->set('back',$this->getEditUser());
 			$this->set('update',false);
 			if(!empty($_POST))

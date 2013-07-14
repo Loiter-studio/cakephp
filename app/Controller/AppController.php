@@ -32,14 +32,14 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public function checkSession()
-	{
-		if(!$this->Session->check('User'))
-		{
-			$this->redirect('/users/login');
-			exit();
-		}
-	}
+	// public function checkSession()
+	// {
+	// 	if(!$this->Session->check('User'))
+	// 	{
+	// 		$this->redirect('/logins/index');
+	// 		exit();
+	// 	}
+	// }
 	public function beforeFilter()
 	{
 		if($this->Session->check('User'))
@@ -52,8 +52,8 @@ class AppController extends Controller {
 		}
 		else
 		{
-			//$this->redirect('/user/login');
-			//exit();
+			$this->redirect('/logins/index');
+			exit();
 		}
 	}
 }

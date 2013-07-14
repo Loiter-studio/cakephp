@@ -8,6 +8,7 @@
 		public $connection = null;
 		
 		public function beforeFilter(){
+			parent::beforeFilter();
 			$this->connection = new Mongo();
 			$database =  $this->connection->selectDB('moiter');
 		 	$this->company = $database->selectCollection('companies');

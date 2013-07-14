@@ -11,7 +11,7 @@
 
 		public function beforeFilter()
 		{
-			$this->checkSession();
+			// $this->checkSession();
 			parent::beforeFilter();
 			$this->connection = new Mongo();
 			//$this->projectCollection = $this->connection->moiter->projects;

@@ -11,7 +11,8 @@
 		private $userCollection = null;
 		public function beforeFilter()
 		{
-			$this->checkSession();
+			// $this->checkSession();
+			parent::beforeFilter();
 			$this->connection = new Mongo();
 
 			$this->stageCollection = $this->connection->moiter->stages;
