@@ -38,7 +38,7 @@
 				'user_id'=>$user['user_id'],
 				'content'=>$_POST['content'],
 				'leader'=>$_POST['leader'],
-				'status'=>"Unfinished",
+				'status'=>1,
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$_POST['stage_id']),

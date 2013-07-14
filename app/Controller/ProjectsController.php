@@ -53,7 +53,35 @@
 				$projectData[] =  $cursor->getNext();
 			}
 			//echo json_encode($projectData);
+			foreach ($projectData as &$p) {
+				# code...
+				$status_1 = 0;
+				$status_2 = 0;
+				$status_3 = 0;
+				$stages = $this->stageCollection->find(array('project_id'=>$p['_id']),array('task'=>1));
+				while($stages->hasNext()){
+					$stage = $stages->getNext();
+					// print_r($stage['task']);
+					foreach ($stage['task'] as $task) {
+						if($task['status'] == 1){
+							$status_1 += 1;
+						}
+						else if( $task['status'] == 2){
+							$status_2 += 1;
+						}
+						else if($task['status'] == 3)
+							$status_3 += 1;
+					}
+
+				}
+				$p['status_1'] = $status_1;
+				$p['status_2'] = $status_2;
+				$p['status_3'] = $status_3;
+
+			}
+			// print_r($projectData);
 			$this->set('projects',$projectData);
+
 		}
 
 		public function view($project_id)
