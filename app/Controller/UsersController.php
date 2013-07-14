@@ -111,7 +111,7 @@
 			$newUser['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
 			$newUser['email'] = $_POST['email'];
-			$newUser['pic_url'] ="img/hwfc.png";
+			$newUser['pic_url'] ="upload/default-avatar.png";
 			$newUser['tel'] = "";
 			$newUser['company'] = "";
 			$newUser['position'] = "";
