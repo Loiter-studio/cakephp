@@ -74,10 +74,12 @@
 				foreach ($stage['task'] as &$task) {
 					# code...
 					$aUser = $this->userCollection->findOne(array('_id'=>$task['user_id']));
-					$task['user_name'] = $aUser['name']; 
+					$task['user_name'] = $aUser['name'];
+					$task['pic_url'] = $aUser['pic_url'];
 					// print_r($aUser['name']);
 				}
 			}
+			// print_r ($stageData);
 			$this->set('project' , $projectData);
 			$this->set('stages' ,$stageData);
 	

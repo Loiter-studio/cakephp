@@ -47,6 +47,7 @@
 
 			$this->userCollection->update(array('_id'=>$user['user_id']),array('$push'=>array('project_task_id'=>$project['name']."#".$stage['project_id']."#".$task['task_id'])));
 
+			$this->set('project_id',$project['_id']);
 
 		}
 		public function delete($stage_id,$task_id)
