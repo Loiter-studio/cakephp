@@ -9,7 +9,7 @@
 		public function beforeFilter()
 		{
 			parent::beforeFilter();
-			$this->checkSession();
+			//$this->checkSession();
 			$this->connection = new Mongo();
 			$this->userCollection = $this->connection->moiter->users;
 		}
