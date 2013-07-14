@@ -75,6 +75,9 @@
 										   array('$push'=>array('task'=>$newTask)));
 
 		}
+		public function modifyStatus(){
+			
+		}
 		public function modifyPriority($stage_id , $task_id)
 		{
 			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
