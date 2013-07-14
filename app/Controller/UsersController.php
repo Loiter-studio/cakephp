@@ -94,7 +94,7 @@
 				{
 					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url'],'email'=>$someOne['email']));
 
-					$this->redirect('/projects/index');
+					$this->redirect('/projects/index/../..');
 				}
 				else
 				{
