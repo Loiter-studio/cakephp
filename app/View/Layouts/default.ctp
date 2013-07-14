@@ -75,7 +75,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span2">
 				<div class="avatar thumbnails">
 					
-					<img src="<?php echo $this->webroot;?>img/hwfc.png" alt="wolf" id="user-avatar">
+					<img src="<?php echo $this->webroot.$myavatar;?>" alt="wolf" id="user-avatar">
 					
 					<a href="<?=$this->webroot;?>users/edit">编辑</a>
 					<a href="<?=$this->webroot;?>uploads/upload">修改头像</a>
@@ -137,7 +137,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<ul class="nav nav-tabs nav-stacked" id="myTab">
 					<li id="project-list"><a class="meun-item" id="proj-m" href="<?php echo $this->webroot;?>projects">项目管理<i class="icon-chevron-right"></i></a></li>						
 					<li><a class="meun-item" href="<?php echo $this->webroot;?>users">用户管理<i class="icon-chevron-right"></i></a></li>
-					<li><a class="meun-item" href="<?php echo $this->webroot;?>effectiveness">效率查看<i class="icon-chevron-right"></i></a></li>
+					<li><a class="meun-item" href="<?php echo $this->webroot;?>efficiencies">效率查看<i class="icon-chevron-right"></i></a></li>
 				</ul>	
 			</div>
 			

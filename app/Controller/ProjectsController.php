@@ -16,6 +16,7 @@
 		//public $admin = null;
 		
 		public function beforeFilter(){
+			parent::beforeFilter();
 			$this->checkSession();
 
 			//$admin = 

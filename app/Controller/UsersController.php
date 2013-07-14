@@ -11,6 +11,7 @@
 		private $stageCollection = null;
 		public function beforeFilter()
 		{
+			parent::beforeFilter();
 			$this->connection = new Mongo();
 			$this->userCursor = $this->connection->moiter->users;
 			$this->projectCollection = $this->connection->moiter->projects;
@@ -102,10 +103,7 @@
 			}
 	
 		}
-		public function avatar()
-		{
-			$this->set('code', 0);
-		}
+
 		public function register()
 		{
 			$newUser = array();
@@ -113,7 +111,7 @@
 			$newUser['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
 			$newUser['email'] = $_POST['email'];
-			$newUser['pic_url'] =$this->webroot + "img/hwfc.png";
+			$newUser['pic_url'] ="img/hwfc.png";
 			$newUser['tel'] = "";
 			$newUser['company'] = "";
 			$newUser['position'] = "";

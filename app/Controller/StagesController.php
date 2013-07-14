@@ -12,7 +12,7 @@
 		public function beforeFilter()
 		{
 			$this->checkSession();
-
+			parent::beforeFilter();
 			$this->connection = new Mongo();
 			//$this->projectCollection = $this->connection->moiter->projects;
 			$this->stageCollection = $this->connection->moiter->stages;

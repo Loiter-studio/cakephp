@@ -46,13 +46,13 @@ class AppController extends Controller {
 		{
 			$user = $this->Session->read('User');
 			$this->set('myavatar',$user['pic_url']);
-			$this->redirect('/projects/index');
-			exit();
+			// $this->redirect('/projects/index');
+			// exit();
 		}
-		else
-		{
-			$this->redirect('/users/login');
-			exit();
-		}
+		// else
+		// {
+		// 	$this->redirect('/users/login');
+		// 	exit();
+		// }
 	}
 }
