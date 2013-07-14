@@ -11,7 +11,7 @@
 		private $stageCollection = null;
 		public function beforeFilter()
 		{
-			parent::beforeFilter();
+			// parent::beforeFilter();
 			$this->connection = new Mongo();
 			$this->userCursor = $this->connection->moiter->users;
 			$this->projectCollection = $this->connection->moiter->projects;
@@ -24,7 +24,7 @@
 
 		public function index()
 		{
-			// $this->checkSession();
+			$this->checkSession();
 			$cursor = $this->userCursor->find();
 			$users = array();
 			while($data = $cursor->getNext())
@@ -35,7 +35,7 @@
 		}
 		public function view($user_id)
 		{
-			// $this->checkSession();
+			$this->checkSession();
 			$userData = $this->userCursor->findOne(array('_id'=>$user_id));
 			$this->set('user',$userData);
 			
