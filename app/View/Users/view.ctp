@@ -3,7 +3,7 @@
 		<div class="span3" style="height: 130px; width: 140px">
 			<div class="user-avatars thumbnails">
 				<a class="thumbnail" href="#">
-					<img style="height: 130px;" src="<?php echo $this->webroot;?>img/wolf.jpg">
+					<img style="height: 130px;" src="<?php echo $this->webroot;?><?=$user['pic_url']?>">
 				</a>				
 			</div>
 		</div>
