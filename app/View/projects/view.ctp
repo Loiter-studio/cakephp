@@ -137,7 +137,7 @@
 									$toCN = array('零','一','二','三','四','五','六','七','八','九');
 									echo $toCN[$stageID];
 								?>阶段</h4>
-				<div class="separator"></div>
+				<div class="stage-separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
 						<div class="p-single" id="p-single-<?=$task['task_id']?>">
@@ -186,6 +186,10 @@
 										statusColor = "#ff0000";
 								}
 
+
+								$("#p-single-<?=$task['task_id']?>").css({
+									'border-color': statusColor
+								});
 								$("#p-single-<?=$task['task_id']?> .p-status-bar").css({
 									'background-color': statusColor
 								});

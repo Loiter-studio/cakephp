@@ -170,6 +170,13 @@ ul, li {
 }
 
 /****************************************************** 项目详细页面样式 ****************************************************/
+.stage-separator {
+	height: 45px;
+	background-image: url(../img/divider.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .p-single {
 	margin-left: 8px;
 	float: left;
