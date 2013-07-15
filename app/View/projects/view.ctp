@@ -1,8 +1,3 @@
-<style>
-.dropdown-menu{
-	z-index: 1055;
-}
-</style>
 <div class="project-view">
 	<div class="row-fluid">
 		<div class="span2" >		
@@ -190,12 +185,6 @@
 	echo $this->Html->script('bootstrap-datetimepicker');
 ?>
 <script>
-	$('.breadcrumb').empty();
-	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
-	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
-	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
-	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>');
-
 	$('#dp3').datetimepicker({
 		startDate: new Date(),
 		todayBtn: true,
@@ -228,5 +217,12 @@
 </script>
 
 
-
+<script type="text/javascript">
+	$('.breadcrumb').empty();
+	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
+	console.log("<?=$project['name'];?>");
+	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
+	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>');
+</script>
 

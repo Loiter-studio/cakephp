@@ -147,7 +147,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="span10">
 				<!-- 面包屑导航 -->
 				<ul class="breadcrumb" id="breadcrumb">
-					<li><a href=".">首页</a> <span class="divider">></span></li>	
+					<li><a href="<?=$this->webroot;?>">首页</a> <span class="divider">></span></li>	
 				</ul>
 				
 				<?php
@@ -177,8 +177,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<script type="text/javascript">
-		var mainHeight = $('#main-view').css("height");
-		$('#sidebar').css("height", mainHeight);
+		var winHeight = window.innerHeight - 56;
+		$('#sidebar').css("height", winHeight + "px");
 
 		$('#dp1').datetimepicker({
 			startDate: new Date(),
@@ -200,6 +200,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			showMeridian: true
 		});
 
+		$('#search').popover({
+			content: "<form class='form-search' id='search-form'><div class='input-append'><input type='text' class='input-medium search-query'><button type='submit' class='btn'><i class='icon-search'></i></button></div></form>",
+			html: true
+		});
+		
 		$("#user-avatar").tooltip();
 		$("#user-name").tooltip();
 	</script>
