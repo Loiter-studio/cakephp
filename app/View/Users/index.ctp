@@ -1,6 +1,6 @@
 <div class="tab-content">
 	<!-- 用户管理 -->
-	<div class="tab-pane active" id="project-management">
+	<div class="tab-pane active" id="user-management">
 		<!-- 项目缩略图 -->
 		<ul class="thumbnails">
 			<?php

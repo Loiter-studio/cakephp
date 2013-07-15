@@ -1,5 +1,10 @@
 /****************************************************** 全局样式 ***********************************************************/
-body{
+html {
+	overflow-x: hidden;
+	overflow-y: auto; 
+}
+
+body {
 	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #f5f5f5;
 	min-width: 1340px;
@@ -74,7 +79,7 @@ ul, li {
 /** 侧边栏 **/
 #sidebar {
 	position: relative;
-	min-height: 561px;
+	min-height: 585px;
 	width: 200px;
 	margin-left: -20px;
 	padding: 50px 10px 0px 10px;
@@ -140,9 +145,15 @@ ul, li {
 
 /** 底部栏 **/
 #footer {
+	position: relative;
+	bottom: 10px;
 	text-align: center;
-	width: 110px;
+	width: 125px;
 	margin: 0 auto;
+}
+
+#footer p {
+	margin: 0;
 }
 
 
@@ -169,6 +180,26 @@ ul, li {
 	margin-top: 8px;
 }
 
+#project-management ul li .thumbnail:hover{
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+}
+
+
+#user-management ul li h5 {
+	width: 125px;
+	margin: 5px auto;
+}
+
+#user-management ul li div:hover{
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+}
+
 /****************************************************** 项目详细页面样式 ****************************************************/
 .stage-separator {
 	height: 45px;
@@ -186,12 +217,19 @@ ul, li {
 	margin-bottom: 10px;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #ccc;
-
-	box-shadow: 5px 5px 5px #888888;
-	-webkit-box-shadow: 5px 5px 5px #888888;	
-	-moz-box-shadow: 5px 5px 5px #888888;
+	border-color: #ccc;	
 }
+
+.p-single:hover	{
+	position: relative;
+	top: -2px;
+	left: -2px;
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+}
+
 
 .p-status-bar {
 	float: left;
@@ -304,13 +342,67 @@ ul, li {
 
 /**************************************************** 用户详细页面样式 ******************************************************/
 #u-projects-form {
-	border-style: solid;
-	border-width: 1px;
-	border-color: #333;
 	padding-left: 35px;
 	margin-top: 10px;
 	width: 1013px;
 }
+
+#task-selector {
+	position: fixed;
+	z-index: 1055;
+	right: -71px;
+	top: 300px;
+	text-align: center;
+	overflow: hidden;
+	transition: right 0.5s;
+	-moz-transition: right 0.5s;		/* Firefox 4 */
+	-webkit-transition: right 0.5s;		/* Safari 和 Chrome */
+	-o-transition: right 0.5s;			/* Opera */
+}
+
+#task-selector:hover {
+	right: 0px;
+}
+
+#task-selector #selector-trigger {
+	float: left;
+	cursor: pointer;
+	width: 15px;
+	height: 101px;
+	background-image: url(../img/nav.png);
+}
+
+#task-selector ul {
+	display: block;
+	float: left;
+	list-style: none;
+	background-color: #666;
+	border: 1px solid #aaa;
+}
+
+#task-selector ul li {	
+	border-top: 1px solid #aaa;
+}
+
+#task-selector ul li:first-child {
+	border-top: none;
+}
+
+#task-selector ul li a {
+	display: block;
+	color: #fff;
+	padding: 2px 7px;
+	text-decoration: none;
+}
+
+#task-selector ul li:hover {
+	background-color: #eee;
+}
+
+#task-selector ul li a:hover {
+	color: #0088cc;
+}
+
 
 .u-single {
 	float: left;
@@ -322,9 +414,13 @@ ul, li {
 	margin-right: 35px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #333;
+}
+
+.u-single:hover {
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
 
 .u-single p{
@@ -350,6 +446,7 @@ ul, li {
 }
 
 .u-single .u-progress {
+	margin: 8px auto;
 	width: 200px;
 	height: 21px;
 }

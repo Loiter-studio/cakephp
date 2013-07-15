@@ -144,7 +144,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</ul>	
 			</div>
 			
-			<div class="span10">
+			<div class="span10" id="main-content">
 				<!-- 面包屑导航 -->
 				<ul class="breadcrumb" id="breadcrumb">
 					<li><a href="<?=$this->webroot;?>">首页</a> <span class="divider">></span></li>	
@@ -176,8 +176,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<script type="text/javascript">
-		var winHeight = window.innerHeight - 56;
-		$('#sidebar').css("height", winHeight + "px");
+		var winHeight = $("#main-view").css('height');
+		$('#sidebar').css("height", winHeight);
 
 		$('#dp1').datetimepicker({
 			startDate: new Date(),
