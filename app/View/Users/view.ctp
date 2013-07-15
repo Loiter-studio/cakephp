@@ -10,10 +10,10 @@
 		
 		<div class="span9">
 			<p id="name"><span class="label label-warning">姓名</span>&nbsp&nbsp&nbsp<?php echo $user['name'];?></p>
-			<p id="company"><span class="label label-important">公司</span>&nbsp&nbsp&nbsp<?php echo $user['company'];?></p>
-			<p id="position"><span class="label label-info">职位</span>&nbsp&nbsp&nbsp<?php echo $user['position'];?></p>
-			<p id="tel"><span class="label label-success">电话</span>&nbsp&nbsp&nbsp<?php echo $user['tel'];?></p>
-			<p id="email"><span class="label label-inverse">邮箱</span>&nbsp&nbsp&nbsp<?php echo $user['email'];?></p>
+			<p id="company"><span class="label label-warning">公司</span>&nbsp&nbsp&nbsp<?php echo $user['company'];?></p>
+			<p id="position"><span class="label label-warning">职位</span>&nbsp&nbsp&nbsp<?php echo $user['position'];?></p>
+			<p id="tel"><span class="label label-warning">电话</span>&nbsp&nbsp&nbsp<?php echo $user['tel'];?></p>
+			<p id="email"><span class="label label-warning">邮箱</span>&nbsp&nbsp&nbsp<?php echo $user['email'];?></p>
 		</div>
 	</div>
 	

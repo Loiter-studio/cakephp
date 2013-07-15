@@ -135,7 +135,7 @@ ul, li {
 }
 
 #content h1, h2, h4, h5, h6 {
-	background-color: #f5f5f5;
+	/*background-color: #f5f5f5;*/
 }
 
 /** 底部栏 **/
@@ -147,6 +147,28 @@ ul, li {
 
 
 
+/****************************************************** 项目列表页面样式 ****************************************************/
+#project-management .project-header {	
+	padding: 3px 35px 3px 35px;
+	margin-bottom: 5px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#project-management .project-header h4 {
+	color: #c09853;
+	margin: 0;
+}
+
+#project-management .project-statistics {
+	margin-left: 25px;
+	margin-top: 8px;
+}
+
 /****************************************************** 项目详细页面样式 ****************************************************/
 .p-single {
 	margin-left: 8px;
@@ -157,7 +179,11 @@ ul, li {
 	margin-bottom: 10px;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #333;
+	border-color: #ccc;
+
+	box-shadow: 5px 5px 5px #888888;
+	-webkit-box-shadow: 5px 5px 5px #888888;	
+	-moz-box-shadow: 5px 5px 5px #888888;
 }
 
 .p-status-bar {
@@ -176,15 +202,15 @@ ul, li {
 }
 
 .p-manager .p-avatar {
-	width: 56px;
-	height: 65px;
+	width: 46px;
+	height: 55px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 .p-manager .p-avatar img {
-	width: 56px;
-	height: 65px;
+	width: 46px;
+	height: 55px;
 }
 
 .p-manager .p-name {
@@ -246,17 +272,18 @@ ul, li {
 	float: left;
 	position: relative;
 	top: -111px;
-	left: 107px;
-	width: 55px;
+	left: 96px;
+	width: 66px;
 	height: 116px;
-	background-image: url(../img/status_finished.png); 
-	background-position: 59px -3px;
+	background-image: url(../img/status_underway.png);
+	background-repeat: no-repeat;
+	background-position: 0 0; 
 }
 
 .p-status span {
 	position: relative;
-	top: 2px;
-	left: 16px;
+	top: 5px;
+	left: 27px;
 	font-size: 10px;
 	font-weight: bold;
 	font-style: normal;

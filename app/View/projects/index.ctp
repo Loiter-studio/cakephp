@@ -10,13 +10,14 @@
 			?>
 			<li class="span3" style="margin-left: 15px;">
 				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>projects/view/<?=$project['_id']?>'">
-					<h4 class="alert" style="text-align: center;"><?php echo $project['name'];?></h4>
+					<div class="project-header thumbnail">
+						<h4 style="text-align: center;"><?php echo $project['name'];?></h4>
+					</div>
 					<div class="row-fluid">
 						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/hwfc.png" style="width:125px; height:100px;"></img></div>
-						<div class="span1"></div>
-						<div class="span6">
+						<div class="span6 project-statistics">
 							<p><span class="label label-warning">进行中</span> <span><?=$project['status_1']?></span><span>个任务</span></p>
-							<p><span class="label">审核中</span> <span><?=$project['status_2']?></span><span>个任务</p>
+							<p><span class="label ">审核中</span> <span><?=$project['status_2']?></span><span>个任务</p>
 							<p><span class="label label-success">已完成</span> <span><?=$project['status_3']?></span><span>个任务</p>
 						<div>
 					</div>

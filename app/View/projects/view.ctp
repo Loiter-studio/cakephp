@@ -9,7 +9,7 @@
 			
 		</div>
 		<div class="span9" style="font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-			<h2><span class="label label-warning">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
+			<h3><span class="label label-warning">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
 			<p><span class="label label-success">项目负责人</span>&nbsp&nbsp&nbsp<?php echo $project['leader'];?></p>
 			<p><span class="label label-info">项目简介&nbsp&nbsp&nbsp</span>&nbsp&nbsp&nbsp<?php echo $project['summary'];?></p>
 			
@@ -140,10 +140,10 @@
 				<div class="separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
-						<div class="p-single">
+						<div class="p-single" id="p-single-<?=$task['task_id']?>">
 							<div class="p-status-bar"></div>
 							<div class="p-manager">
-								<div class="p-avatar">
+								<div class="p-avatar thumbnail">
 									<img src="<?php echo $this->webroot;?><?=$task['pic_url']?>">
 								</div>
 								<div class="p-name"><span><?php echo $task['user_name'];?></span></div>
@@ -160,17 +160,40 @@
 								</div>
 							</div>
 							<div class="p-status">
-								<span><?php switch($task['status']) {
-												case 1:
-													echo '进行中';
-													break;
-												case 2:
-													echo '待审核';													
-													break;
-												case 3:
-													echo '已完成';
-											}?></span>
+								<span></span>
 							</div>
+							<script type="text/javascript">							
+								var statusId = <?= $task['status'] ?>;
+								var statusStr, statusColor, statusBg;
+								switch (statusId) {
+									case 1:
+										statusStr = "进行中";
+										statusColor = "#f89406";
+										statusBg = "status_underway.png";
+										break;
+									case 2:
+										statusStr = "待审核";
+										statusColor = "#999999";
+										statusBg = "status_checking.png";
+										break;
+									case 3:
+										statusStr = "已完成";
+										statusColor = "#468847";
+										statusBg = "status_finished.png";
+										break;
+									default:
+										statusStr = "出错啦";
+										statusColor = "#ff0000";
+								}
+
+								$("#p-single-<?=$task['task_id']?> .p-status-bar").css({
+									'background-color': statusColor
+								});
+								$("#p-single-<?=$task['task_id']?> .p-status").css({
+									'background-image': 'url(<?=$this->webroot?>/img/'+statusBg+")"
+								});
+								$("#p-single-<?=$task['task_id']?> .p-status > span").html(statusStr);							
+							</script>
 						</div>
 					<?php } ?>
 				</div>
@@ -221,7 +244,6 @@
 	$('.breadcrumb').empty();
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
-	console.log("<?=$project['name'];?>");
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>');
 </script>
