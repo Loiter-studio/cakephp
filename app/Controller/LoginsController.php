@@ -26,7 +26,7 @@
 				
 				if(!empty($someOne['password']) && $someOne['password'] == md5($_POST['password']))
 				{
-					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url'],'email'=>$someOne['email']));
+					$this->Session->write('User',array('user_id'=>$someOne['_id'],'userName'=>$someOne['name'],'pic_url'=>$someOne['pic_url'],'authority'=>$someOne['authority'],'email'=>$someOne['email']));
 
 					$this->redirect('/projects/index');
 				}
@@ -43,6 +43,7 @@
 			$newUser['_id'] = md5($_POST['name']."".time());
 			$newUser['name'] = $_POST['name'];
 			$newUser['password'] = md5($_POST['password']);
+			$newUser['authority'] = 3;
 			$newUser['email'] = $_POST['email'];
 			$newUser['pic_url'] ="upload/default-avatar.png";
 			$newUser['tel'] = "";
@@ -66,7 +67,7 @@
 				if(isset($tmp))
 				{
 					$this->set('code',1);
-					$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url'],'email'=>$tmp['email']));
+					$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url'],'authority'=>$someOne['authority'],'email'=>$tmp['email']));
 					$this->redirect('/projects/index');	
 				}
 			}

@@ -66,7 +66,7 @@
 				'task_id'=>$timestamp,
 				'user_id'=>$user['user_id'],
 				'cnotent'=>$_POST['content'],
-				'status'=>'Unfinished',
+				'status'=>1,
 				'priority'=>$_POST['priority'],
 				'deadline'=>$_POST['deadline']);
 			$this->stageCollection->update(array('_id'=>$stage_id),
@@ -76,6 +76,20 @@
 
 		}
 		public function modifyStatus(){
+			if(isset($_POST['status'])){
+				$this->stageCollection->find(array('_id'=>$stage_id),array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+				$newTask = $tmpTask->getNext();
+				if(isset($newTask)){
+					$newTask['status'] = $status;
+					$this->stageCollection->update(array('_id'=>$stage_id),
+											       array('$pull'=>array('task'=>array('task_id'=>$task_id))));
+					$this->stageCollection->update(array('_id'=>$stage_id),
+											   	   array('$push'=>array('task'=>$newTask)));
+					$this->set('code',1);
+				}
+				else
+					$this->set('code',0);
+			}
 			
 		}
 		public function modifyPriority($stage_id , $task_id)

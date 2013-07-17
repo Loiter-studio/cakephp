@@ -45,8 +45,7 @@ class AppController extends Controller {
 		if($this->Session->check('User'))
 		{
 			$user = $this->Session->read('User');
-			$this->set('myavatar',$user['pic_url']);
-			$this->set('username',$user['userName']);
+			$this->set('currentUser',$user);
 			// $this->redirect('/projects/index');
 			// exit();
 		}
