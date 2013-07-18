@@ -76,9 +76,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<div class="avatar thumbnails">
 					<span>
 						<a id="user-avatar" class="thumbnail" href="<?=$this->webroot;?>uploads/upload" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改头像">
-							<img src="<?php echo $this->webroot.$myavatar;?>" alt="wolf" id="user-avatar">
+							<img src="<?php echo $this->webroot.$currentUser['pic_url'];?>" alt="wolf" id="user-avatar">
 						</a>						
-						<a id="user-name" href="<?=$this->webroot;?>users/edit" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改资料"><?=$username;?></a>
+						<a id="user-name" href="<?=$this->webroot;?>users/edit" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改资料"><?=$currentUser['userName'];?></a>
 
 						<!-- <a href="<?=$this->webroot;?>uploads/upload">修改头像</a> -->
 					</span>					
