@@ -67,7 +67,7 @@
 				if(isset($tmp))
 				{
 					$this->set('code',1);
-					$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url'],'authority'=>$someOne['authority'],'email'=>$tmp['email']));
+					$this->Session->write('User',array('user_id'=>$newUser['_id'],'userName'=>$newUser['name'],'pic_url'=>$tmp['pic_url'],'authority'=>$newUser['authority'],'email'=>$tmp['email']));
 					$this->redirect('/projects/index');	
 				}
 			}
