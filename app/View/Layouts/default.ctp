@@ -176,8 +176,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<script type="text/javascript">
-		var winHeight = $("#main-view").css('height');
-		$('#sidebar').css("height", winHeight);
+		// var winHeight = $("#main-view").css('height');
+		var winHeight = window.innerHeight - 56;
+		$('#sidebar').css("height", winHeight + "px");
 
 		$('#dp1').datetimepicker({
 			startDate: new Date(),
