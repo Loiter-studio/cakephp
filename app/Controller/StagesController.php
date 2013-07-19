@@ -58,12 +58,17 @@
 		{
 			$this->stageCollection->remove(array('_id'=>$stage_id));
 			$tmp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
-			$code = true;
+			
 			if($tmp)
 			{
-				$code = false;
+				$this->set('code',0);
 			}
-			echo json_decode($code);
+			else
+			{
+				$this->set('code',1)
+			}
+
+			
 		}
 
 		public function edit($stage_id)

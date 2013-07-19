@@ -114,8 +114,13 @@
 			$this->redirect('/users/login');			
 		}
 
-		public function username(){
+		public function username()
+		{
 			echo $this->Session->read('User');
+		}
+		public function userManagement()
+		{
+
 		}
 	}
 ?>

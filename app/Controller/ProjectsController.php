@@ -33,19 +33,7 @@
 
 		public function index()
 		{
-			/*
-			$admin = $this->Session->read('User');
-		
-			$userData = $this->userCollection->findOne(array('name' => $admin['userName']));
-			$projectData = array();
-			
 
-			foreach($userData['project_id'] as $project_id){
-				$project = $this->projectCollection->findOne(array('_id' => $project_id));
-				$projectData[]=$project;
-	
-			}
-			*/
 			$projectData = array();
 			$cursor = $this->projectCollection->find();		
 			while($cursor->hasNext())
@@ -133,16 +121,10 @@
 
 		public function delete($project_id)
 		{
-			$project_id = null;
+			
 			$this->projectCollection->remove(array('_id' => $project_id));
 			//$this->companyCollection->update(array('_id' => $ ))
-			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
-			$code = true;
-			if($tmp)
-			{
-				$code = false;
-			}
-			echo json_decode($code);
+			$this->stageCollection->remove(array('project_id'=>$prject_id));
 
 		}
 

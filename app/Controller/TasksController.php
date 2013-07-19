@@ -53,10 +53,18 @@
 		}
 		public function delete($stage_id,$task_id)
 		{
-			$user = $this->Session->read('User');
 			$this->stageCollection->update(array('_id'=>$stage_id),
-										   array('$pull'=>array('task'=>array('task_id'=>$task_id,$user['user_id']))));
-
+										   array('$pull'=>array('task'=>array('task_id'=>$task_id))));
+			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+			$oldTask = $tmpTask->getNext();
+			if(isset($oldTask))
+			{
+				$this->set('code',0);
+			}
+			else
+			{
+				$this->set('code',1);
+			}
 		}
 
 		public function edit($stage_id, $task_id)
@@ -75,9 +83,11 @@
 										   array('$push'=>array('task'=>$newTask)));
 
 		}
-		public function modifyStatus(){
-			if(isset($_POST['status'])){
-				$this->stageCollection->find(array('_id'=>$stage_id),array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+		public function modifyStatus()
+		{
+			if(isset($_POST['status'] && isset($_POST['task_id']))
+			{
+				$this->stageCollection->find(array('_id'=>$_POST['stage_id']),array('task'=>array('$elemMatch'=>array('task_id'=>$_POST['task_id']))));
 				$newTask = $tmpTask->getNext();
 				if(isset($newTask)){
 					$newTask['status'] = $status;
@@ -92,6 +102,7 @@
 			}
 			
 		}
+
 		public function modifyPriority($stage_id , $task_id)
 		{
 			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
