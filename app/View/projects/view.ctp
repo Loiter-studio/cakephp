@@ -285,7 +285,7 @@
 		var task_id = $(this).attr("id").split("-"),
 			stage_id = $(this).parent().parent().attr("id").split("-");
 		$(this).click(function() {
-			var pathname = "/tasks/delete/"+stage_id[1]+"/"+task_id[2];
+			var pathname = "tasks/delete/"+stage_id[1]+"/"+task_id[2];
 			//window.location.pathname = pathname;
 			$.post("<?=$this->webroot;?>"+pathname, "haha", function(results){
 				console.log(results);
