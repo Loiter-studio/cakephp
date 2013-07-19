@@ -36,7 +36,7 @@
 							</div>
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;Rathinho&quot;,&quot;lichaop&quot;]';?>">
 							</div>
 							<div class="input-prepend">
 								<span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -84,7 +84,7 @@
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;Rathinho&quot;,&quot;lichaop&quot;]';?>">
 							</div>
 													
 							<div class="input-prepend">
@@ -211,6 +211,7 @@
 	echo $this->Html->css('datetimepicker');
 	echo $this->Html->script('bootstrap-datetimepicker');
 ?>
+
 <script>
 	$('#dp3').datetimepicker({
 		startDate: new Date(),
@@ -241,14 +242,24 @@
 		keyboardNavigation: true,
 		showMeridian: true
 	});
-</script>
 
-
-<script type="text/javascript">
 	$('.breadcrumb').empty();
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
-	$('.breadcrumb').append('<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>');
+	
+	
+
+	// 所有用户都能创建任务，登录用户为当前任务负责人或者管理员才可创建阶段
+	var projectLeader = "<?php echo $project['leader'];?>";
+	var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+	var projectAdder;
+	if (window.currentUserObj.authority <= 2 && currentUserObj.userName === projectLeader) {
+		projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+	} else {
+		projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+	}
+
+	$('.breadcrumb').append(projectAdder);
 </script>
 

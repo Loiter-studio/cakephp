@@ -45,10 +45,37 @@
 					<span class="left-day"></span>
 					<span>天</span></p>
 				<div class="u-status">
-					<img src="<?php echo $this->webroot;?>img/u_status.gif">
+					<div class="switch switch-small" id="switch-<?=$project['task_id']?>">
+					    <input type="checkbox" checked disabled/>
+					</div>
 				</div>
 
 				<script type="text/javascript">
+					(function setStatus() {
+						var status = "<?=$project['status'];?>";
+						switch(status) {
+							case "1":
+								$("#switch-<?=$project['task_id']?>").attr("data-on-label", "进行中");
+								$("#switch-<?=$project['task_id']?>").attr("data-off-label", "待审核");
+								$("#switch-<?=$project['task_id']?>").attr("data-on", "warning");
+								$("#switch-<?=$project['task_id']?>").attr("data-off", "info");
+								break;
+							case "2":
+								$("#switch-<?=$project['task_id']?>").attr("data-on-label", "待审核");
+								$("#switch-<?=$project['task_id']?>").attr("data-off-label", "已完成");
+								$("#switch-<?=$project['task_id']?>").attr("data-on", "info");
+								$("#switch-<?=$project['task_id']?>").attr("data-off", "success");
+								$("#switch-<?=$project['task_id']?>").children()[0].disabled = true;
+								break;
+							case "3":
+								$("#switch-<?=$project['task_id']?>").attr("data-off-label", "已完成");
+								$("#switch-<?=$project['task_id']?>").attr("data-off", "success");
+								$("#switch-<?=$project['task_id']?>").children()[0].checked = false;
+								$("#switch-<?=$project['task_id']?>").children()[0].disabled = true;
+								break;
+						}
+					})();
+
 					(function setPriority() {
 						var priority = "<?php echo $project['priority'];?>";
 						var strColor;
@@ -83,7 +110,6 @@
 		<?php } ?>		
 	</div>
 </div>
-
 
 <script>
 	$('.breadcrumb').empty();
@@ -142,5 +168,33 @@
 				form.appendChild(userTasksList[i]);
 			}
 		};
+	});
+
+	// 权限控制
+	var username = "<?php echo $user['name'];?>";
+	var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+	if (currentUserObj.authority === 3 && currentUserObj.userName !== username) {
+		// 普通用户查看其他用户的资料时， 将状态开关设置为disabled
+		$(".switch").each(function() {
+			$(this).children()[0].disabled = true;
+		});
+	} else if (currentUserObj.authority === 2 && currentUserObj.userName !== username) {
+
+	} else if (currentUserObj.authority === 1) {
+		// 管理员用户可以更改所有用户的任务状态
+		$(".switch").each(function() {
+			$(this).children()[0].disabled = true;
+		})
+	} else if (currentUserObj.userName === username) {
+		// 普通用户查看自己的资料时， 将状态开关设置为enabled
+		$(".switch").each(function() {
+			$(this).children()[0].disabled = false;
+		});
+	}
+
+	// 监听状态开关改变事件，向服务器Post更新后的状态
+	$(".switch").on('switch-change', function (e, data) {
+		var $id = $(this).attr('id');
+		console.log($id);
 	});
 </script>

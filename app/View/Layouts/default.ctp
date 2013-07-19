@@ -58,7 +58,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<i class="icon-search"></i>
 					搜索
 				</a>
-				<a class="btn" href="#AddProject" data-toggle="modal">
+				<a class="btn" id="addProject" href="#AddProject" data-toggle="modal">
 					<i class="icon-pencil"></i>
 					添加项目
 				</a>
@@ -102,7 +102,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;rathinho&quot;,&quot;lichaop&quot;]';?>">
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;Rathinho&quot;,&quot;lichaop&quot;]';?>">
 							</div>
 
 							<div class="input-prepend">
@@ -173,12 +173,25 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->element('sql_dump');
 		echo $this->Html->script('bootstrap-datetimepicker'); 
 		echo $this->Html->css('datetimepicker');
+		echo $this->Html->css('bootstrap-switch');
+		echo $this->Html->script('bootstrap-switch');
 	?>
 	
 	<script type="text/javascript">
-		// var winHeight = $("#main-view").css('height');
-		var winHeight = window.innerHeight - 56;
-		$('#sidebar').css("height", winHeight + "px");
+		// 将php数组转化为js对象，并保存到全局环境中
+		window.currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+
+		// 非boss不能创建项目
+		if (window.currentUserObj.authority != 1) {
+			$("#addProject").remove();
+		}
+
+
+		var mainHeight = parseInt($("#main-view").css('height')),
+			winHeight = window.innerHeight - 56;
+		var sidebarHeight = mainHeight > winHeight ? mainHeight : winHeight;
+
+		$('#sidebar').css("height", sidebarHeight + "px");
 
 		$('#dp1').datetimepicker({
 			startDate: new Date(),
