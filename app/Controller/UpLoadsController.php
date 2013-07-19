@@ -50,7 +50,7 @@
 					move_uploaded_file($_FILES['avatar']['tmp_name'], "upload/".$_FILES['avatar']['name']);	
 					$dest = "upload/".$user['user_id'].".".$type;
 					$this->userCollection->update(array('_id'=>$user['user_id']),array('$set'=>array('pic_url'=>$dest)));
-					$this->Session->write('User',array('user_id'=>$user['user_id'],'userName'=>$user['userName'],'pic_url'=>$dest,'authority'=>$someOne['authority'],'email'=>$user['email']));
+					$this->Session->write('User',array('user_id'=>$user['user_id'],'userName'=>$user['userName'],'pic_url'=>$dest,'authority'=>$user['authority'],'email'=>$user['email']));
 				
 				}			
 			}			
