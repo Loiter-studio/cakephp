@@ -8,7 +8,7 @@
 				foreach($projects as $project){
 					
 			?>
-			<li class="span3" style="margin-left: 15px;">
+			<li class="span3" id="p-<?php echo $project['name'];?>" style="margin-left: 15px;">
 				<div class="thumbnail" style="cursor: pointer;" onclick="location.href='<?=$this->webroot;?>projects/view/<?=$project['_id']?>'">
 					<div class="project-header thumbnail">
 						<h4 style="text-align: center;"><?php echo $project['name'];?></h4>
@@ -31,7 +31,6 @@
 		</ul>
 	</div>
 </div>
-
 
 <script>
 	$('.breadcrumb').empty();

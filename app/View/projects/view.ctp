@@ -118,6 +118,25 @@
 					</div>
 				</form>
 			</div>	
+
+			<!-- 删除项目 -->
+			<div id="deleteProject" class="modal hide fade">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h5>Warning</h5>
+				</div>
+				<form type="hidden" method="post" action="<?=$this->webroot;?>stages/create">
+					<div class="modal-body">						
+						<fieldset>					
+							<input type="hidden" name="project_id" id="projectid-input" value="<?php echo $project['_id'];?>"></input>
+						</fieldset>						
+					</div>
+					<div class="modal-footer">
+						<p class="btn" data-dismiss="modal" type="button">关闭</p>
+						<input class="btn" id="save-stage" type="submit"></input>
+					</div>
+				</form>
+			</div>
 			
 		</div>
 	</div>
@@ -132,10 +151,10 @@
 			<?php endif ?>
 
 			<?php foreach($stages as $stage){ ?>
-			<div class="row-fluid">				
-				<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageID=$stage['index'];
+			<div class="row-fluid" id="stage-<?=$stage['_id']?>">				
+				<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageIndex=$stage['index'];
 									$toCN = array('零','一','二','三','四','五','六','七','八','九');
-									echo $toCN[$stageID];
+									echo $toCN[$stageIndex];
 								?>阶段</h4>
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
@@ -254,11 +273,25 @@
 	var projectLeader = "<?php echo $project['leader'];?>";
 	var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 	var projectAdder;
-	if (window.currentUserObj.authority <= 2 && currentUserObj.userName === projectLeader) {
+	if (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
 		projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+	} else if (window.currentUserObj.authority === 1) {
+		projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
 	} else {
 		projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
 	}
+
+	$(".p-single").each(function () {
+		var task_id = $(this).attr("id").split("-"),
+			stage_id = $(this).parent().parent().attr("id").split("-");
+		$(this).click(function() {
+			var pathname = "/tasks/delete/"+stage_id[1]+"/"+task_id[2];
+			//window.location.pathname = pathname;
+			$.post("<?=$this->webroot;?>"+pathname, "haha", function(results){
+				console.log(results);
+			})
+		});		
+	})
 
 	$('.breadcrumb').append(projectAdder);
 </script>
