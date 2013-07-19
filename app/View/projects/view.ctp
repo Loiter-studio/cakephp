@@ -151,15 +151,15 @@
 			<?php endif ?>
 
 			<?php foreach($stages as $stage){ ?>
-			<div class="row-fluid" id="stage-<?=$stage['_id']?>">				
-				<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageIndex=$stage['index'];
+			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>">				
+				<a href="javascript:void(0);"><h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageIndex=$stage['index'];
 									$toCN = array('零','一','二','三','四','五','六','七','八','九');
 									echo $toCN[$stageIndex];
-								?>阶段</h4>
+								?>阶段</h4></a>
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
-						<div class="p-single" id="p-single-<?=$task['task_id']?>">
+						<div class="p-single" id="p-single-<?=$task['task_id']?>" data-animation="true" data-title="" data-placement="top">				
 							<div class="p-status-bar"></div>
 							<div class="p-manager">
 								<div class="p-avatar thumbnail">
@@ -176,12 +176,38 @@
 								</div>
 								<div class="p-end">
 									<p><span><?php echo $task['deadline'];?></span></p>
-								</div>
+								</div>								
 							</div>
 							<div class="p-status">
 								<span></span>
 							</div>
-							<script type="text/javascript">							
+							<script type="text/javascript">
+								var leader = "<?=$task['user_name'];?>";
+								var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+								console.log(leader + " " + currentUserObj.userName);
+							
+								if (leader === currentUserObj.userName) {
+									$this = $("#p-single-<?=$task['task_id']?>");
+									var project_id = "<?=$project['_id']?>",
+										task_id = $this.attr("id").split("-"),
+										stage_id = $this.parent().parent().attr("id").split("-");
+
+									$this.popover({
+										content: "<span><a id=delete-"+ task_id[2] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+										html: true
+									});
+
+									$this.click(function() {			
+										$this.popover();	
+
+										$("#delete-"+task_id[2]).click(function() {
+											var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage_id[1] + "/" + task_id[2];
+											window.location.pathname = pathname;
+										});		
+									});
+								}
+
+
 								var statusId = <?= $task['status'] ?>;
 								var statusStr, statusColor, statusBg;
 								switch (statusId) {
@@ -281,17 +307,34 @@
 		projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
 	}
 
-	$(".p-single").each(function () {
-		var task_id = $(this).attr("id").split("-"),
-			stage_id = $(this).parent().parent().attr("id").split("-");
-		$(this).click(function() {
-			var pathname = "tasks/delete/"+stage_id[1]+"/"+task_id[2];
-			//window.location.pathname = pathname;
-			$.post("<?=$this->webroot;?>"+pathname, "haha", function(results){
-				console.log(results);
-			})
-		});		
-	})
+
+
+	if (window.currentUserObj.authority === 1 || (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
+		$(".p-stage").each(function () {
+			var project_id = "<?=$project['_id']?>",
+				stage_id = $(this).attr("id").split("-");
+
+			$(this).children().eq(0).popover({
+				content: "<span><a id=delete-" + stage_id[1] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+				html: true,
+				placement: "top"
+			});
+
+			$(this).children().eq(0).click(function() {			
+				$(this).popover();	
+
+				$("#delete-" + stage_id[1]).click(function() {
+					var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage_id[1];
+					// $.post("<?=$this->webroot;?>"+pathname, "", function(results){
+
+					// 	console.log(results);
+					// 	//window.location.reload();
+					// });
+					window.location.pathname = pathname;
+				});		
+			});
+		});
+	}
 
 	$('.breadcrumb').append(projectAdder);
 </script>

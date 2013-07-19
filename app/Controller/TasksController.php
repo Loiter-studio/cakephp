@@ -85,7 +85,7 @@
 		}
 		public function modifyStatus()
 		{
-			if(isset($_POST['status'] && isset($_POST['task_id']))
+			if(isset($_POST['status']) && isset($_POST['task_id']))
 			{
 				$this->stageCollection->find(array('_id'=>$_POST['stage_id']),array('task'=>array('$elemMatch'=>array('task_id'=>$_POST['task_id']))));
 				$newTask = $tmpTask->getNext();

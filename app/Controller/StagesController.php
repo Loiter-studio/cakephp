@@ -65,10 +65,8 @@
 			}
 			else
 			{
-				$this->set('code',1)
-			}
-
-			
+				$this->set('code',1);
+			}			
 		}
 
 		public function edit($stage_id)

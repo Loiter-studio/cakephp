@@ -7,7 +7,7 @@
 		<span>
 			<a href="<?php echo $this->webroot?>projects/view/<?=$project_id?>">返回查看项目</a>
 			<span>(</span>
-			<span class="counter">5</span>
+			<span class="counter">3</span>
 			<span>秒后自动返回)</span>
 		</span>
 	</div>
@@ -15,7 +15,7 @@
 
 <script type="text/javascript">
 	$(".create-info").ready(function() {
-		var counter = 4;
+		var counter = 2;
 		var tid = setInterval(function(){
 			if(counter >= 0) {
 				$(".counter").html(counter);
@@ -29,6 +29,6 @@
 			var pid = "<?=$project_id;?>";
 
 			window.location.pathname = "/moiter/projects/view/"+pid;
-		}, 5000);
+		}, 3000);
 	}); 
 </script>
