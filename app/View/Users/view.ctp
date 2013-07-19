@@ -183,7 +183,7 @@
 	} else if (currentUserObj.authority === 1) {
 		// 管理员用户可以更改所有用户的任务状态
 		$(".switch").each(function() {
-			$(this).children()[0].disabled = true;
+			$(this).children()[0].disabled = false;
 		})
 	} else if (currentUserObj.userName === username) {
 		// 普通用户查看自己的资料时， 将状态开关设置为enabled
