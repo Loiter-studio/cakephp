@@ -9,8 +9,8 @@
 			
 		</div>
 		<div class="span9" style="font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-			<h3><span class="label label-warning">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
-			<p><span class="label label-success">项目负责人</span>&nbsp&nbsp&nbsp<?php echo $project['leader'];?></p>
+			<h3><span class="label label-info">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
+			<p><span class="label label-info">项目负责人</span>&nbsp&nbsp&nbsp<?php echo $project['leader'];?></p>
 			<p><span class="label label-info">项目简介&nbsp&nbsp&nbsp</span>&nbsp&nbsp&nbsp<?php echo $project['summary'];?></p>
 			
 			
