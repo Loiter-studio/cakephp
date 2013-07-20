@@ -461,8 +461,8 @@
 						$("#modify-task-status-input").attr('value', taskObj.status);
 						$("#modify-task-id-input").attr('value', taskObj.task_id);
 						$("#modify-user-id-input").attr('value', taskObj.user_id);
-						$("#modify-project-id-input").attr('value', stage[1]);
-						$("#modify-stage-id-input").attr('value', project_id);
+						$("#modify-project-id-input").attr('value', project_id);
+						$("#modify-stage-id-input").attr('value', stage[1]);
 					});
 				});
 			}
