@@ -24,12 +24,11 @@
 			$this->connection->close();
 		}
 
-		public function index($stage_id)
-		{
-			$stage = $this->stageCollection->find(array('_id'=>$stage_id));
-		    echo json_encode($stage['task']);
-
-		}
+		// public function index($stage_id)
+		// {
+		// 	$stage = $this->stageCollection->find(array('_id'=>$stage_id));
+		//     echo json_encode($stage['task']);
+		// }
 		public function create()
 		{
 			$user = $this->Session->read('User');
@@ -109,20 +108,24 @@
 			}
 		}
 
-		public function edit($stage_id, $task_id)
+		public function edit()
 		{
-			$user = $this->Session->read('User');
-			$newTask = array(
-				'task_id'=>$timestamp,
-				'user_id'=>$user['user_id'],
-				'cnotent'=>$_POST['content'],
-				'status'=>1,
-				'priority'=>$_POST['priority'],
-				'deadline'=>$_POST['deadline']);
-			$this->stageCollection->update(array('_id'=>$stage_id),
-										   array('$pull'=>array('task'=>array('task_id'=>$task_id))));
-			$this->stageCollection->update(array('_id'=>$stage_id),
-										   array('$push'=>array('task'=>$newTask)));
+			if(!empty($_POST))
+			{
+				$newTask = array('task_id'=>$_POST['task_id'],
+								 'user_id'=>$_POST['user_id'],
+								 'content'=>$_POST['content'],
+								 'leader'=>$_POST['status'],
+								 'priority'=>$_POST['priority'],
+								 'deadline'=>$_POST['deadline']);
+				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
+				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$push'=>array('task'=>$newTask)));
+			}
+			else
+			{
+				$this->redirect('/projects/index');
+				exit();
+			}
 
 		}
 		public function modifyStatus()

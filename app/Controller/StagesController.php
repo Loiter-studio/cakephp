@@ -24,18 +24,18 @@
 			$this->connection->close();
 		}
 
-		public function index($project_id)
-		{
-			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id))->sort(array('index'=>1));
-			$stageData = array();
-			while($data = $stageCursor->getNext())
-			{
-				$stageData = $data;
-			}
-			// pr($stageData);
-			$this->set('stages',$stageData);
+		// public function index($project_id)
+		// {
+		// 	$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id))->sort(array('index'=>1));
+		// 	$stageData = array();
+		// 	while($data = $stageCursor->getNext())
+		// 	{
+		// 		$stageData = $data;
+		// 	}
+		// 	// pr($stageData);
+		// 	$this->set('stages',$stageData);
 
-		}
+		// }
 
 		public function create()
 		{
