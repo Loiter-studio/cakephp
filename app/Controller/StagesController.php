@@ -26,7 +26,7 @@
 
 		public function index($project_id)
 		{
-			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id));
+			$stageCursor = $this->projectCollection->find(array('project_id'=>$project_id))->sort(array('index'=>1));
 			$stageData = array();
 			while($data = $stageCursor->getNext())
 			{
@@ -48,14 +48,14 @@
 												 'startTime'=>$_POST['startTime'],
 												 'endTime'=>$_POST['endTime'],
 												 'status'=>1,
-												 'index'=>intval($_POST['index']),
+												 'index'=>time(),
 												 'summary'=>$_POST['summary'],
 												 'task'=>array()));
 			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
 			$this->set('project_id',$_POST['project_id']);
 		}
 
-		public function delete($project_id,$stage_id,$index)
+		public function delete($project_id,$stage_id)
 		{
 			$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
 			$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id),array('task'=>1));
@@ -65,9 +65,7 @@
 				$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
 			}
 			$this->stageCollection->remove(array('_id'=>$stage_id));
-			$index = intval($index);
-			print_r($index);
-			$this->stageCollection->update(array('project_id'=>$project_id,'index'=>array('$gt'=>$index)),array('$inc'=>array('index'=>-1)));
+		
 			$temp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
 			
 			if(isset($temp))

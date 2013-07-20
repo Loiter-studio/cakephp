@@ -46,6 +46,8 @@ class AppController extends Controller {
 		{
 			$user = $this->Session->read('User');
 			$this->set('currentUser',$user);
+			$users = $this->getAllUser();
+			$this->set('users',$users);
 			// $this->redirect('/projects/index');
 			// exit();
 		}
@@ -57,14 +59,15 @@ class AppController extends Controller {
 	}
 	private function getAllUser()
 	{
-		$connect = new Mong();
+		$connect = new Mongo();
 		$userCollection = $connect->moiter->users;
-		$usersCur = $userCollection->find();
+		$usersCur = $userCollection->find(array(),array('name'=>1,'email'=>1));
 		$users = array();
 		while($usersCur->hasNext())
 		{
 			$aUser = $usersCur->getNext();
 			$users[] = $aUser;
 		}
+		return $users;
 	}
 }
