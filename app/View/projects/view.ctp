@@ -191,13 +191,14 @@
 								</select>
 							</div>
 
-							<div class="input-prepend input-append date" id="dp5">
+							<div class="input-prepend input-append date" id="dp6">
 								<span class="add-on">结束时间：</span>
 								<input  size="16" type="text" placeholder="End time…" name="deadline" id="modify-endTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
+							<input type="hidden" name="leader" id="modify-leader-input">
 							<input type="hidden" name="status" id="modify-task-status-input">
 							<input type="hidden" name="user_id" id="modify-user-id-input">
 							<input type="hidden" name="project_id" id="modify-project-id-input">
@@ -378,6 +379,16 @@
 		showMeridian: true
 	});
 
+	$('#dp6').datetimepicker({
+		startDate: new Date(),
+		todayBtn: true,
+		format: 'hh:ii dd/mm/yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: true,
+		showMeridian: true
+	});
+
 	$('.breadcrumb').empty();
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>">首页</a> <span class="divider">></span></li>');
 	$('.breadcrumb').append('<li><a href="<?php echo $this->webroot;?>projects">项目管理</a><span class="divider">></span></li>');
@@ -390,11 +401,11 @@
 		var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 		var projectAdder;
 		if (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
-			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-plus"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a></div></li>';
 		} else if (currentUserObj.authority === 1) {
-			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-plus"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-plus"></i>删除项目</a></div></li>';
 		} else {
-			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a></div></li>';
 		}
 
 		$('.breadcrumb').append(projectAdder);
@@ -432,7 +443,7 @@
 
 			if (currentUserObj.userName === task[3] || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) || currentUserObj.authority === 1) {
 				$(this).popover({
-					content: "<span><a id='modify-" + task[2] + "' href='#modifyTask' data-toggle='modal' style='cursor: pointer;'><i class='icon-remove'></i>修改</a></span><span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					content: "<span><a id='modify-" + task[2] + "' href='#modifyTask' data-toggle='modal' style='cursor: pointer;'><i class='icon-pencil'></i>修改</a></span><span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
 					html: true
 				});
 
@@ -455,6 +466,9 @@
 							};
 						};
 
+						console.log(taskObj);
+
+						$("#modify-leader-input").attr('value', taskObj.leader);
 						$("#modify-content-input").attr('value', taskObj.content);
 						$("#modify-priority-input").attr('value', taskObj.priority);
 						$("#modify-endTime-input").attr('value', taskObj.deadline);
