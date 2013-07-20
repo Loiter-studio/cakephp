@@ -1,15 +1,21 @@
 <div class="create-info">
 	<?if ($code === 0) { ?>  
-		<div class="alert">
+		<div class="alert" style="text-align: center">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<strong>The login credentials you supplied could not be recognized. Please try again.</strong> 
+			<strong>创建项目失败.</strong> 
+		</div>
+
+		<div class="create-return">
+			<span>
+				<a href="<?php echo $this->webroot?>projects">返回项目列表</a>
+			</span>
 		</div>
 	<? } else { ?>
 		<div class="alert alert-success" style="text-align: center">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong>创建项目成功.</strong> 
 		</div>
-	<? } ?>
+	
 	<div class="create-return">
 		<span>
 			<a href="<?php echo $this->webroot?>projects/view/<?=$project_id?>">返回查看项目</a>
@@ -18,6 +24,7 @@
 			<span>秒后自动返回)</span>
 		</span>
 	</div>
+	<? } ?>
 </div>
 
 <script type="text/javascript">
