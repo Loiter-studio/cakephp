@@ -38,5 +38,10 @@ function drawCircle(id, percentage) {
 	ctx.fillStyle = "#555";
 	ctx.font = "20px Arial";
 	ctx.textAlign="center";
-	ctx.fillText((percentage * 100).toFixed(1) + "%", 52, 58);
+
+	if (isNaN(percentage)) {
+		ctx.fillText("0.0%", 52, 58);
+	} else {
+		ctx.fillText((percentage * 100).toFixed(1) + "%", 52, 58);
+	}
 }

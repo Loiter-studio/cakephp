@@ -163,7 +163,7 @@
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
-						<div class="p-single" id="p-single-<?=$task['task_id']?>" data-animation="true" data-title="" data-placement="top">				
+						<div class="p-single" id="p-single-<?=$task['task_id']?>-<?=$task['leader'];?>" data-animation="true" data-title="" data-placement="top">				
 							<div class="p-status-bar"></div>
 							<div class="p-manager">
 								<div class="p-avatar thumbnail">
@@ -186,32 +186,6 @@
 								<span></span>
 							</div>
 							<script type="text/javascript">
-								var leader = "<?=$task['user_name'];?>";
-								var projectLeader = "<?php echo $project['leader'];?>";
-								var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
-							
-								if (leader === currentUserObj.userName || currentUserObj.authority === 1 || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
-									$this = $("#p-single-<?=$task['task_id']?>");
-									var project_id = "<?=$project['_id']?>",
-										task_id = $this.attr("id").split("-"),
-										stage_id = $this.parent().parent().attr("id").split("-");
-
-									$this.popover({
-										content: "<span><a id=delete-"+ task_id[2] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
-										html: true
-									});
-
-									$this.click(function() {			
-										$this.popover();	
-
-										$("#delete-"+task_id[2]).click(function() {
-											var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage_id[1] + "/" + task_id[2];
-											window.location.pathname = pathname;
-										});		
-									});
-								}
-
-
 								var statusId = <?= $task['status'] ?>;
 								var statusStr, statusColor, statusBg;
 								switch (statusId) {
@@ -236,16 +210,16 @@
 								}
 
 
-								$("#p-single-<?=$task['task_id']?>").css({
+								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?>").css({
 									'border-color': statusColor
 								});
-								$("#p-single-<?=$task['task_id']?> .p-status-bar").css({
+								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?> .p-status-bar").css({
 									'background-color': statusColor
 								});
-								$("#p-single-<?=$task['task_id']?> .p-status").css({
+								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?> .p-status").css({
 									'background-image': 'url(<?=$this->webroot?>/img/'+statusBg+")"
 								});
-								$("#p-single-<?=$task['task_id']?> .p-status > span").html(statusStr);							
+								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?> .p-status > span").html(statusStr);			
 							</script>
 						</div>
 					<?php } ?>
@@ -303,9 +277,9 @@
 		var projectLeader = "<?php echo $project['leader'];?>";
 		var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 		var projectAdder;
-		if (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
+		if (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
 			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
-		} else if (window.currentUserObj.authority === 1) {
+		} else if (currentUserObj.authority === 1) {
 			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
 		} else {
 			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
@@ -313,7 +287,7 @@
 
 		$('.breadcrumb').append(projectAdder);
 
-		if (window.currentUserObj.authority === 1 || (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
+		if (currentUserObj.authority === 1 || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
 
 			$(".p-stage").each(function () {
 				var project_id = "<?=$project['_id']?>",
@@ -335,6 +309,32 @@
 				});
 			});
 		}
+
+
+
+		var project_id = "<?=$project['_id']?>";
+
+		$(".p-single").each(function() {
+			var stage = $(this).parent().parent().attr("id").split('-'),
+				task = $(this).attr("id").split('-');
+
+			console.log(stage);
+			console.log(task);
+
+			if (currentUserObj.userName === task[3]) {
+				$(this).popover({
+					content: "<span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					html: true
+				});
+
+				$(this).click(function(){
+					$("#delete-" + task[2]).click(function() {
+						var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage[1] + "/" + task[2];
+						window.location.pathname = pathname;
+					});
+				});
+			}
+		});
 	})();
 
 	(function setProgress() {
