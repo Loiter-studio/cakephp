@@ -120,6 +120,7 @@
 								 'deadline'=>$_POST['deadline']);
 				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
 				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$push'=>array('task'=>$newTask)));
+				$this->set('project_id',$_POST['project_id']);
 			}
 			else
 			{
