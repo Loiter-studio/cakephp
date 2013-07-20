@@ -122,9 +122,31 @@
 		public function delete($project_id)
 		{
 			
-			$this->projectCollection->remove(array('_id' => $project_id));
+			$stageCur = $this->stageCollection->find(array('project_id',$project_id));
+			$project = $this->projectCollection->findOne(array('_id',$project_id),array('name'=>1));
+			while($stageCur->hasNext())
+			{
+				$stage = $stageCur->getNext();
+				foreach ($stage['task'] as $task) {
+					# code...
+					$tmp = $project['name']."#".$project_id."#".$task['task_id'];
+					$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)))
+				}
+			}
+
 			//$this->companyCollection->update(array('_id' => $ ))
+			$this->projectCollection->remove(array('_id' => $project_id));
+
 			$this->stageCollection->remove(array('project_id'=>$prject_id));
+			$old = $this->projectCollection->findOne(array('_id',$project_id));
+			if(isset($old))
+			{
+				$this->set('code',0);
+			}
+			else
+			{
+				$this->set('code',1);
+			}
 
 		}
 

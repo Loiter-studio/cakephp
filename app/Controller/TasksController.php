@@ -51,8 +51,10 @@
 			$this->set('project_id',$project['_id']);
 
 		}
-		public function delete($stage_id,$task_id)
-		{
+		public function delete($project_id,$stage_id,$task_id)
+		{	$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+			$tmp = $project['name']."#".$project_id.$task_id;
+			$this->userCollection->update(array(),array('$pull'=>array('project_task_id'=>$tmp)));
 			$this->stageCollection->update(array('_id'=>$stage_id),
 										   array('$pull'=>array('task'=>array('task_id'=>$task_id))));
 			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
@@ -65,6 +67,7 @@
 			{
 				$this->set('code',1);
 			}
+			$this->set('project_id',$project_id);
 		}
 
 		public function edit($stage_id, $task_id)

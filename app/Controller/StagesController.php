@@ -8,7 +8,7 @@
 
 		//$projectCollection = null;
 		private $stageCollection = null;
-
+		private $userCollection = null;
 		public function beforeFilter()
 		{
 			// $this->checkSession();
@@ -16,6 +16,7 @@
 			$this->connection = new Mongo();
 			//$this->projectCollection = $this->connection->moiter->projects;
 			$this->stageCollection = $this->connection->moiter->stages;
+			$this->userCollection = $this->connection->moiter->users;
 
 		}
 		public function afterFilter()
@@ -54,19 +55,27 @@
 			$this->set('project_id',$_POST['project_id']);
 		}
 
-		public function delete($stage_id)
+		public function delete($project_id,$stage_id)
 		{
+			$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+			$oldStage = $this->findOne(array('_id'=>$stage_id),array('task'=>1));
+			foreach ($oldStage['task'] as $task) {
+				# code...
+				$tmp = $project['name']."#".$project_id."#".$task['task_id'];
+				$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
+			}
 			$this->stageCollection->remove(array('_id'=>$stage_id));
-			$tmp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
+			$temp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
 			
-			if($tmp)
+			if(isset($temp))
 			{
 				$this->set('code',0);
 			}
 			else
 			{
 				$this->set('code',1);
-			}			
+			}
+			$this->set('project_id',$project_id);			
 		}
 
 		public function edit($stage_id)
