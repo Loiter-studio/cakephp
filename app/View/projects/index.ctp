@@ -1,4 +1,8 @@
 <div class="tab-content">
+	<?php
+		echo $this->Html->script('progress');
+	?>
+
 	<!-- 项目管理 -->
 	<div class="tab-pane active" id="project-management">
 		<!-- 项目缩略图 -->
@@ -14,7 +18,10 @@
 						<h4 style="text-align: center;"><?php echo $project['name'];?></h4>
 					</div>
 					<div class="row-fluid">
-						<div class="span5"><img class="img-polaroid" src="<?php echo $this->webroot;?>img/hwfc.png" style="width:125px; height:100px;"></img></div>
+						<div class="span5">
+							<!-- <img class="img-polaroid" src="<?php echo $this->webroot;?>img/hwfc.png" style="width:125px; height:100px;"> -->
+							<canvas class="project-progress" id="progress-<?=$project['_id']?>" onmouseover="drawCircle('<?=$project['_id']?>', 0.25);"></canvas>
+						</div>
 						<div class="span6 project-statistics">
 							<p><span class="label label-warning">进行中</span> <span><?=$project['status_1']?></span><span>个任务</span></p>
 							<p><span class="label ">审核中</span> <span><?=$project['status_2']?></span><span>个任务</p>
@@ -29,7 +36,7 @@
 				}
 			?>			
 		</ul>
-	</div>
+	</div>	
 </div>
 
 <script>

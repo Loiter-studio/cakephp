@@ -14,7 +14,7 @@
 			// $this->checkSession();
 			parent::beforeFilter();
 			$this->connection = new Mongo();
-			//$this->projectCollection = $this->connection->moiter->projects;
+			$this->projectCollection = $this->connection->moiter->projects;
 			$this->stageCollection = $this->connection->moiter->stages;
 			$this->userCollection = $this->connection->moiter->users;
 
@@ -58,7 +58,7 @@
 		public function delete($project_id,$stage_id)
 		{
 			$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
-			$oldStage = $this->findOne(array('_id'=>$stage_id),array('task'=>1));
+			$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id),array('task'=>1));
 			foreach ($oldStage['task'] as $task) {
 				# code...
 				$tmp = $project['name']."#".$project_id."#".$task['task_id'];

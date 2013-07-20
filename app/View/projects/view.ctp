@@ -125,7 +125,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h5>Warning</h5>
 				</div>
-				<form type="hidden" method="post" action="<?=$this->webroot;?>stages/create">
+				<form type="hidden" method="post" action="<?=$this->webroot;?>projects/delete/<?=$project['_id'];?>">
 					<div class="modal-body">						
 						<fieldset>					
 							<input type="hidden" name="project_id" id="projectid-input" value="<?php echo $project['_id'];?>"></input>
@@ -183,10 +183,11 @@
 							</div>
 							<script type="text/javascript">
 								var leader = "<?=$task['user_name'];?>";
+								var projectLeader = "<?php echo $project['leader'];?>";
 								var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 								console.log(leader + " " + currentUserObj.userName);
 							
-								if (leader === currentUserObj.userName) {
+								if (leader === currentUserObj.userName || currentUserObj.authority === 1 || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
 									$this = $("#p-single-<?=$task['task_id']?>");
 									var project_id = "<?=$project['_id']?>",
 										task_id = $this.attr("id").split("-"),
@@ -324,7 +325,7 @@
 				$(this).popover();	
 
 				$("#delete-" + stage_id[1]).click(function() {
-					var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage_id[1];
+					var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1];
 					// $.post("<?=$this->webroot;?>"+pathname, "", function(results){
 
 					// 	console.log(results);

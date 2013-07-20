@@ -130,7 +130,7 @@
 				foreach ($stage['task'] as $task) {
 					# code...
 					$tmp = $project['name']."#".$project_id."#".$task['task_id'];
-					$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)))
+					$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
 				}
 			}
 
