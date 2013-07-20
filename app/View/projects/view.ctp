@@ -37,11 +37,11 @@
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">任务名称：</span>
-								<input type="text" placeholder="Project name…" name="content" id="project-name-input"></input>
+								<input type="text" placeholder="Project name…" name="content" id="project-name-input" required>
 							</div>
 							<div class="input-prepend">
 								<!-- <span class="add-on">负责人员：</span> -->
-								<input type="hidden" name="leader" id="manager-input" value="<?=$currentUser['userName'];?>">
+								<input type="hidden" name="leader" id="manager-input" value="<?=$currentUser['userName'];?>" required>
 
 							</div>
 							<div class="input-prepend">
@@ -64,7 +64,7 @@
 
 							<div class="input-prepend input-append date" id="dp5">
 								<span class="add-on">结束时间：</span>
-								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input" autocomplete="off">
+								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -90,21 +90,21 @@
 						<fieldset>
 							<div class="input-prepend input-append date" id="dp3">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input" autocomplete="off">
+								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp4">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input" autocomplete="off">
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">阶段简介：</span>
-								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input"></textarea>
+								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input" required></textarea>
 							</div>
 										
 							<div class="input-prepend">

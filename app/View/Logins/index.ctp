@@ -49,11 +49,11 @@
 			<form id="login-form" action='<?php echo $this->webroot;?>logins/index' method="post">  
 				<div class="input-prepend">
 					<label class="add-on" for="username">帐号:</label>
-					<input type="text" name="userName"/>
+					<input type="text" name="userName"  required/>
 				</div>  
 				<div class="input-prepend">
 					<label class="add-on" for="password">密码:</label>  
-					<input type="password" name="password"/>
+					<input type="password" name="password"  required/>
 				</div>  
 				<div class="button-group">  
 					<button class="btn btn-primary" type="submit">登录</button>
@@ -72,10 +72,21 @@
 				<form name="register" method="post" action="<?=$this->webroot;?>logins/register">
 					<div class="modal-body">		
 						<fieldset>
-							<div class="input-prepend"><span class="add-on">用户名：&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="User name..." name="name" id="user-name-input"></input></div>
-							<div class="input-prepend"><span class="add-on">密码：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="password" placeholder="Password..." name="password" id="password-input"></input></div>
-							<div class="input-prepend"><span class="add-on">重复密码：</span><input type="password" placeholder="Repeat your password..."  id="repeated-password-input"></input></div>
-							<div class="input-prepend"><span class="add-on">邮箱：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="email" placeholder="Email..." name="email" id="email-input"></input></div>
+							<div class="input-prepend">
+								<span class="add-on">用户名：&nbsp&nbsp&nbsp&nbsp</span>
+								<input type="text" placeholder="User name..." name="name" id="user-name-input" required>
+							</div>
+							<div class="input-prepend">
+								<span class="add-on">密码：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+								<input type="password" placeholder="Password..." name="password" id="password-input" required>
+							</div>
+							<div class="input-prepend"><span class="add-on">重复密码：</span>
+								<input type="password" placeholder="Repeat your password..."  id="repeated-password-input" required>
+							</div>
+							<div class="input-prepend">
+								<span class="add-on">邮箱：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+								<input type="email" placeholder="Email..." name="email" id="email-input" required>
+							</div>
 							<p>&nbsp</p>
 						</fieldset>			
 					</div>
@@ -90,7 +101,6 @@
 </div>
 
 
-<script type="text/javascript" src=""></script>
 <script type='text/javascript'> 
 	function check() {
 		var pass1 = document.getElementById('password-input');

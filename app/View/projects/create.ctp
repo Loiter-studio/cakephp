@@ -1,8 +1,15 @@
 <div class="create-info">
-	<div class="alert alert-success" style="text-align: center">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>创建项目成功.</strong> 
-	</div>
+	<?if ($code === 0) { ?>  
+		<div class="alert">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>The login credentials you supplied could not be recognized. Please try again.</strong> 
+		</div>
+	<? } else { ?>
+		<div class="alert alert-success" style="text-align: center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>创建项目成功.</strong> 
+		</div>
+	<? } ?>
 	<div class="create-return">
 		<span>
 			<a href="<?php echo $this->webroot?>projects/view/<?=$project_id?>">返回查看项目</a>

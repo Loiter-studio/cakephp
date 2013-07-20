@@ -35,6 +35,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		echo $this->Html->script('formchecker');
 		
 		//css
 		echo $this->Html->css('bootstrap');
@@ -90,34 +91,34 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>添加项目</h3>
 				</div>
-				<form method="post" action="<?=$this->webroot;?>projects/create">
+				<form method="post" action="<?=$this->webroot;?>projects/create" onsubmit="return formCheck(this);">
 					<div class="modal-body">						
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">项目名称：</span>
-								<input type="text" placeholder="Project name…" name="name" id="project-name-input">
+								<input type="text" placeholder="Project name…" name="name" id="project-name-input" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4">
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">项目简介：</span>
-								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input"></textarea>
+								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input" required></textarea>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp1">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off">
+								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp2">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off">
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -176,16 +177,40 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<script type="text/javascript">
-		(function userListAutoComplete() {
-			var userList = eval("("+'<?=json_encode($users);?>'+")");
+		var userList = eval("("+'<?=json_encode($users);?>'+")");
+
+
+		// 检查输入的负责人是否存在
+		function formCheck(form) {
+			var inputs = form.getElementsByTagName("input");
+
+			var inputName = inputs[1].value;
+			for (var i = 0; i < userList.length; i++) {
+				if (userList[i].name === inputName && userList[i].authority <= 2) {
+					return true;
+				} 
+			};			
+
+			inputs[1].focus();
+			alert("所选用户不存在 或 所选用户权限不足");
+
+			return false;
+		}
+
+		(function userListAutoComplete(userList) {
+			
 
 			var dataSource = Array();
 			for (var i = 0; i < userList.length; i++) {
-				dataSource.push(userList[i].name);
+				if(userList[i].authority <= 2) {
+					dataSource.push(userList[i].name);
+				}
 			}
 
 			var source = $("#manager-input").attr("data-source", JSON.stringify(dataSource));
-		})();
+		})(userList);
+
+
 
 		// 将php数组转化为js对象，并保存到全局环境中
 		window.currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
