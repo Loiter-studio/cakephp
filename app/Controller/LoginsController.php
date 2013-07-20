@@ -39,6 +39,11 @@
 		}
 		public function register()
 		{
+			if(empty($_POST))
+			{
+				$this->redirect('/logins/index');
+				exit();
+			}
 			$newUser = array();
 			$newUser['_id'] = md5($_POST['name']."".time());
 			$newUser['name'] = $_POST['name'];

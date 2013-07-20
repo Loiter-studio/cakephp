@@ -72,83 +72,123 @@
 
 		}
 
-		public function view($project_id)
+		public function view($project_id = null)
 		{
+
 			$stageCursor = $this->stageCollection->find(array('project_id'=>$project_id))->sort(array('index'=>1));
 			$projectData = $this->projectCollection->findOne(array('_id'=>$project_id));
-			$stageData = array();
-			while($data = $stageCursor->getNext())
+			if(isset($projectData))
 			{
-				$stageData[] = $data;
-			}
-
-			// print_r($stageData);
-			$stages =  array();
-			foreach ($stageData as &$stage) {
-				# code...
-
-				foreach ($stage['task'] as &$task) {
-					# code...
-					$aUser = $this->userCollection->findOne(array('_id'=>$task['user_id']));
-					$task['user_name'] = $aUser['name'];
-					$task['pic_url'] = $aUser['pic_url'];
-					// print_r($aUser['name']);
+				$stageData = array();
+				while($data = $stageCursor->getNext())
+				{
+					$stageData[] = $data;
 				}
+
+				// print_r($stageData);
+				$stages =  array();
+				foreach ($stageData as &$stage) {
+					# code...
+
+					foreach ($stage['task'] as &$task) {
+						# code...
+						$aUser = $this->userCollection->findOne(array('_id'=>$task['user_id']));
+						$task['user_name'] = $aUser['name'];
+						$task['pic_url'] = $aUser['pic_url'];
+						// print_r($aUser['name']);
+					}
+				}
+				// print_r ($stageData);
+				$this->set('project' , $projectData);
+				$this->set('stages' ,$stageData);
 			}
-			// print_r ($stageData);
-			$this->set('project' , $projectData);
-			$this->set('stages' ,$stageData);
-	
+			else
+			{
+				$this->redirect("/projects/index");
+				exit();				
+			}
+		
 		}
 		
 		public function create()
 		{
 		
 			$user = $this->Session->read('User');
-
-			$project_id = md5($user['userName']."".time());
-			$this->projectCollection->insert(array('_id'=> $project_id, 
-											 'name'=>$_POST['name'],
-											 'leader'=>$_POST['leader'],
-											 'startTime'=>$_POST['startTime'],
-											 'endTime'=>$_POST['endTime'],
-											 'status'=>1,
-											 'summary'=>$_POST['summary']));
-			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
-
-			$this->set('project_id',$project_id);
-		}
-
-		public function delete($project_id)
-		{
-			
-			$stageCur = $this->stageCollection->find(array('project_id'=>$project_id));
-			$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
-			while($stageCur->hasNext())
+			if($user['authority'] == 1 && !empty($_POST))
 			{
-				$stage = $stageCur->getNext();
-				
-				foreach ($stage['task'] as $task) {
-					# code...
-					$tmp = $project['name']."#".$project_id."#".$task['task_id'];
-					
-					$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
-				}
-			}
+				// print_r($user);
 
-			//$this->companyCollection->update(array('_id' => $ ))
-			$this->projectCollection->remove(array('_id' => $project_id));
+				$project_id = md5($user['userName']."".time());
+				$this->projectCollection->insert(array('_id'=> $project_id, 
+												 'name'=>$_POST['name'],
+												 'leader'=>$_POST['leader'],
+												 'startTime'=>$_POST['startTime'],
+												 'endTime'=>$_POST['endTime'],
+												 'status'=>1,
+												 'summary'=>$_POST['summary']));
+				$tmp = $this->projectCollection->findOne(array('_id'=>$project_id));
 
-			$this->stageCollection->remove(array('project_id'=>$project_id));
-			$old = $this->projectCollection->findOne(array('_id',$project_id));
-			if(isset($old))
-			{
-				$this->set('code',0);
+				$this->set('project_id',$project_id);
+				$this->set('code',1);
 			}
 			else
 			{
-				$this->set('code',1);
+				$this->redirect("/projects/index");
+				exit();
 			}
+		}
+
+		public function delete($project_id = null)
+		{
+			$user = $this->Session->read('User');
+			if($user['authority'] == 1 )
+			{
+
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+				if(isset($project))
+				{
+
+					$stageCur = $this->stageCollection->find(array('project_id'=>$project_id));
+
+					while($stageCur->hasNext())
+					{
+						$stage = $stageCur->getNext();
+						
+						foreach ($stage['task'] as $task) {
+							# code...
+							$tmp = $project['name']."#".$project_id."#".$task['task_id'];
+							
+							$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
+						}
+					}
+
+					$this->projectCollection->remove(array('_id' => $project_id));
+
+					$this->stageCollection->remove(array('project_id'=>$project_id));
+					$old = $this->projectCollection->findOne(array('_id',$project_id));
+					if(isset($old))
+					{
+						$this->set('code',0);
+					}
+					else
+					{
+						$this->set('code',1);
+					}
+				}
+				else
+				{
+					$this->set('code',0);
+					$this->redirect("/projects/index");
+					exit();
+				}
+			}
+			else
+			{
+				$this->set('code',0);
+				$this->redirect("/projects/index");
+				exit();
+			}
+
 
 		}
 

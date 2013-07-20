@@ -40,43 +40,69 @@
 		public function create()
 		{
 			$user =$this->Session->read('User');
-			$stage_id = md5($user['userName']."".time());
-			$this->stageCollection->insert(array('_id'=>$stage_id,
-												 'user_id'=>$user['user_id'],
-												 'project_id'=>$_POST['project_id'],
-												 'leader'=>$_POST['leader'],
-												 'startTime'=>$_POST['startTime'],
-												 'endTime'=>$_POST['endTime'],
-												 'status'=>1,
-												 'index'=>time(),
-												 'summary'=>$_POST['summary'],
-												 'task'=>array()));
-			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
-			$this->set('project_id',$_POST['project_id']);
-		}
-
-		public function delete($project_id,$stage_id)
-		{
-			$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
-			$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id),array('task'=>1));
-			foreach ($oldStage['task'] as $task) {
-				# code...
-				$tmp = $project['name']."#".$project_id."#".$task['task_id'];
-				$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
-			}
-			$this->stageCollection->remove(array('_id'=>$stage_id));
-		
-			$temp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
-			
-			if(isset($temp))
+			if(!empty($_POST['startTime']) && !empty($_POST['endTime']))
 			{
-				$this->set('code',0);
+				
+				$stage_id = md5($user['userName']."".time());
+				$this->stageCollection->insert(array('_id'=>$stage_id,
+													 'user_id'=>$user['user_id'],
+													 'project_id'=>$_POST['project_id'],
+													 'leader'=>$_POST['leader'],
+													 'startTime'=>$_POST['startTime'],
+													 'endTime'=>$_POST['endTime'],
+													 'status'=>1,
+													 'index'=>time(),
+													 'summary'=>$_POST['summary'],
+													 'task'=>array()));
+				$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
+				$this->set('project_id',$_POST['project_id']);
+				$this->set('code',1);
 			}
 			else
 			{
-				$this->set('code',1);
+				$this->set('code',0);
 			}
-			$this->set('project_id',$project_id);			
+		}
+
+		public function delete($project_id=null,$stage_id=null)
+		{
+			if(isset($project_id) && isset($stage_id))
+			{
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+				if(isset($project))
+				{
+					$currentUser = $this->Session->read('User');
+					if($currentUser['name'] === $project['leader'] || $currentUser['authority'] == 1)
+					{
+						$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id),array('task'=>1));
+						foreach ($oldStage['task'] as $task) {
+							# code...
+							$tmp = $project['name']."#".$project_id."#".$task['task_id'];
+							$this->userCollection->update(array('_id'=>$task['user_id']),array('$pull'=>array('project_task_id'=>$tmp)));
+						}
+						$this->stageCollection->remove(array('_id'=>$stage_id));
+					
+						$temp = $this->stageCollection->findOne( array('_id'=>$stage_id ));
+						
+						if(isset($temp))
+						{
+							$this->set('code',0);
+						}
+						else
+						{
+							$this->set('code',1);
+						}
+						$this->set('code',1);
+					}
+					else
+						$this->set('code',0);
+					$this->set('project_id',$project_id);
+				}
+				else
+					$this->set('code',0);
+			}
+			else
+				$this->set('code',0);			
 		}
 
 		public function edit($stage_id)
