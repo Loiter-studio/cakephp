@@ -3,17 +3,17 @@
 		<div class="span3" style="height: 130px; width: 140px">
 			<div class="user-avatars thumbnails">
 				<a class="thumbnail" href="#">
-					<img style="height: 130px;" src="<?php echo $this->webroot;?><?=$user['pic_url']?>">
+					<img style="height: 130px;" src="<?=$this->webroot;?><?=$user['pic_url']?>">
 				</a>				
 			</div>
 		</div>
 		
 		<div class="span9">
-			<p id="name"><span class="label label-info">姓名</span>&nbsp&nbsp&nbsp<?php echo $user['name'];?></p>
-			<p id="company"><span class="label label-info">公司</span>&nbsp&nbsp&nbsp<?php echo $user['company'];?></p>
-			<p id="position"><span class="label label-info">职位</span>&nbsp&nbsp&nbsp<?php echo $user['position'];?></p>
-			<p id="tel"><span class="label label-info">电话</span>&nbsp&nbsp&nbsp<?php echo $user['tel'];?></p>
-			<p id="email"><span class="label label-info">邮箱</span>&nbsp&nbsp&nbsp<?php echo $user['email'];?></p>
+			<p id="name"><span class="label label-info">姓名</span>&nbsp&nbsp&nbsp<?=$user['name'];?></p>
+			<p id="company"><span class="label label-info">公司</span>&nbsp&nbsp&nbsp<?=$user['company'];?></p>
+			<p id="position"><span class="label label-info">职位</span>&nbsp&nbsp&nbsp<?=$user['position'];?></p>
+			<p id="tel"><span class="label label-info">电话</span>&nbsp&nbsp&nbsp<?=$user['tel'];?></p>
+			<p id="email"><span class="label label-info">邮箱</span>&nbsp&nbsp&nbsp<?=$user['email'];?></p>
 		</div>
 	</div>
 	
@@ -33,10 +33,10 @@
 
 			<div class="u-single thumbnail" id="<?=$project['task_id']?>-<?=$project['status']?>">
 				<p>
-					<span><?php echo $project['name'];?></span>
-					<span class="u-priority"><?php echo $project['priority'];?></span>
+					<span><?=$project['name'];?></span>
+					<span class="u-priority"><?=$project['priority'];?></span>
 				</p>
-				<p><span style="font-size: 11px; line-height: 11px;"><?php echo $project['content'];?></span></p>
+				<p><span style="font-size: 11px; line-height: 11px;"><?=$project['content'];?></span></p>
 				<div class="u-progress">
 					<div class="progress progress-striped active">
 						<div class="bar"></div>
@@ -172,8 +172,8 @@
 	});
 
 	// 权限控制
-	var username = "<?php echo $user['name'];?>";
-	var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+	var username = "<?=$user['name'];?>";
+	var currentUserObj = eval("("+'<?=json_encode($currentUser);?>'+")");
 	if (currentUserObj.authority === 3 && currentUserObj.userName !== username) {
 		// 普通用户查看其他用户的资料时， 将状态开关设置为disabled
 		$(".switch").each(function() {
