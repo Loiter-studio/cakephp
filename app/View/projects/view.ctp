@@ -468,6 +468,18 @@
 
 						console.log(taskObj);
 
+						switch(taskObj.priority) {
+							case "HIGH":
+								$("#modify-priority-input").children().eq(0)[0].selected = true;
+								break;
+							case "NORMAL":
+								$("#modify-priority-input").children().eq(1)[0].selected = true;
+								break;
+							case "LOW":
+								$("#modify-priority-input").children().eq(2)[0].selected = true;
+								break;
+						}
+
 						$("#modify-leader-input").attr('value', taskObj.leader);
 						$("#modify-content-input").attr('value', taskObj.content);
 						$("#modify-priority-input").attr('value', taskObj.priority);
