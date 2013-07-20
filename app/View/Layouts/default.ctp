@@ -100,7 +100,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;Rathinho&quot;,&quot;lichaop&quot;]';?>">
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4">
 							</div>
 
 							<div class="input-prepend">
@@ -178,7 +178,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<script type="text/javascript">
 		(function userListAutoComplete() {
 			var userList = eval("("+'<?=json_encode($users);?>'+")");
-			console.log(userList);
+
+			var dataSource = Array();
+			for (var i = 0; i < userList.length; i++) {
+				dataSource.push(userList[i].name);
+			}
+
+			var source = $("#manager-input").attr("data-source", JSON.stringify(dataSource));
 		})();
 
 		// 将php数组转化为js对象，并保存到全局环境中
