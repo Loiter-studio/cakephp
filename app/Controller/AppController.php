@@ -61,7 +61,7 @@ class AppController extends Controller {
 	{
 		$connect = new Mongo();
 		$userCollection = $connect->moiter->users;
-		$usersCur = $userCollection->find(array(),array('name'=>1,'email'=>1));
+		$usersCur = $userCollection->find(array(),array('name'=>1,'email'=>1,'authority'=>1));
 		$users = array();
 		while($usersCur->hasNext())
 		{
