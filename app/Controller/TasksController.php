@@ -60,14 +60,16 @@
 		}
 		public function delete($project_id = null,$stage_id = null,$task_id = null)
 		{	
-			if(isset($project_id) && isset($stage_id) && isset($task))
+			if(isset($project_id) && isset($stage_id) && isset($task_id))
 			{
-				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+			
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1,'leader'=>1));
 				$taskCur = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
 				$task = $taskCur->getNext();
 				// print_r($task);
 				if(isset($task['task']) && isset($project))
 				{
+					
 					$currentUser = $this->Session->read('User');
 					if($currentUser['user_id'] == $task['task'][0]['user_id'] || $currentUser['authority'] == 1 || $currentUser['userName'] === $project['leader'])
 					{
@@ -112,10 +114,12 @@
 		{
 			if(!empty($_POST))
 			{
+				print_r($_POST);
 				$newTask = array('task_id'=>$_POST['task_id'],
 								 'user_id'=>$_POST['user_id'],
 								 'content'=>$_POST['content'],
-								 'leader'=>$_POST['status'],
+								 'leader'=>$_POST['leader'],
+								 'status'=>$_POST['status'],
 								 'priority'=>$_POST['priority'],
 								 'deadline'=>$_POST['deadline']);
 				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
