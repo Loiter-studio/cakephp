@@ -1,5 +1,7 @@
 <?php
 	echo $this->Html->script('progress');
+	echo $this->Html->css('datetimepicker');
+	echo $this->Html->script('bootstrap-datetimepicker');
 ?>
 
 <div class="project-view">
@@ -12,9 +14,9 @@
 			</div>
 		</div>
 		<div class="span9" style="font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-			<h3><span class="label label-info">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
-			<p><span class="label label-info">项目负责人</span>&nbsp&nbsp&nbsp<?php echo $project['leader'];?></p>
-			<p><span class="label label-info">项目简介&nbsp&nbsp&nbsp</span>&nbsp&nbsp&nbsp<?php echo $project['summary'];?></p>
+			<h3><span class="label label-info">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?=$project['name'];?></h2>
+			<p><span class="label label-info">项目负责人</span>&nbsp&nbsp&nbsp<?=$project['leader'];?></p>
+			<p><span class="label label-info">项目简介&nbsp&nbsp&nbsp</span>&nbsp&nbsp&nbsp<?=$project['summary'];?></p>
 			
 			
 			<!-- 添加任务 -->
@@ -107,9 +109,9 @@
 										
 							<div class="input-prepend">
 								<!-- <span class="add-on">负责人员：</span> -->
-								<input type="hidden" value="<?=$currentUser['userName'];?>" name="leader" id="manager-input">
+								<input type="hidden" value="<?=$project['leader'];?>" name="leader" id="manager-input">
 							</div>				
-							<input type="hidden" name="project_id" id="projectid-input" value="<?php echo $project['_id'];?>"></input>
+							<input type="hidden" name="project_id" id="projectid-input" value="<?=$project['_id'];?>"></input>
 						</fieldset>						
 					</div>
 					<div class="modal-footer">
@@ -128,7 +130,7 @@
 				<form type="hidden" method="post" action="<?=$this->webroot;?>projects/delete/<?=$project['_id'];?>">
 					<div class="modal-body">						
 						<fieldset>					
-							<input type="hidden" name="project_id" id="projectid-input" value="<?php echo $project['_id'];?>"></input>
+							<input type="hidden" name="project_id" id="projectid-input" value="<?=$project['_id'];?>"></input>
 						</fieldset>						
 					</div>
 					<div class="modal-footer">
@@ -151,9 +153,9 @@
 			<?php endif ?>
 
 			<?php foreach($stages as $i => $stage){ ?>
-			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>-<?=$stage['index']?>">				
+			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>">				
 				<a href="javascript:void(0);">
-					<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第 <?php echo $i+1;?> 阶 段</h4>
+					<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第 <?=$i+1;?> 阶 段</h4>
 				</a>
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
@@ -162,19 +164,19 @@
 							<div class="p-status-bar"></div>
 							<div class="p-manager">
 								<div class="p-avatar thumbnail">
-									<img src="<?php echo $this->webroot;?><?=$task['pic_url']?>">
+									<img src="<?=$this->webroot;?><?=$task['pic_url']?>">
 								</div>
-								<div class="p-name"><span><?php echo $task['user_name'];?></span></div>
+								<div class="p-name"><span><?=$task['user_name'];?></span></div>
 							</div>
 							<div class="p-detail">
 								<div class="p-summary">
-									<p><span><?php echo $task['content'];?></span></p>
+									<p><span><?=$task['content'];?></span></p>
 								</div>
 								<div class="p-start">
-									<p><span><?php echo $stage['startTime'];?></span></p>
+									<p><span><?=$stage['startTime'];?></span></p>
 								</div>
 								<div class="p-end">
-									<p><span><?php echo $task['deadline'];?></span></p>
+									<p><span><?=$task['deadline'];?></span></p>
 								</div>								
 							</div>
 							<div class="p-status">
@@ -224,11 +226,6 @@
 		</div>
 	</div>
 </div>
-
-<?php
-	echo $this->Html->css('datetimepicker');
-	echo $this->Html->script('bootstrap-datetimepicker');
-?>
 
 <script>
 	$('#dp3').datetimepicker({
@@ -300,7 +297,7 @@
 					$("#delete-" + stage[1]).click(function() {
 						console.log(stage[2]);
 						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage[1];
-						//window.location.pathname = pathname;
+						window.location.pathname = pathname;
 					});		
 				});
 			});
@@ -331,7 +328,7 @@
 	})();
 
 	(function setProgress() {
-		var stages = eval("(" + '<?php echo json_encode($stages);?>' + ")"),
+		var stages = eval("(" + '<?=json_encode($stages);?>' + ")"),
 			project_id = "<?=$project['_id'];?>";
 
 		var totalTaskNum = 0,
