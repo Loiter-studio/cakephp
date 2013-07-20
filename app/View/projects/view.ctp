@@ -38,15 +38,16 @@
 								<input type="text" placeholder="Project name…" name="content" id="project-name-input"></input>
 							</div>
 							<div class="input-prepend">
-								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" data-source="<?php echo '[&quot;wayzh&quot;,&quot;Rathinho&quot;,&quot;lichaop&quot;]';?>">
+								<!-- <span class="add-on">负责人员：</span> -->
+								<input type="hidden" name="leader" id="manager-input" value="<?=$currentUser['userName'];?>">
+
 							</div>
 							<div class="input-prepend">
 								<span class="add-on">阶段：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
 								<select name="stage_id">
-									<?php foreach($stages as $stage){ ?>
-										<option value="<?php echo $stage['_id'];?>"><?php echo $stage['index'];?></option>
-									<?php }	?>
+									<?php for($i = 0 ; $i < count($stages) ; $i++) { ?>
+										<option value="<?php echo $stages[$i]['_id'];?>"><?php echo $i+1;?></option>
+									<?php } ?>									
 								</select>
 							</div>
 
@@ -153,13 +154,11 @@
 				</div>
 			<?php endif ?>
 
-			<?php foreach($stages as $stage){ ?>
+			<?php foreach($stages as $i => $stage){ ?>
 			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>-<?=$stage['index']?>">				
-				<a href="javascript:void(0);"><h4 style="text-align: center; text-shadow: 2px 1px 2px;">第
-					<?php $stageIndex=$stage['index'];
-						$toCN = array('零','一','二','三','四','五','六','七','八','九');
-						echo $toCN[$stageIndex];
-					?> 阶 段</h4></a>
+				<a href="javascript:void(0);">
+					<h4 style="text-align: center; text-shadow: 2px 1px 2px;">第 <?php echo $i+1;?> 阶 段</h4>
+				</a>
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
@@ -291,10 +290,10 @@
 
 			$(".p-stage").each(function () {
 				var project_id = "<?=$project['_id']?>",
-					stage_id = $(this).attr("id").split("-");
+					stage = $(this).attr("id").split("-");
 
 				$(this).children().eq(0).popover({
-					content: "<span><a id=delete-" + stage_id[1] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					content: "<span><a id=delete-" + stage[1] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
 					html: true,
 					placement: "top"
 				});
@@ -302,9 +301,10 @@
 				$(this).children().eq(0).click(function() {			
 					$(this).popover();	
 
-					$("#delete-" + stage_id[1]).click(function() {
-						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1] + "/" + stage_id[2];
-						window.location.pathname = pathname;
+					$("#delete-" + stage[1]).click(function() {
+						console.log(stage[2]);
+						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage[1];
+						//window.location.pathname = pathname;
 					});		
 				});
 			});
@@ -318,10 +318,7 @@
 			var stage = $(this).parent().parent().attr("id").split('-'),
 				task = $(this).attr("id").split('-');
 
-			console.log(stage);
-			console.log(task);
-
-			if (currentUserObj.userName === task[3]) {
+			if (currentUserObj.userName === task[3] || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) || currentUserObj.authority === 1) {
 				$(this).popover({
 					content: "<span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
 					html: true
