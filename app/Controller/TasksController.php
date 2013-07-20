@@ -51,11 +51,11 @@
 				$this->userCollection->update(array('_id'=>$user['user_id']),array('$push'=>array('project_task_id'=>$project['name']."#".$stage['project_id']."#".$task['task_id'])));
 
 				$this->set('project_id',$project['_id']);
-				$this->set('code',1);
 			}
 			else
 			{
-				$this->set('code',0);
+				$this->redirect("/projects/index");
+				exit();	
 			}
 
 		}
@@ -67,7 +67,7 @@
 				$taskCur = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
 				$task = $taskCur->getNext();
 				// print_r($task);
-				if(isset($task['task']))
+				if(isset($task['task']) && isset($project))
 				{
 					$currentUser = $this->Session->read('User');
 					if($currentUser['user_id'] == $task['task'][0]['user_id'] || $currentUser['authority'] == 1 || $currentUser['userName'] === $project['leader'])
@@ -87,15 +87,26 @@
 						{
 							$this->set('code',1);
 						}
+						$this->set('project_id',$project_id);
+
 					}
 					else
-						$this->set('code',0);
+					{
+						$this->redirect("/projects/index");
+						exit();	
+					}
 				}
-				// $this->set('code',1);
-				$this->set('project_id',$project_id);
+				else
+				{
+					$this->redirect("/projects/index");
+					exit();	
+				}
 			}
 			else
-				$this->set('code',0)
+			{
+				$this->redirect("/projects/index");
+				exit();	
+			}
 		}
 
 		public function edit($stage_id, $task_id)

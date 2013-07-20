@@ -40,7 +40,7 @@
 		public function create()
 		{
 			$user =$this->Session->read('User');
-			if(!empty($_POST['startTime']) && !empty($_POST['endTime']))
+			if(!empty($_POST['startTime']) && !empty($_POST['endTime']) && ($user['userName'] === $_POST['leader'] || $user['authority'] == 1))
 			{
 				
 				$stage_id = md5($user['userName']."".time());
@@ -56,11 +56,11 @@
 													 'task'=>array()));
 				$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id));
 				$this->set('project_id',$_POST['project_id']);
-				$this->set('code',1);
 			}
 			else
 			{
-				$this->set('code',0);
+				$this->redirect("/projects/index");
+				exit();	
 			}
 		}
 
@@ -92,17 +92,27 @@
 						{
 							$this->set('code',1);
 						}
-						$this->set('code',1);
+						$this->set('project_id',$project_id);
 					}
 					else
-						$this->set('code',0);
-					$this->set('project_id',$project_id);
+					{
+
+						$this->redirect("/projects/index");
+						exit();	
+					}
 				}
 				else
-					$this->set('code',0);
+				{
+					$this->redirect("/projects/index");
+					exit();	
+				}
 			}
 			else
-				$this->set('code',0);			
+			{
+
+				$this->redirect("/projects/index");
+				exit();	
+			}			
 		}
 
 		public function edit($stage_id)
