@@ -121,6 +121,98 @@
 				</form>
 			</div>	
 
+
+			<!-- 修改项目信息 -->
+			<div id="modifyProject" class="modal hide fade">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>添加项目</h3>
+				</div>
+				<form method="post" action="<?=$this->webroot;?>projects/create" onsubmit="return formCheck(this);">
+					<div class="modal-body">						
+						<fieldset>
+							<div class="input-prepend">
+								<span class="add-on">项目名称：</span>
+								<input type="text" placeholder="Project name…" name="name" id="project-name-input" required>
+							</div>
+
+							<div class="input-prepend">
+								<span class="add-on">负责人员：</span>
+								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
+							</div>
+
+							<div class="input-prepend">
+								<span class="add-on">项目简介：</span>
+								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input" required></textarea>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp1">
+								<span class="add-on">开始时间：</span>
+								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off" readonly required>
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp2">
+								<span class="add-on">结束时间：</span>
+								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off" readonly required>
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</fieldset>					
+					</div>
+					<div class="modal-footer">
+						<p class="btn" data-dismiss="modal" type="button">关闭</p>
+						<input class="btn" id="save-project" type="submit"></input>
+					</div>
+				</form>
+			</div>
+
+			<!-- 修改任务信息 -->
+			<div id="modifyTask" class="modal hide fade">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>修改任务信息</h3>
+				</div>
+				<form method="post" action="<?=$this->webroot;?>tasks/edit">
+					<div class="modal-body">
+						<fieldset>
+							<div class="input-prepend">
+								<span class="add-on">任务名称：</span>
+								<input type="text" placeholder="content…" name="content" id="modify-content-input" required>
+							</div>
+
+							<div class="input-prepend">
+								<span class="add-on">优先级别：</span>
+								<select name="priority" id="modify-priority-input">
+									<option>HIGH</option>
+									<option>NORMAL</option>
+									<option>LOW</option>
+								</select>
+							</div>
+
+							<div class="input-prepend input-append date" id="dp5">
+								<span class="add-on">结束时间：</span>
+								<input  size="16" type="text" placeholder="End time…" name="deadline" id="modify-endTime-input" readonly required>
+								<span class="add-on"><i class="icon-remove"></i></span>
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+
+							<input type="hidden" name="status" id="modify-task-status-input">
+							<input type="hidden" name="user_id" id="modify-user-id-input">
+							<input type="hidden" name="project_id" id="modify-project-id-input">
+							<input type="hidden" name="stage_id" id="modify-stage-id-input">
+							<input type="hidden" name="task_id" id="modify-task-id-input">
+						</fieldset>						
+					</div>
+					<div class="modal-footer">
+						<p class="btn" data-dismiss="modal" type="button">关闭</p>
+						<input class="btn" id="save-task" type="submit"></input>
+					</div>
+				</form>
+			</div>
+
+
 			<!-- 删除项目 -->
 			<div id="deleteProject" class="modal hide fade">
 				<div class="modal-header">
@@ -184,31 +276,40 @@
 							</div>
 							<script type="text/javascript">
 								var statusId = <?= $task['status'] ?>;
+								var priority = "<?= $task['priority'] ?>";
 								var statusStr, statusColor, statusBg;
 								switch (statusId) {
 									case 1:
 										statusStr = "进行中";
-										statusColor = "#f89406";
 										statusBg = "status_underway.png";
 										break;
 									case 2:
 										statusStr = "待审核";
-										statusColor = "#999999";
 										statusBg = "status_checking.png";
 										break;
 									case 3:
 										statusStr = "已完成";
-										statusColor = "#468847";
 										statusBg = "status_finished.png";
 										break;
 									default:
 										statusStr = "出错啦";
+								}
+
+								switch (priority) {
+									case "HIGH":
 										statusColor = "#ff0000";
+										break;
+									case "NORMAL":
+										statusColor = "#000000";
+										break;
+									case "LOW":
+										statusColor = "#CCCCCC";
+										break;
 								}
 
 
 								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?>").css({
-									'border-color': statusColor
+									'border-color': "#aaaaaa"
 								});
 								$("#p-single-<?=$task['task_id']?>-<?=$task['leader'];?> .p-status-bar").css({
 									'background-color': statusColor
@@ -228,6 +329,25 @@
 </div>
 
 <script>
+	// 检查输入的负责人是否存在
+	var userList = eval("("+'<?=json_encode($users);?>'+")");	
+	function formCheck(form) {
+		var inputs = form.getElementsByTagName("input");
+
+		var inputName = inputs[1].value;
+		for (var i = 0; i < userList.length; i++) {
+			if (userList[i].name === inputName && userList[i].authority <= 2) {
+				return true;
+			} 
+		};			
+
+		inputs[1].focus();
+		alert("所选用户不存在 或 所选用户权限不足");
+
+		return false;
+	}
+
+
 	$('#dp3').datetimepicker({
 		startDate: new Date(),
 		todayBtn: true,
@@ -295,7 +415,6 @@
 					$(this).popover();	
 
 					$("#delete-" + stage[1]).click(function() {
-						console.log(stage[2]);
 						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage[1];
 						window.location.pathname = pathname;
 					});		
@@ -313,7 +432,7 @@
 
 			if (currentUserObj.userName === task[3] || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) || currentUserObj.authority === 1) {
 				$(this).popover({
-					content: "<span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					content: "<span><a id='modify-" + task[2] + "' href='#modifyTask' data-toggle='modal' style='cursor: pointer;'><i class='icon-remove'></i>修改</a></span><span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
 					html: true
 				});
 
@@ -321,6 +440,29 @@
 					$("#delete-" + task[2]).click(function() {
 						var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage[1] + "/" + task[2];
 						window.location.pathname = pathname;
+					});
+
+					$("#modify-" + task[2]).click(function() {
+						var stageObj = eval("(" + '<?=json_encode($stages)?>' + ")");
+
+						var taskObj;
+						for (var i = 0; i < stageObj.length; i++) {
+							for (var j = 0; j < stageObj[i].task.length; j++) {
+								if (stageObj[i].task[j].task_id === task[2]) {
+									taskObj = stageObj[i].task[j];
+									break;
+								}
+							};
+						};
+
+						$("#modify-content-input").attr('value', taskObj.content);
+						$("#modify-priority-input").attr('value', taskObj.priority);
+						$("#modify-endTime-input").attr('value', taskObj.deadline);
+						$("#modify-task-status-input").attr('value', taskObj.status);
+						$("#modify-task-id-input").attr('value', taskObj.task_id);
+						$("#modify-user-id-input").attr('value', taskObj.user_id);
+						$("#modify-project-id-input").attr('value', stage[1]);
+						$("#modify-stage-id-input").attr('value', project_id);
 					});
 				});
 			}
