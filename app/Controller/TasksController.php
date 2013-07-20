@@ -114,7 +114,7 @@
 		{
 			if(!empty($_POST))
 			{
-				print_r($_POST);
+				// print_r($_POST);
 				$newTask = array('task_id'=>$_POST['task_id'],
 								 'user_id'=>$_POST['user_id'],
 								 'content'=>$_POST['content'],
