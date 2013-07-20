@@ -154,11 +154,12 @@
 			<?php endif ?>
 
 			<?php foreach($stages as $stage){ ?>
-			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>">				
-				<a href="javascript:void(0);"><h4 style="text-align: center; text-shadow: 2px 1px 2px;">第<?php $stageIndex=$stage['index'];
-									$toCN = array('零','一','二','三','四','五','六','七','八','九');
-									echo $toCN[$stageIndex];
-								?>阶段</h4></a>
+			<div class="row-fluid p-stage" id="stage-<?=$stage['_id']?>-<?=$stage['index']?>">				
+				<a href="javascript:void(0);"><h4 style="text-align: center; text-shadow: 2px 1px 2px;">第
+					<?php $stageIndex=$stage['index'];
+						$toCN = array('零','一','二','三','四','五','六','七','八','九');
+						echo $toCN[$stageIndex];
+					?> 阶 段</h4></a>
 				<div class="stage-separator"></div>
 				<div class="row-fluid">
 					<?php foreach($stage['task'] as $task){ ?>
@@ -188,7 +189,6 @@
 								var leader = "<?=$task['user_name'];?>";
 								var projectLeader = "<?php echo $project['leader'];?>";
 								var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
-								console.log(leader + " " + currentUserObj.userName);
 							
 								if (leader === currentUserObj.userName || currentUserObj.authority === 1 || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
 									$this = $("#p-single-<?=$task['task_id']?>");
@@ -314,6 +314,7 @@
 		$('.breadcrumb').append(projectAdder);
 
 		if (window.currentUserObj.authority === 1 || (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
+
 			$(".p-stage").each(function () {
 				var project_id = "<?=$project['_id']?>",
 					stage_id = $(this).attr("id").split("-");
@@ -328,12 +329,7 @@
 					$(this).popover();	
 
 					$("#delete-" + stage_id[1]).click(function() {
-						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1];
-						// $.post("<?=$this->webroot;?>"+pathname, "", function(results){
-
-						// 	console.log(results);
-						// 	//window.location.reload();
-						// });
+						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1] + "/" + stage_id[2];
 						window.location.pathname = pathname;
 					});		
 				});
