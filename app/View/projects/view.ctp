@@ -198,6 +198,7 @@
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
+							<input type="hidden" name="leader" id="modify-leader-input">
 							<input type="hidden" name="status" id="modify-task-status-input">
 							<input type="hidden" name="user_id" id="modify-user-id-input">
 							<input type="hidden" name="project_id" id="modify-project-id-input">
@@ -455,8 +456,9 @@
 							};
 						};
 
-						console.log(taskObj.status);
+						console.log(taskObj);
 
+						$("#modify-leader-input").attr('value', taskObj.leader);
 						$("#modify-content-input").attr('value', taskObj.content);
 						$("#modify-priority-input").attr('value', taskObj.priority);
 						$("#modify-endTime-input").attr('value', taskObj.deadline);
