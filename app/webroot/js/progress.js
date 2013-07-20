@@ -1,48 +1,42 @@
-function drawCircle(id, percentage){
+function drawCircle(id, percentage) {
 	var canvas = document.getElementById("progress-" + id);
 
 	var ctx = canvas.getContext("2d");
 
-	/**/
-	var grd=ctx.createLinearGradient(70,8,70,132);
-	grd.addColorStop(0,"#B0B0B0");
-	grd.addColorStop(1,"white");
+	var grd = ctx.createLinearGradient(70, 8, 70, 132);
+	grd.addColorStop(0, "#B0B0B0");
+	grd.addColorStop(1, "#EEEEEE");
 	var angle = percentage * 2;
 
-	ctx.fillStyle=grd;
-	ctx.strokeStyle="#E1E1E1";
+	ctx.fillStyle = grd;
+	ctx.strokeStyle = "#E1E1E1";
 	ctx.beginPath();
-	ctx.arc(70,70,62,0,2*Math.PI);
+	ctx.arc(52, 52, 50, 0, 2 * Math.PI);
 	ctx.fill();
 	ctx.stroke();
 
 	ctx.beginPath();
-	ctx.moveTo(70,70);
-	ctx.arc(70,70,56,0,2*Math.PI,true);
+	ctx.moveTo(52, 52);
+	ctx.arc(52, 52, 43, -0.5 * Math.PI, 1.5 * Math.PI, true);
 	ctx.fill();
 	ctx.stroke();
 
-	ctx.fillStyle ="YellowGreen";
+	ctx.fillStyle = "#0088cc";
 	ctx.beginPath();
-	ctx.moveTo(70,70);
-	ctx.arc(70,70,56,0,angle*Math.PI,false);
+	ctx.moveTo(52, 52);
+	ctx.arc(52, 52, 42, -0.5 * Math.PI, (-0.5 - angle) * Math.PI, true);
 	ctx.fill();
 	ctx.stroke();
 
 
-	ctx.fillStyle="#eef3e2";
+	ctx.fillStyle = "#eef3e2";
 	ctx.beginPath();
-	ctx.arc(70,70,49,0,2*Math.PI); 	 
+	ctx.arc(52, 52, 36, 0, 2 * Math.PI);
 	ctx.fill();
 	ctx.stroke();
 
-	var percentage=angle/2*100;
-	document.getElementById("percentage").innerText = percentage;
-	//document.write("<div id=\"percentage\">"+percentage+"</div>"); 
-	var d=new Date();
-	var day=d.getDate();
-	var month=d.getMonth() + 1;
-	var year=d.getFullYear();
-	document.getElementById("date").innerText = day + "/" + month + "/" + year;
-	//document.write("<div id=\"date\">"+ day + "/" + month + "/" + year+"</div>");
+	ctx.fillStyle = "#555";
+	ctx.font = "20px Arial";
+	ctx.textAlign="center";
+	ctx.fillText((percentage * 100).toFixed(1) + "%", 52, 58);
 }

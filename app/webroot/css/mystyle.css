@@ -175,11 +175,6 @@ ul, li {
 	margin: 0;
 }
 
-#project-management .project-progress {
-	width: 105px;
-	height: 110px;
-}
-
 #project-management .project-statistics {
 	margin-left: 25px;
 	margin-top: 8px;

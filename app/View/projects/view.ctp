@@ -1,12 +1,15 @@
+<?php
+	echo $this->Html->script('progress');
+?>
+
 <div class="project-view">
 	<div class="row-fluid">
 		<div class="span2" >		
-			<div class="project-logo thumbnails" style="height:120px; width: 120px;" >
+			<div class="project-logo thumbnails" style="height:115px; width: 114px;" >
 				<a class="thumbnail" href="#">
-					<img style="height:120px; width: 120px;" src="<?php echo $this->webroot;?>img/hwfc.png">
+					<canvas class="project-progress" id="progress-<?=$project['_id']?>" width="114" height="103"></canvas>
 				</a>				
 			</div>
-			
 		</div>
 		<div class="span9" style="font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
 			<h3><span class="label label-info">项目名称&nbsp&nbsp&nbsp</span>&nbsp<?php echo $project['name'];?></h2>
@@ -295,48 +298,70 @@
 	$('.breadcrumb').append('<li id="added-bc" class="active"><?php echo $project['name'];?><span class="divider">></span></li>');
 	
 	
+	(function authorityControl() {
+		// 所有用户都能创建任务，登录用户为当前任务负责人或者管理员才可创建阶段
+		var projectLeader = "<?php echo $project['leader'];?>";
+		var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
+		var projectAdder;
+		if (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+		} else if (window.currentUserObj.authority === 1) {
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
+		} else {
+			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+		}
 
-	// 所有用户都能创建任务，登录用户为当前任务负责人或者管理员才可创建阶段
-	var projectLeader = "<?php echo $project['leader'];?>";
-	var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
-	var projectAdder;
-	if (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
-		projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
-	} else if (window.currentUserObj.authority === 1) {
-		projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
-	} else {
-		projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
-	}
+		$('.breadcrumb').append(projectAdder);
 
+		if (window.currentUserObj.authority === 1 || (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
+			$(".p-stage").each(function () {
+				var project_id = "<?=$project['_id']?>",
+					stage_id = $(this).attr("id").split("-");
 
+				$(this).children().eq(0).popover({
+					content: "<span><a id=delete-" + stage_id[1] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					html: true,
+					placement: "top"
+				});
 
-	if (window.currentUserObj.authority === 1 || (window.currentUserObj.authority === 2 && currentUserObj.userName === projectLeader)) {
-		$(".p-stage").each(function () {
-			var project_id = "<?=$project['_id']?>",
-				stage_id = $(this).attr("id").split("-");
+				$(this).children().eq(0).click(function() {			
+					$(this).popover();	
 
-			$(this).children().eq(0).popover({
-				content: "<span><a id=delete-" + stage_id[1] +" href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
-				html: true,
-				placement: "top"
+					$("#delete-" + stage_id[1]).click(function() {
+						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1];
+						// $.post("<?=$this->webroot;?>"+pathname, "", function(results){
+
+						// 	console.log(results);
+						// 	//window.location.reload();
+						// });
+						window.location.pathname = pathname;
+					});		
+				});
 			});
+		}
+	})();
 
-			$(this).children().eq(0).click(function() {			
-				$(this).popover();	
+	(function setProgress() {
+		var stages = eval("(" + '<?php echo json_encode($stages);?>' + ")"),
+			project_id = "<?=$project['_id'];?>";
 
-				$("#delete-" + stage_id[1]).click(function() {
-					var pathname = "/moiter/stages/delete/" + project_id + "/" + stage_id[1];
-					// $.post("<?=$this->webroot;?>"+pathname, "", function(results){
+		var totalTaskNum = 0,
+			finishedNum = 0,
+			checkingNum = 0;
 
-					// 	console.log(results);
-					// 	//window.location.reload();
-					// });
-					window.location.pathname = pathname;
-				});		
-			});
-		});
-	}
+		for (var i = 0; i < stages.length; i++) {
+			totalTaskNum += stages[i].task.length;
+			for (var j = 0; j < stages[i].task.length; j++) {
+				if (stages[i].task[j].status === 3) {
+					finishedNum += 1;
+				} else if (stages[i].task[j].status === 2) {
+					checkingNum += 1;
+				}
+			};
+		};
 
-	$('.breadcrumb').append(projectAdder);
+		var progress = (finishedNum + checkingNum * 0.5) / totalTaskNum;
+		drawCircle(project_id, progress);
+	})();
 </script>
 
