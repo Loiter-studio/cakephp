@@ -5,7 +5,7 @@
 	</div>
 	<div class="create-return">
 		<span>
-			<a href="<?php echo $this->webroot?>projects/view/<?=$project_id?>">返回查看项目</a>
+			<a href="<?php echo $this->webroot?>projects">返回项目列表</a>
 			<span>(</span>
 			<span class="counter">3</span>
 			<span>秒后自动返回)</span>
@@ -26,9 +26,7 @@
 		}, 1000);
 
 		setTimeout(function(){
-			var pid = "<?=$project_id;?>";
-
-			window.location.pathname = "/moiter/projects/view/"+pid;
+			window.location.pathname = "/moiter/projects";
 		}, 3000);
 	}); 
 </script>

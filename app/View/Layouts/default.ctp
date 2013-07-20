@@ -79,8 +79,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 							<img src="<?php echo $this->webroot.$currentUser['pic_url'];?>" alt="wolf" id="user-avatar">
 						</a>						
 						<a id="user-name" href="<?=$this->webroot;?>users/edit" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改资料"><?=$currentUser['userName'];?></a>
-
-						<!-- <a href="<?=$this->webroot;?>uploads/upload">修改头像</a> -->
 					</span>					
 				</div>
 			</div>
@@ -178,6 +176,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<script type="text/javascript">
+		(function userListAutoComplete() {
+			var userList = eval("("+'<?=json_encode($users);?>'+")");
+			console.log(userList);
+		})();
+
 		// 将php数组转化为js对象，并保存到全局环境中
 		window.currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 
