@@ -55,4 +55,16 @@ class AppController extends Controller {
 			exit();
 		}
 	}
+	private function getAllUser()
+	{
+		$connect = new Mong();
+		$userCollection = $connect->moiter->users;
+		$usersCur = $userCollection->find();
+		$users = array();
+		while($usersCur->hasNext())
+		{
+			$aUser = $usersCur->getNext();
+			$users[] = $aUser;
+		}
+	}
 }
