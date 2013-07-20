@@ -390,11 +390,11 @@
 		var currentUserObj = eval("("+'<?php echo json_encode($currentUser);?>'+")");
 		var projectAdder;
 		if (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) {
-			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-plus"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a></div></li>';
 		} else if (currentUserObj.authority === 1) {
-			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-pencil"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-pencil"></i>删除项目</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddStage" data-toggle="modal"><i class="icon-plus"></i>添加阶段</a>&nbsp&nbsp&nbsp<a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a>&nbsp&nbsp&nbsp<a href="#deleteProject" data-toggle="modal"><i class="icon-plus"></i>删除项目</a></div></li>';
 		} else {
-			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-pencil"></i>添加任务</a></div></li>';
+			projectAdder = '<li><div id="project-adder"><a href="#AddTask" data-toggle="modal"><i class="icon-plus"></i>添加任务</a></div></li>';
 		}
 
 		$('.breadcrumb').append(projectAdder);
@@ -432,7 +432,7 @@
 
 			if (currentUserObj.userName === task[3] || (currentUserObj.authority === 2 && currentUserObj.userName === projectLeader) || currentUserObj.authority === 1) {
 				$(this).popover({
-					content: "<span><a id='modify-" + task[2] + "' href='#modifyTask' data-toggle='modal' style='cursor: pointer;'><i class='icon-remove'></i>修改</a></span><span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
+					content: "<span><a id='modify-" + task[2] + "' href='#modifyTask' data-toggle='modal' style='cursor: pointer;'><i class='icon-pencil'></i>修改</a></span><span><a id='delete-" + task[2] + "' href='javascript:void(0);' style='cursor: pointer;'><i class='icon-remove'></i>删除</a></span>",
 					html: true
 				});
 
@@ -454,6 +454,8 @@
 								}
 							};
 						};
+
+						console.log(taskObj.status);
 
 						$("#modify-content-input").attr('value', taskObj.content);
 						$("#modify-priority-input").attr('value', taskObj.priority);

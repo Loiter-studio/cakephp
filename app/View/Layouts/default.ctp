@@ -59,7 +59,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					搜索
 				</a>
 				<a class="btn" id="addProject" href="#AddProject" data-toggle="modal">
-					<i class="icon-pencil"></i>
+					<i class="icon-plus"></i>
 					添加项目
 				</a>
 				<a class="btn">
