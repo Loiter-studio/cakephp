@@ -68,11 +68,11 @@
 		{
 			if(isset($project_id) && isset($stage_id))
 			{
-				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1));
+				$project = $this->projectCollection->findOne(array('_id'=>$project_id),array('name'=>1,'leader'=>1));
 				if(isset($project))
 				{
 					$currentUser = $this->Session->read('User');
-					if($currentUser['name'] === $project['leader'] || $currentUser['authority'] == 1)
+					if($currentUser['userName'] === $project['leader'] || $currentUser['authority'] == 1)
 					{
 						$oldStage = $this->stageCollection->findOne(array('_id'=>$stage_id),array('task'=>1));
 						foreach ($oldStage['task'] as $task) {
