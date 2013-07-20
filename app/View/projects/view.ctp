@@ -191,7 +191,7 @@
 								</select>
 							</div>
 
-							<div class="input-prepend input-append date" id="dp5">
+							<div class="input-prepend input-append date" id="dp6">
 								<span class="add-on">结束时间：</span>
 								<input  size="16" type="text" placeholder="End time…" name="deadline" id="modify-endTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
@@ -370,6 +370,16 @@
 	});
 
 	$('#dp5').datetimepicker({
+		startDate: new Date(),
+		todayBtn: true,
+		format: 'hh:ii dd/mm/yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: true,
+		showMeridian: true
+	});
+
+	$('#dp6').datetimepicker({
 		startDate: new Date(),
 		todayBtn: true,
 		format: 'hh:ii dd/mm/yyyy',
