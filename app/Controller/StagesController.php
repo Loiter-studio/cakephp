@@ -114,26 +114,5 @@
 				exit();	
 			}			
 		}
-
-		public function edit($stage_id)
-		{
-			$this->stageCollection->update(array('_id' => $stage_id ), 
-											array('$set'=> array('startTime' => $_POST['startTime'],
-																 'endTime' => $_POST['endTime'],
-																 'status' => $_POST['status'],
-																 'summary' => $_POST['summary'])));
-
-			$tmp = $this->stageCollection->findOne(array('_id'=>$stage_id,
-														 'startTime' => $_POST['startTime'],
-														 'endTime' => $_POST['endTime'],
-														 'status' => $_POST['status'],
-														 'summary' => $_POST['summary']));
-			$code = false;
-			if($tmp)
-			{
-				$code = true; 
-			}
-			echo json_decode($code);
-		}	
 	}
 ?>

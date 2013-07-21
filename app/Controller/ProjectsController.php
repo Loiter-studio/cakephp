@@ -189,35 +189,7 @@
 				exit();
 			}
 
-
 		}
 
-		public function edit($project_id)
-		{
-			
-			$this->projectCollection->update(array('_id'=> $project_id),
-											 array('$set'=> array('name'=>$_POST['name'],
-											       'startTime'=>$_POST['startTime'],
-											       'endTime'=>$_POST['status'],
-											       'summary'=>$_POST['summary'])));
-			$tmp = $this->projectCollection->findOne(array('_id'=>$project_id,
-														   'name'=>$_POST['name'],
-											       		   'startTime'=>$_POST['startTime'],
-											               'endTime'=>$_POST['status'],
-											               'summary'=>$_POST['summary']));
-			$code = true;
-			if(!$tmp)
-			{
-				$code = false;
-			}
-			echo json_decode($code);
-		}
-
-		public function ajax(){
-			$this->authRender = false;
-			$arr = array();
-			$arr['msg'] = "zhihuadashabi";
-			echo json_encode($arr);
-		}
 	}
 ?>

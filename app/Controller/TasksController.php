@@ -24,11 +24,6 @@
 			$this->connection->close();
 		}
 
-		// public function index($stage_id)
-		// {
-		// 	$stage = $this->stageCollection->find(array('_id'=>$stage_id));
-		//     echo json_encode($stage['task']);
-		// }
 		public function create()
 		{
 			$user = $this->Session->read('User');
@@ -119,7 +114,7 @@
 								 'user_id'=>$_POST['user_id'],
 								 'content'=>$_POST['content'],
 								 'leader'=>$_POST['leader'],
-								 'status'=>$_POST['status'],
+								 'status'=>intval($_POST['status']),
 								 'priority'=>$_POST['priority'],
 								 'deadline'=>$_POST['deadline']);
 				$this->stageCollection->update(array('_id'=>$_POST['stage_id']),array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
@@ -150,29 +145,13 @@
 				else
 					$this->set('code',0);
 			}
+			else
+			{
+				$this->redirect('/projects/index');
+				exit();				
+			}
 			
 		}
 
-		public function modifyPriority($stage_id , $task_id)
-		{
-			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
-			$newTask = $tmpTask->getNext();
-			pr($newTask['task'][0]);
-			$this->stageCollection->update(array('_id'=> $stage_id),array('$pull'=>array('task'=>array('task_id'=>$task_id))));
-			$tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
-			$test = $tmpTask->getNext();
-			if(isset($test))
-			{
-				$code = false;
-			}
-			else
-			{
-				$newTask['task'][0]['priority'] = time(); // $_POST['priority']
-				$this->stageCollection->update(array('_id'=>$stage_id),
-											   array('$push'=>array('task'=>$newTask['task'][0])));
-				$code = true;
-
-			}
-		}
 	}
 ?>

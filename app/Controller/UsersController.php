@@ -33,67 +33,68 @@
 			}
 			$this->set('users',$users);
 		}
-		public function view($user_id)
+		public function view($user_id = null)
 		{
 			// $this->checkSession();
 			$userData = $this->userCursor->findOne(array('_id'=>$user_id));
-			$this->set('user',$userData);
-			
-			$projects_id = array();
-			$tasks_id = array();
-			$projects_name = array();
-			foreach($userData['project_task_id'] as $project_task_id)
+			if(isset($userData))
 			{
-				$idSplit = explode("#",$project_task_id);
-				// $project = $this->projectCollection->findOne(array('_id'=>$idSplit[1]));
-				$projects_id[$idSplit[1]] = $idSplit[1];
-				$projects_name[$idSplit[1]] = $idSplit[0];
-				$tasks_id[$idSplit[1]][] = $idSplit[2];
-
-			}
-			// print_r($tasks_id);
-			// $tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
-			$tasks = array();
-			foreach ($projects_id as $p_id) {
-
-				$cursor = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>1));
-				while($cursor->hasNext())
+				$this->set('user',$userData);
+				
+				$projects_id = array();
+				$tasks_id = array();
+				$projects_name = array();
+				foreach($userData['project_task_id'] as $project_task_id)
 				{
-					$stage = $cursor->getNext();
+					$idSplit = explode("#",$project_task_id);
+					$projects_id[$idSplit[1]] = $idSplit[1];
+					$projects_name[$idSplit[1]] = $idSplit[0];
+					$tasks_id[$idSplit[1]][] = $idSplit[2];
 
-					foreach ($stage['task'] as $atask) {
-						# code...
+				}
+				// print_r($tasks_id);
+				// $tmpTask = $this->stageCollection->find(array('_id' => $stage_id), array('task'=>array('$elemMatch'=>array('task_id'=>$task_id))));
+				$tasks = array();
+				foreach ($projects_id as $p_id) {
 
-						foreach ($tasks_id[$p_id] as $t_id) {
+					$cursor = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>1));
+					while($cursor->hasNext())
+					{
+						$stage = $cursor->getNext();
+
+						foreach ($stage['task'] as $atask) {
 							# code...
-	
-							if($atask['task_id'] == $t_id){
-								$atask['name'] = $projects_name[$p_id];
-								// print_r($atask);
-								$tasks[] = $atask;
+
+							foreach ($tasks_id[$p_id] as $t_id) {
+								# code...
+		
+								if($atask['task_id'] == $t_id){
+									$atask['name'] = $projects_name[$p_id];
+									// print_r($atask);
+									$tasks[] = $atask;
+								}
 							}
 						}
+
 					}
 
 				}
 
+				$this->set('tasks',$tasks);
 			}
-
-			$this->set('tasks',$tasks);
+			else
+			{
+				$this->redirect('/users/index');
+				exit();			
+			}
 		}
-
-		public function getEditUser()
+		
+		public function edit()
 		{
 			$user = $this->Session->read('User');
 			$userData = $this->userCursor->findOne(array('_id'=>$user['user_id']));
 			$back  = array('name'=>$userData['name'],'tel'=>$userData['tel'],'email'=>$userData['email'],'company'=>$userData['company'],'position'=>$userData['position']);
-			return $back;
-				//$this->set('back',$back);
-		}
-		public function edit()
-		{
-			// $this->checkSession();
-			$this->set('back',$this->getEditUser());
+			$this->set('back',$back);
 			$this->set('update',false);
 			if(!empty($_POST))
 			{
@@ -114,13 +115,27 @@
 			$this->redirect('/users/login');			
 		}
 
-		public function username()
+		public function management($user_id = null , $authority = null)
 		{
-			echo $this->Session->read('User');
-		}
-		public function userManagement()
-		{
-
+			$user = $this->Session->read('User');
+			if(isset($user_id)&&isset($authority) &&$user['authority'] == 1)
+			{
+				$this->users->update(array('_id'=>$user_id),array('$set'=>array('authority'=>$authority)));
+				$tmp = $this->users->findOne(array('_id'=>$user_id,'authority'=>$authority));
+				if(isset($tmp))
+				{
+					$this->set('code',1);
+				}
+				else
+				{
+					$this->set('code',0);
+				}
+			}
+			else
+			{
+				$this->redirect('/users/index');
+				exit();
+			}
 		}
 	}
 ?>
