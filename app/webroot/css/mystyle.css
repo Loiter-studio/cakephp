@@ -158,48 +158,6 @@ ul, li {
 
 
 
-/****************************************************** 项目列表页面样式 ****************************************************/
-#project-management .project-header {	
-	padding: 3px 35px 3px 35px;
-	margin-bottom: 5px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	background-color: #fcf8e3;
-	border: 1px solid #fbeed5;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-
-#project-management .project-header h4 {
-	color: #c09853;
-	margin: 0;
-}
-
-#project-management .project-statistics {
-	margin-left: 25px;
-	margin-top: 8px;
-}
-
-#project-management ul li .thumbnail:hover{
-	border-color: #0088cc;
-	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-}
-
-
-#user-management ul li h5 {
-	width: 125px;
-	margin: 5px auto;
-}
-
-#user-management ul li div:hover{
-	border-color: #0088cc;
-	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
-}
-
 /****************************************************** 项目详细页面样式 ****************************************************/
 .project-view form {
 	margin:0; width: 100%;
@@ -351,6 +309,59 @@ ul, li {
 	top: 35%;
 	left: 65%;
 	width: 200px;
+}
+
+
+
+
+/****************************************************** 项目列表页面样式 ****************************************************/
+#project-management .project-header {	
+	padding: 3px 35px 3px 35px;
+	margin-bottom: 5px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#project-management .project-header h4 {
+	color: #c09853;
+	margin: 0;
+}
+
+#project-management .project-statistics {
+	margin-left: 25px;
+	margin-top: 8px;
+}
+
+#project-management ul li .thumbnail:hover{
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+}
+
+
+/****************************************************** 项目列表页面样式 ****************************************************/
+
+#user-management ul li h5 {
+	width: 125px;
+	margin: 5px auto;
+}
+
+#user-management ul li div:hover{
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 105, 214, 0.25);
+}
+
+#authority-management-entrance {
+	position: absolute;
+	right: 120px;
+	top: 84px;
 }
 
 
