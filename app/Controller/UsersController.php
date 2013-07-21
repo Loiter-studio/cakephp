@@ -120,8 +120,8 @@
 			$user = $this->Session->read('User');
 			if(isset($user_id)&&isset($authority) &&$user['authority'] == 1)
 			{
-				$this->users->update(array('_id'=>$user_id),array('$set'=>array('authority'=>$authority)));
-				$tmp = $this->users->findOne(array('_id'=>$user_id,'authority'=>$authority));
+				$this->users->update(array('_id'=>$user_id),array('$set'=>array('authority'=>intval($authority))));
+				$tmp = $this->users->findOne(array('_id'=>$user_id,'authority'=>intval($authority)));
 				if(isset($tmp))
 				{
 					$this->set('code',1);
