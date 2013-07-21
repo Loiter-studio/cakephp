@@ -124,75 +124,104 @@
 			return false;
 		}
 		
-		var unTid = setInterval(function() {
-			var usernamePattern = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;  //5-20个以字母开头,可带数字和下划线
-			var username = $("#user-name-input").val();
-			var isMatch = usernamePattern.exec(username); 
+		var unTid, pwTid, rpwTid, emTid;
 
+		// 当输入框获得焦点时进行验证
+		$("#user-name-input").focus(function() {
+			unTid = setInterval(function() {
+				var usernamePattern = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;  //5-20个以字母开头,可带数字和下划线
+				var username = $("#user-name-input").val();
+				var isMatch = usernamePattern.exec(username); 
 
-			if (hasUser(username) && isMatch && username) {
-				$("#usernameValidation").html("<i class='icon-remove-sign'></i><span>用户名已存在</span>");
-				unOk = false;
-				document.getElementById('user-name-input').setCustomValidity("用户名已存在");
-			} else if (!hasUser(username) && isMatch && username){
-				$("#usernameValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
-				unOk = true;
-				document.getElementById('user-name-input').setCustomValidity("");
-			} else if (!isMatch && username) {
-				$("#usernameValidation").html("<i class='icon-remove-sign'></i><span>用户名不符合要求</span>");
-				unOk = false;
-				document.getElementById('user-name-input').setCustomValidity("用户名不符合要求");
-			}
-		}, 1500);
+				console.log(username);
+				if (hasUser(username) && isMatch && username) {
+					$("#usernameValidation").html("<i class='icon-remove-sign'></i><span>用户名已存在</span>");
+					unOk = false;
+					document.getElementById('user-name-input').setCustomValidity("用户名已存在");
+				} else if (!hasUser(username) && isMatch && username){
+					$("#usernameValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
+					unOk = true;
+					document.getElementById('user-name-input').setCustomValidity("");
+				} else if (!isMatch && username) {
+					$("#usernameValidation").html("<i class='icon-remove-sign'></i><span>用户名不符合要求</span>");
+					unOk = false;
+					document.getElementById('user-name-input').setCustomValidity("用户名不符合要求");
+				}
+			}, 1500);
+		});		
+
+		$("#password-input").focus(function() {
+			pwTid = setInterval(function() {
+				var pwPattern=/^(\w){6,20}$/;	//6-20位由字母、数字、下划线组成
+				var pw = $("#password-input").val();			
+				var isMatch = pwPattern.exec(pw);
+
+				if (!isMatch && pw) {
+					$("#pwValidation").html("<i class='icon-remove-sign'></i><span>密码不符合要求</span>");
+					pwOk = false;
+					$("#repeated-password-input")[0].disabled = true;
+					document.getElementById('password-input').setCustomValidity("密码不符合要求");
+				} else if (isMatch && pw){
+					$("#pwValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
+					pwOk = true;
+					$("#repeated-password-input")[0].disabled = false;
+					document.getElementById('password-input').setCustomValidity("");
+				}
+			}, 1500);
+		});
+
 		
-		var pwTid = setInterval(function() {
-			var pwPattern=/^(\w){6,20}$/;	//6-20位由字母、数字、下划线组成
-			var pw = $("#password-input").val();			
-			var isMatch = pwPattern.exec(pw);
+		$("#repeated-password-input").focus(function() {
+			rpwTid = setInterval(function() {
+				var rePw = $("#repeated-password-input").val();
+				var isEqual = (rePw === $("#password-input").val());
 
-			if (!isMatch && pw) {
-				$("#pwValidation").html("<i class='icon-remove-sign'></i><span>密码不符合要求</span>");
-				pwOk = false;
-				$("#repeated-password-input")[0].disabled = true;
-				document.getElementById('password-input').setCustomValidity("密码不符合要求");
-			} else if (isMatch && pw){
-				$("#pwValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
-				pwOk = true;
-				$("#repeated-password-input")[0].disabled = false;
-				document.getElementById('password-input').setCustomValidity("");
-			}
-		}, 1500);
+				if (rePw && isEqual && pwOk) {
+					$("#repeatedpwValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
+					rpwOk = true;
+					document.getElementById('repeated-password-input').setCustomValidity("");
+				} else if (rePw && !isEqual){
+					$("#repeatedpwValidation").html("<i class='icon-remove-sign'></i><span>两次输入的密码不一致</span>");
+					rpwOk = false;
+					document.getElementById('repeated-password-input').setCustomValidity("两次输入的密码不一致");
+				}
+			}, 1500);
+		});
+		
+		$("#email-input").focus(function() {
+			emTid = setInterval(function() {
+				var emailPattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+				var email = $("#email-input").val();
+				var isMatch = emailPattern.exec(email);
 
-		var rpwTid = setInterval(function() {
-			var rePw = $("#repeated-password-input").val();
-			var isEqual = (rePw === $("#password-input").val());
+				if (email && isMatch) {
+					$("#emailValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
+					emOk = true;				
+					document.getElementById('email-input').setCustomValidity("");
+				} else if (email && !isMatch){
+					$("#emailValidation").html("<i class='icon-remove-sign'></i><span>邮箱地址错误</span>");
+					emOk = false;
+					document.getElementById('email-input').setCustomValidity("邮箱地址不符合要求");
+				}
+			}, 1500);
+		});		
 
-			if (rePw && isEqual && pwOk) {
-				$("#repeatedpwValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
-				rpwOk = true;
-				document.getElementById('repeated-password-input').setCustomValidity("");
-			} else if (rePw && !isEqual){
-				$("#repeatedpwValidation").html("<i class='icon-remove-sign'></i><span>两次输入的密码不一致</span>");
-				rpwOk = false;
-				document.getElementById('repeated-password-input').setCustomValidity("两次输入的密码不一致");
-			}
-		}, 1500);
+		// 当输入框失去焦点时取消验证
+		$("#user-name-input").blur(function() {
+			clearInterval(unTid);
+		});
 
-		var emTid = setInterval(function() {
-			var emailPattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
-			var email = $("#email-input").val();
-			var isMatch = emailPattern.exec(email);
+		$("#password-input").blur(function() {
+			clearInterval(unTid);
+		});
 
-			if (email && isMatch) {
-				$("#emailValidation").html("<i class='icon-ok-sign'></i><span>OK</span>");
-				emOk = true;				
-				document.getElementById('email-input').setCustomValidity("");
-			} else if (email && !isMatch){
-				$("#emailValidation").html("<i class='icon-remove-sign'></i><span>邮箱地址错误</span>");
-				emOk = false;
-				document.getElementById('email-input').setCustomValidity("邮箱地址不符合要求");
-			}
-		}, 1500);		
+		$("#repeated-password-input").blur(function() {
+			clearInterval(unTid);
+		});
+
+		$("#email-input").blur(function() {
+			clearInterval(unTid);
+		});				
 	})();
 	
 	window.onload = function() {
