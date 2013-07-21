@@ -95,29 +95,29 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">项目名称：</span>
-								<input type="text" placeholder="Project name…" name="name" id="project-name-input" required>
+								<input type="text" placeholder="Project name" name="name" id="project-name-input" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
+								<input type="text" placeholder="Manager" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">项目简介：</span>
-								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input" required></textarea>
+								<textarea type="text" rows="3" placeholder="Description about this project" name="summary" id="description-input" required></textarea>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp1">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off" readonly required>
+								<input size="16" type="text" placeholder="Start time" name="startTime" id="startTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp2">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off" readonly required>
+								<input size="16" type="text" placeholder="End time" name="endTime" id="endTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>

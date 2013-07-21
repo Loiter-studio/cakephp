@@ -37,7 +37,7 @@
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">任务名称：</span>
-								<input type="text" placeholder="Project name…" name="content" id="project-name-input" required>
+								<input type="text" placeholder="Task name" name="content" id="project-name-input" required>
 							</div>
 							<div class="input-prepend">
 								<!-- <span class="add-on">负责人员：</span> -->
@@ -64,7 +64,7 @@
 
 							<div class="input-prepend input-append date" id="dp5">
 								<span class="add-on">结束时间：</span>
-								<input  size="16" type="text" placeholder="End time…" name="deadline" id="endTime-input" readonly required>
+								<input  size="16" type="text" placeholder="Deadline" name="deadline" id="endTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -90,21 +90,21 @@
 						<fieldset>
 							<div class="input-prepend input-append date" id="dp3">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="Start time…" name="startTime" id="startTime-input" readonly required>
+								<input size="16" type="text" placeholder="Start time" name="startTime" id="startTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp4">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-name-input" readonly required>
+								<input size="16" type="text" placeholder="End time" name="endTime" id="endTime-name-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">阶段简介：</span>
-								<textarea type="text" rows="3" placeholder="Summary..." name="summary" id="summary-input" required></textarea>
+								<textarea type="text" rows="3" placeholder="Description" name="summary" id="summary-input" required></textarea>
 							</div>
 										
 							<div class="input-prepend">
@@ -133,29 +133,29 @@
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">项目名称：</span>
-								<input type="text" placeholder="Project name…" name="name" id="project-name-input" required>
+								<input type="text" placeholder="Project name" name="name" id="project-name-input" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">负责人员：</span>
-								<input type="text" placeholder="Manager…" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
+								<input type="text" placeholder="Manager" name="leader" id="manager-input" autocomplete="off" data-provide="typeahead" data-items="4" required>
 							</div>
 
 							<div class="input-prepend">
 								<span class="add-on">项目简介：</span>
-								<textarea type="text" rows="3" placeholder="Description…" name="summary" id="description-input" required></textarea>
+								<textarea type="text" rows="3" placeholder="Description" name="summary" id="description-input" required></textarea>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp1">
 								<span class="add-on">开始时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="startTime" id="startTime-input" autocomplete="off" readonly required>
+								<input size="16" type="text" placeholder="Start time" name="startTime" id="startTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
 
 							<div class="input-prepend input-append date" id="dp2">
 								<span class="add-on">结束时间：</span>
-								<input size="16" type="text" placeholder="End time…" name="endTime" id="endTime-input" autocomplete="off" readonly required>
+								<input size="16" type="text" placeholder="End time" name="endTime" id="endTime-input" autocomplete="off" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -179,7 +179,7 @@
 						<fieldset>
 							<div class="input-prepend">
 								<span class="add-on">任务名称：</span>
-								<input type="text" placeholder="content…" name="content" id="modify-content-input" required>
+								<input type="text" placeholder="Content" name="content" id="modify-content-input" required>
 							</div>
 
 							<div class="input-prepend">
@@ -193,7 +193,7 @@
 
 							<div class="input-prepend input-append date" id="dp6">
 								<span class="add-on">结束时间：</span>
-								<input  size="16" type="text" placeholder="End time…" name="deadline" id="modify-endTime-input" readonly required>
+								<input  size="16" type="text" placeholder="Deadline" name="deadline" id="modify-endTime-input" readonly required>
 								<span class="add-on"><i class="icon-remove"></i></span>
     							<span class="add-on"><i class="icon-th"></i></span>
 							</div>
@@ -221,14 +221,15 @@
 					<h5>Warning</h5>
 				</div>
 				<form type="hidden" method="post" action="<?=$this->webroot;?>projects/delete/<?=$project['_id'];?>">
-					<div class="modal-body">						
+					<div class="modal-body">
+						<p>确定删除任务吗？</p>					
 						<fieldset>					
 							<input type="hidden" name="project_id" id="projectid-input" value="<?=$project['_id'];?>"></input>
 						</fieldset>						
 					</div>
 					<div class="modal-footer">
-						<p class="btn" data-dismiss="modal" type="button">关闭</p>
-						<input class="btn" id="save-stage" type="submit"></input>
+						<p class="btn" data-dismiss="modal" type="button">取消</p>
+						<input class="btn" id="save-stage" type="submit" value="确定">
 					</div>
 				</form>
 			</div>

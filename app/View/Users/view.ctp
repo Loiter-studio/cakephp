@@ -91,7 +91,6 @@
 		<input type="hidden" name="stage_id" value="3170daecc33fe4fa41febcf9d02e51c3">
 		<input type="hidden" name="task_id" value="c4a071b876440ab0761f4833f6c8c9b8">
 		<input type="hidden" name="status" value="3">
-		<input type="submit" value="submit">
 	</form>
 </div>
 
