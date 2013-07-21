@@ -26,7 +26,7 @@
 		}, 1000);
 
 		setTimeout(function(){
-			window.location.pathname = "/moiter/projects";
+			window.location.pathname = "<?=$this->webroot?>projects";
 		}, 3000);
 	}); 
 </script>

@@ -426,7 +426,7 @@
 					$(this).popover();	
 
 					$("#delete-" + stage[1]).click(function() {
-						var pathname = "/moiter/stages/delete/" + project_id + "/" + stage[1];
+						var pathname = "<?=$this->webroot?>/stages/delete/" + project_id + "/" + stage[1];
 						window.location.pathname = pathname;
 					});		
 				});
@@ -449,7 +449,7 @@
 
 				$(this).click(function(){
 					$("#delete-" + task[2]).click(function() {
-						var pathname = "/moiter/tasks/delete/" + project_id + "/" + stage[1] + "/" + task[2];
+						var pathname = "<?=$this->webroot?>tasks/delete/" + project_id + "/" + stage[1] + "/" + task[2];
 						window.location.pathname = pathname;
 					});
 
