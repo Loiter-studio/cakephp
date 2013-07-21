@@ -101,7 +101,7 @@
 				
 				$user = $this->Session->read('User');
 				$this->userCursor->update(array('_id'=>$user['user_id']),array('$set'=>$_POST));
-				$tmp = $this->userCursor->findOne(array('_id'=>$user['user_id'],'name'=>$_POST['name'],'tel'=>$_POST['tel'],'email'=>$_POST['email'],'company'=>$_POST['company'],'position'=>$_POST['position']));
+				$tmp = $this->userCursor->findOne(array('_id'=>$user['user_id'],'tel'=>$_POST['tel'],'email'=>$_POST['email'],'company'=>$_POST['company'],'position'=>$_POST['position']));
 				if(isset($tmp))
 				{
 					$this->set('update',true);
