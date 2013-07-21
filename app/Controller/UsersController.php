@@ -57,7 +57,7 @@
 				$tasks = array();
 				foreach ($projects_id as $p_id) {
 
-					$cursor = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>1));
+					$cursor = $this->stageCollection->find(array('project_id'=>$p_id),array('task'=>1,'leader'=>1));
 					while($cursor->hasNext())
 					{
 						$stage = $cursor->getNext();
@@ -71,15 +71,15 @@
 								if($atask['task_id'] == $t_id){
 									$atask['name'] = $projects_name[$p_id];
 									// print_r($atask);
+									$atask['stage_id'] = $stage['_id'];
+									$atask['project_leader'] = $stage['leader'];
 									$tasks[] = $atask;
 								}
 							}
 						}
-
 					}
 
 				}
-
 				$this->set('tasks',$tasks);
 			}
 			else

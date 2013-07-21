@@ -129,17 +129,21 @@
 
 		}
 		public function modifyStatus()
-		{
+		{	
+			$currentUser = $this->Session->read('User');
+
 			if(isset($_POST['status']) && isset($_POST['task_id']))
 			{
-				$this->stageCollection->find(array('_id'=>$_POST['stage_id']),array('task'=>array('$elemMatch'=>array('task_id'=>$_POST['task_id']))));
+				$tmpTask = $this->stageCollection->find(array('_id'=>$_POST['stage_id']),array('task'=>array('$elemMatch'=>array('task_id'=>$_POST['task_id']))));
 				$newTask = $tmpTask->getNext();
-				if(isset($newTask)){
-					$newTask['status'] = $status;
+				if(isset($newTask['task'])){
+					// $newTask[''] = $status;
+					$task = $newTask['task'][0];
+					$task['status'] = intval($_POST['status']);
 					$this->stageCollection->update(array('_id'=>$stage_id),
-											       array('$pull'=>array('task'=>array('task_id'=>$task_id))));
+											       array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
 					$this->stageCollection->update(array('_id'=>$stage_id),
-											   	   array('$push'=>array('task'=>$newTask)));
+											   	   array('$push'=>array('task'=>$task)));
 					$this->set('code',1);
 				}
 				else
