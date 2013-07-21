@@ -39,12 +39,13 @@
 				<div class="form-body">						
 					<fieldset>
 							<span class="add-on">头像：</span>
-							<input type="file" name="avatar" id="avatar-input"></input>
+							<input type="file" name="avatar" id="avatar-input" onchange="preivew(this, document.getElementById('preview'));"></input>
 					</fieldset>						
 				</div>
 				<button class="btn" type="submit">上传</button>
 				<p>支持图片类型为：.jpg .jpeg .png .bmp .gif</p>
 			</form>
+			<img id="preview" style="height: 100px; width: 100px; visibility:hidden;">
 		</div>
 	</div>
 </div>

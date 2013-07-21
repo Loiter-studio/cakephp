@@ -40,6 +40,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('mystyle');
 		echo $this->Html->css('login');	
+		echo $this->Html->script('jquery');
 	?>
 
 	
