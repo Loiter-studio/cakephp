@@ -145,9 +145,15 @@
 					$this->stageCollection->update(array('_id'=>$stage_id),
 											   	   array('$push'=>array('task'=>$task)));
 					$this->set('code',1);
+					$this->redirect('/users/view/'.$_POST['user_id']);
+					exit();
 				}
 				else
+				{
 					$this->set('code',0);
+					$this->redirect('/users/index');
+					exit();
+				}
 			}
 			else
 			{
