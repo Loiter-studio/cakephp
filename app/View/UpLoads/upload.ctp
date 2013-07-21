@@ -26,17 +26,26 @@
 			<h3>编辑用户头像</h3>
 		</div>
 	</div>
-	<div class="span5">
-		<form method="post" action="<?=$this->webroot;?>uploads/upload" enctype="multipart/form-data">
-			<div class="form-body">						
-				<fieldset>
-						<span class="add-on">头像：</span>
-						<input type="file" name="avatar" id="avatar-input"></input>
-				</fieldset>						
+
+	<div class="row-fluid">
+		<h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp当前头像:</h5>
+		<div class="span2">
+			<div style="cursor: pointer;">
+				<img class="img-polaroid" src="<?php echo $this->webroot;?><?=$currentUser['pic_url']?>" style="width:125px; height:125px;"></img>
 			</div>
-			<button class="btn" type="submit">上传</button>
-			<p>支持图片类型为：.jpg .jpeg .png .bmp .gif</p>
-		</form>
+		</div>
+		<div class="span5">
+			<form method="post" action="<?=$this->webroot;?>uploads/upload" enctype="multipart/form-data">
+				<div class="form-body">						
+					<fieldset>
+							<span class="add-on">头像：</span>
+							<input type="file" name="avatar" id="avatar-input"></input>
+					</fieldset>						
+				</div>
+				<button class="btn" type="submit">上传</button>
+				<p>支持图片类型为：.jpg .jpeg .png .bmp .gif</p>
+			</form>
+		</div>
 	</div>
 </div>
 
