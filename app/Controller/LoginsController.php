@@ -17,6 +17,23 @@
 		}
 		public function index()
 		{
+
+			$admin = $this->userCursor->findOne(array('name'=>'admin'));
+			if(!isset($admin))
+			{
+				$admin = array('_id'=>"admin".time(),
+							   'name' => "admin",
+							   'password'=>md5("admin"),
+							   'authority'=>1,
+							   'email'=>"",
+							   'pic_url'=>"upload/default-avatar.png",
+							   'tel'=>"",
+							   'company'=>"",
+							   'position'=>"",
+							   'project_task_id'=>array());
+				$this->userCursor->insert($admin);
+			}
+
 			$this->layout = "login";
 			$this->set('error', false);
 
