@@ -52,31 +52,6 @@
 				</div>
 
 				<script type="text/javascript">
-					(function setStatus() {
-						// var status = "<?=$project['status'];?>";
-						// switch(status) {
-						// 	case "1":
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-on-label", "进行中");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off-label", "待审核");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-on", "warning");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off", "info");
-						// 		break;
-						// 	case "2":
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-on-label", "待审核");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off-label", "已完成");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-on", "info");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off", "success");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").children()[0].disabled = true;
-						// 		break;
-						// 	case "3":
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off-label", "已完成");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").attr("data-off", "success");
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").children()[0].checked = false;
-						// 		$("#switch-<?=$project['stage_id']?>-<?=$project['task_id']?>-<?=$project['status']?>").children()[0].disabled = true;
-						// 		break;
-						// }
-					})();
-
 					(function setPriority() {
 						var priority = "<?php echo $project['priority'];?>";
 						var strColor;
@@ -325,9 +300,9 @@
 			$("#status-modify > input[name=status]").attr("value", parseInt(id[3]) - 1);
 		}
 
+		// 延迟提交，让开关动画完成
 		setTimeout(function() {
 			$("#status-modify").submit();
 		}, 500);
-
 	});
 </script>
