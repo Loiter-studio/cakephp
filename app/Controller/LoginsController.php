@@ -35,6 +35,16 @@
 					$this->set('error',true);
 				}
 			}
+
+			$tmp = $this->userCursor->find(array(),array('name'=>1,'email'=>1));
+			$name_email = array();
+			while($tmp->hasNext())
+			{
+				$user = $tmp->getNext();
+				$name_email[] = $user;
+			}
+			
+			$this->set('name_email',$name_email);
 	
 		}
 		public function register()
