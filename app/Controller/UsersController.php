@@ -114,8 +114,16 @@
 			$this->Session->delete('User');
 			$this->redirect('/users/login');			
 		}
-
-		public function management($user_id = null , $authority = null)
+		public function management()
+		{
+			$user = $this->Session->read('User');
+			if($user['authority'] != 1)
+			{
+				$this->redirect('/users/index');
+				exit();				
+			}
+		}
+		public function modifyAuthority($user_id = null , $authority = null)
 		{
 			$user = $this->Session->read('User');
 			if(isset($user_id)&&isset($authority) &&$user['authority'] == 1)
