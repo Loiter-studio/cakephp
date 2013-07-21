@@ -58,7 +58,7 @@
 
 			$this->set('validation',1);
 			$this->set('code',2);
-			$checking = $this->userCursor->findOne(array('email'=>$newUser['email']));
+			$checking = $this->userCursor->findOne(array('name'=>$newUser['name']));
 			if(isset($checking))
 			{
 				$this->set('validation',0);

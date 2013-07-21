@@ -140,9 +140,9 @@
 					// $newTask[''] = $status;
 					$task = $newTask['task'][0];
 					$task['status'] = intval($_POST['status']);
-					$this->stageCollection->update(array('_id'=>$stage_id),
+					$this->stageCollection->update(array('_id'=>$_POST['stage_id']),
 											       array('$pull'=>array('task'=>array('task_id'=>$_POST['task_id']))));
-					$this->stageCollection->update(array('_id'=>$stage_id),
+					$this->stageCollection->update(array('_id'=>$_POST['stage_id']),
 											   	   array('$push'=>array('task'=>$task)));
 					$this->set('code',1);
 					$this->redirect('/users/view/'.$_POST['user_id']);
