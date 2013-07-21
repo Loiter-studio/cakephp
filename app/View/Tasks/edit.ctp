@@ -28,7 +28,7 @@
 		setTimeout(function(){
 			var pid = "<?=$project_id;?>";
 
-			window.location.pathname = "/moiter/projects/view/"+pid;
+			window.location.pathname = "<?=$this->webroot?>projects/view/"+pid;
 		}, 3000);
 	}); 
 </script>

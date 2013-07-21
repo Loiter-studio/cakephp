@@ -29,6 +29,7 @@
 	</div>
 
 	<div class="row-fluid thumbnail" id="u-projects-form">
+		<?php print_r($tasks);?>
 		<?php foreach($tasks as $project){ ?>
 
 			<div class="u-single thumbnail" id="<?=$project['task_id']?>-<?=$project['status']?>">
