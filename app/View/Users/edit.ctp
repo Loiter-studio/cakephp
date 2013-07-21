@@ -17,7 +17,7 @@
 				<fieldset>
 					<div class="input-prepend">
 						<span class="add-on">用户名称：</span>
-						<input type="text" placeholder="Name..." name="name" id="name-input" value="<?php echo $back['name'];?>"></input>
+						<input type="text" placeholder="Name..." name="name" id="name-input" value="<?php echo $back['name'];?>" disabled></input>
 					</div>
 					<div class="input-prepend">
 						<span class="add-on">电话号码：</span>
