@@ -26,8 +26,6 @@
 		}, 1000);
 
 		setTimeout(function(){
-			var pid = "<?=$project_id;?>";
-
 			window.location.pathname = "<?=$this->webroot?>users/management";
 		}, 3000);
 	}); 
